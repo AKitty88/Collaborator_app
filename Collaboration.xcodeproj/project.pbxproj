@@ -15,6 +15,8 @@
 		423621E7209146D00005E038 /* CollaborationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423621E6209146D00005E038 /* CollaborationTests.swift */; };
 		423621F2209146D00005E038 /* CollaborationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423621F1209146D00005E038 /* CollaborationUITests.swift */; };
 		4236220020914D990005E038 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423621FF20914D990005E038 /* DetailViewController.swift */; };
+		4236227C20916F670005E038 /* TaskListProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236227B20916F670005E038 /* TaskListProtocol.swift */; };
+		4236227E2091702B0005E038 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236227D2091702B0005E038 /* Task.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		423621F1209146D00005E038 /* CollaborationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollaborationUITests.swift; sourceTree = "<group>"; };
 		423621F3209146D00005E038 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		423621FF20914D990005E038 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		4236227B20916F670005E038 /* TaskListProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListProtocol.swift; sourceTree = "<group>"; };
+		4236227D2091702B0005E038 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 				423621D8209146D00005E038 /* Assets.xcassets */,
 				423621DA209146D00005E038 /* LaunchScreen.storyboard */,
 				423621DD209146D00005E038 /* Info.plist */,
+				4236227B20916F670005E038 /* TaskListProtocol.swift */,
+				4236227D2091702B0005E038 /* Task.swift */,
 			);
 			path = Collaboration;
 			sourceTree = "<group>";
@@ -264,6 +270,8 @@
 			files = (
 				4236220020914D990005E038 /* DetailViewController.swift in Sources */,
 				423621D2209146D00005E038 /* MasterViewController.swift in Sources */,
+				4236227E2091702B0005E038 /* Task.swift in Sources */,
+				4236227C20916F670005E038 /* TaskListProtocol.swift in Sources */,
 				423621D0209146D00005E038 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
