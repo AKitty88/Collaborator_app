@@ -8,13 +8,41 @@
 
 import UIKit
 
-class MasterViewController: UITableViewController {
-
+class MasterViewController: UITableViewController, TaskListProtocol {
+    /// the index of the task which is selected at the moment (property of TaskListProtocol)
+    var selectedItemIndex: Int?
+    /// the task which is selected at the moment (property of TaskListProtocol)
+    var selectedTask: Task?
+    /// array of the tasks
+    var taskList: [Task]
+    
     var detailViewController: DetailViewController? = nil
     var objects = [Any]()
     
     let sectionHeaders = ["Ongoing", "Done"]
 
+    /**
+     Saves the task that is being edited (method of TaskListProtocol)
+     - parameter task : description of task
+     - parameter dateDue : date chosen by user
+     - parameter isDue : tells us if the task has a duedate
+     - parameter status : tells us if the task is completed
+     */
+    func save(withName task: String, isComplete status: Bool) {
+        if selectedItemIndex != nil {
+            selectedTask?.title = task
+            selectedTask?.complete = status
+        } else {
+            taskList.append(Task(title: task, complete: status))
+        }
+        tableView.reloadData()
+    }
+    
+    /// cancels the editing of the current task (method of TaskListProtocol)
+    func cancel() {
+        navigationController?.popViewController(animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

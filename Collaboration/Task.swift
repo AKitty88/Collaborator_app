@@ -12,10 +12,10 @@ import Foundation
 class Task {
     ///  description of the task
     var title: String
-    /// date of the task
-    var date: Date?
-    /// shows if the task has duedate
-    var hasDueDate: Bool
+    
+    var collaborators: String
+    
+    var log: String
     /// shows if the task is completed
     var complete: Bool
     
@@ -26,15 +26,10 @@ class Task {
      - parameter hasDueDate : tells us if the task has a duedate, if I don't specify it, it's set to false
      - parameter complete : tells us if the task is completed, if I don't specify it, it's set to false
      */
-    init(title: String, date: Date, hasDueDate: Bool = false, complete: Bool = false) {
+    init(title: String, collaborators: String = "", log: String = "", complete: Bool = false) {
         self.title = title
-        /// date is set only if hasDueDate is true
-        if hasDueDate {
-            self.date = date
-        } else {
-            self.date = nil
-        }
-        self.hasDueDate = hasDueDate
+        self.collaborators = collaborators
+        self.log = log
         self.complete = complete
     }
 }
