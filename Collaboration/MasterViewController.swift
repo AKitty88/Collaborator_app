@@ -9,12 +9,13 @@
 import UIKit
 
 class MasterViewController: UITableViewController, TaskListProtocol {
+       
     /// the index of the task which is selected at the moment (property of TaskListProtocol)
     var selectedItemIndex: Int?
     /// the task which is selected at the moment (property of TaskListProtocol)
     var selectedTask: Task?
     /// array of the tasks
-    var taskList: [Task]
+    var taskList: [Task] = [Task(title: "test", complete: true)]
     
     var detailViewController: DetailViewController? = nil
     var objects = [Any]()
