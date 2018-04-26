@@ -41,8 +41,9 @@ class MasterViewController: UITableViewController {
     @objc
     func insertNewObject(_ sender: Any) {
         objects.insert(NSDate(), at: 0)
-        let indexPath = IndexPath(row: 0, section: 0)
-        tableView.insertRows(at: [indexPath], with: .automatic)
+        let indexPath0 = IndexPath(row: 0, section: 0)
+        let indexPath1 = IndexPath(row: 0, section: 1)
+        tableView.insertRows(at: [indexPath0, indexPath1], with: .automatic)
     }
 
     // MARK: - Segues
