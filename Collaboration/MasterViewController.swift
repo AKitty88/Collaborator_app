@@ -9,13 +9,14 @@
 import UIKit
 
 class MasterViewController: UITableViewController, TaskListProtocol {
-       
+    
+    var selectedItemSection: Int?
     /// the index of the task which is selected at the moment (property of TaskListProtocol)
     var selectedItemIndex: Int?
     /// the task which is selected at the moment (property of TaskListProtocol)
     var selectedTask: Task?
     /// array of the tasks
-    var taskList: [Task] = [Task(title: "test", complete: true)]
+    var taskList = [[Task(title: "test", complete: true)]]
     
     var detailViewController: DetailViewController? = nil
     var objects = [Any]()
@@ -34,7 +35,7 @@ class MasterViewController: UITableViewController, TaskListProtocol {
             selectedTask?.title = task
             selectedTask?.complete = status
         } else {
-            taskList.append(Task(title: task, complete: status))
+            taskList[0].append(Task(title: task, complete: status))
         }
         tableView.reloadData()
     }
@@ -69,10 +70,13 @@ class MasterViewController: UITableViewController, TaskListProtocol {
 
     @objc
     func insertNewObject(_ sender: Any) {
-        objects.insert(NSDate(), at: 0)
         let indexPath0 = IndexPath(row: 0, section: 0)
         let indexPath1 = IndexPath(row: 0, section: 1)
-        tableView.insertRows(at: [indexPath0, indexPath1], with: .automatic)
+        
+        if  selectedTask != nil {
+            taskList[indexPath0.section].insert(selectedTask!, at: 0)
+        }
+        tableView.insertRows(at: [(selectedItemSection!, selectedItemIndex!) as! IndexPath], with: .automatic)
     }
 
     // MARK: - Segues
@@ -89,6 +93,10 @@ class MasterViewController: UITableViewController, TaskListProtocol {
                 controller.detailItem = "default_detailItem_value"
                 controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 controller.navigationItem.leftItemsSupplementBackButton = true
+                
+                selectedItemSection = indexPath.section
+                selectedItemIndex = indexPath.row
+                selectedTask = taskList[selectedItemSection!][selectedItemIndex!]
             }
         }
     }
@@ -100,14 +108,26 @@ class MasterViewController: UITableViewController, TaskListProtocol {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return objects.count
+        
+        if section == 0 {
+            //return taskList[0].count
+            print("\(taskList)")
+            return 0  
+        }
+        else if section == 1 {
+            //return taskList[1].count
+            print("\(taskList)")
+            return 0
+        }
+        else {
+            return 0        // todo
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
-        let object = objects[indexPath.row] as! NSDate
-        cell.textLabel!.text = object.description
+        cell.textLabel!.text = taskList[indexPath.section][indexPath.row].title
         return cell
     }
 
@@ -123,11 +143,13 @@ class MasterViewController: UITableViewController, TaskListProtocol {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            objects.remove(at: indexPath.row)
+            taskList[indexPath.section].remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
+        }
+        else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
+        tableView.reloadData()
     }
 
 
