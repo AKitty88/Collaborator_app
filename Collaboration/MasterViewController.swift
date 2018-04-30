@@ -19,10 +19,9 @@ class MasterViewController: UITableViewController, TaskListProtocol {
     var taskList = [[Task(title: "test", complete: true)]]
     
     var detailViewController: DetailViewController? = nil
-    var objects = [Any]()
-    
     let sectionHeaders = ["Ongoing", "Done"]
-
+    @IBOutlet weak var myTableView: UITableView!
+    
     /**
      Saves the task that is being edited (method of TaskListProtocol)
      - parameter task : description of task
@@ -50,8 +49,9 @@ class MasterViewController: UITableViewController, TaskListProtocol {
         // Do any additional setup after loading the view, typically from a nib.
         navigationItem.leftBarButtonItem = editButtonItem
 
-        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
-        navigationItem.rightBarButtonItem = addButton
+        /* let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
+        navigationItem.rightBarButtonItem = addButton */ // !!!
+        
         if let split = splitViewController {
             let controllers = split.viewControllers
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
@@ -68,16 +68,17 @@ class MasterViewController: UITableViewController, TaskListProtocol {
         // Dispose of any resources that can be recreated.
     }
 
-    @objc
+    /* @objc
     func insertNewObject(_ sender: Any) {
-        let indexPath0 = IndexPath(row: 0, section: 0)
-        let indexPath1 = IndexPath(row: 0, section: 1)
         
-        if  selectedTask != nil {
-            taskList[indexPath0.section].insert(selectedTask!, at: 0)
-        }
+        if let indexPath = myTableView.indexPathForSelectedRow {
+        
+        taskList[indexPath.section].insert(, at: 0)
+    
+        
+        
         tableView.insertRows(at: [(selectedItemSection!, selectedItemIndex!) as! IndexPath], with: .automatic)
-    }
+    } */
 
     // MARK: - Segues
 
@@ -98,6 +99,11 @@ class MasterViewController: UITableViewController, TaskListProtocol {
                 selectedItemIndex = indexPath.row
                 selectedTask = taskList[selectedItemSection!][selectedItemIndex!]
             }
+        }
+        else {
+            selectedItemSection = nil
+            selectedItemIndex = nil
+            selectedTask = nil
         }
     }
 

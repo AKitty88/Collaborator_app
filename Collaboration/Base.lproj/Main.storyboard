@@ -76,7 +76,17 @@
                             <outlet property="delegate" destination="7bK-jq-Zjz" id="RA6-mI-bju"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Master" id="Zdf-7t-Un8"/>
+                    <navigationItem key="navigationItem" title="Master" id="Zdf-7t-Un8">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="LB3-pm-xow">
+                            <connections>
+                                <segue destination="vC3-pB-5Vb" kind="show" id="5N8-Sl-cSm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="myTableView" destination="r7i-6Z-zg0" id="iu2-Kd-5Xm"/>
+                        <outlet property="tableView" destination="r7i-6Z-zg0" id="T0r-cO-Jpj"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
             </objects>
@@ -128,6 +138,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="6S0-TO-JiA"/>
+        <segue reference="5N8-Sl-cSm"/>
     </inferredMetricsTieBreakers>
 </document>
