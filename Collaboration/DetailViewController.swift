@@ -9,6 +9,8 @@
 import UIKit
 
 class DetailViewController: UITableViewController {
+    
+    // todo: Add button and check if everything is the same (this one <-> Assignment1) !!!
 
     var detailItem: String? {
         didSet {
@@ -20,6 +22,7 @@ class DetailViewController: UITableViewController {
     var delegate: TaskListProtocol!
     /// user's changes (of the particular task) are cancelled
     var isCancelled = false
+    var taskDescription = ""
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -27,21 +30,10 @@ class DetailViewController: UITableViewController {
         isCancelled = false
         
         guard let thisItem = delegate.selectedTask else {
-            taskDescription.text = ""           // TODO: create outlet for this cell!
+            taskDescription = ""
             return
         }
-        taskDescription.text = thisItem.title
-        hasDueDate.isOn = thisItem.hasDueDate
-        
-        if thisItem.hasDueDate {
-            if thisItem.date != nil {
-                dueDatePicked.isEnabled = true
-                dueDatePicked.date = thisItem.date!
-            } else {
-                dueDatePicked.isEnabled = false
-            }
-        }
-        isComplete = thisItem.complete
+        taskDescription = thisItem.title
     }
     
     func configureView() {

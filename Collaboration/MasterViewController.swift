@@ -91,6 +91,8 @@ class MasterViewController: UITableViewController, TaskListProtocol {
                 }
                 let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
                 self.detailViewController = controller
+                controller.delegate = self
+                
                 controller.detailItem = "default_detailItem_value"
                 controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 controller.navigationItem.leftItemsSupplementBackButton = true
