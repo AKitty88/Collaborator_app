@@ -10,7 +10,11 @@ import UIKit
 
 class DetailViewController: UITableViewController {
     
-    // todo: Add button and check if everything is the same (this one <-> Assignment1) !!!
+    // todo: Add button -> action: append tasklist (title: new task), tableview.reloaddata
+    // photo
+    // no segue from the add button
+    // only one task in detailviewcontroller
+    // - check if everything is the same (this one <-> Assignment1) !!!
 
     var detailItem: String? {
         didSet {
