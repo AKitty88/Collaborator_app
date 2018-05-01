@@ -23,6 +23,7 @@ class DetailViewController: UITableViewController {
     /// user's changes (of the particular task) are cancelled
     var isCancelled = false
     var taskDescription = ""
+    let sectionHeaders = ["Ongoing", "Done"]
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)

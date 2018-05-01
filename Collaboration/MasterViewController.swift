@@ -16,7 +16,7 @@ class MasterViewController: UITableViewController, TaskListProtocol {
     /// the task which is selected at the moment (property of TaskListProtocol)
     var selectedTask: Task?
     /// array of the tasks
-    var taskList = [[Task(title: "test", complete: true)]]
+    var taskList = [[Task(title: "test", complete: true)], [Task(title: "test", complete: true)]]
     
     var detailViewController: DetailViewController? = nil
     let sectionHeaders = ["Ongoing", "Done"]
@@ -83,20 +83,23 @@ class MasterViewController: UITableViewController, TaskListProtocol {
     // MARK: - Segues
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+
+        
         if segue.identifier == "showDetail" {
+            let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
+            self.detailViewController = controller
+            controller.delegate = self
+            
+            controller.detailItem = "default_detailItem_value"
+            controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+            controller.navigationItem.leftItemsSupplementBackButton = true
+            
             if let indexPath = tableView.indexPathForSelectedRow {
                 guard (segue.destination as! UINavigationController).topViewController != nil
                     else {
                         return
                 }
-                let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-                self.detailViewController = controller
-                controller.delegate = self
-                
-                controller.detailItem = "default_detailItem_value"
-                controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-                controller.navigationItem.leftItemsSupplementBackButton = true
-                
                 selectedItemSection = indexPath.section
                 selectedItemIndex = indexPath.row
                 selectedTask = taskList[selectedItemSection!][selectedItemIndex!]
