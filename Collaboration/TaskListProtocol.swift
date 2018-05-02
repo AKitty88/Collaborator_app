@@ -10,6 +10,8 @@ import Foundation
 
 /// Protocol to which MasterViewController must conform
 protocol TaskListProtocol {
+    /// the section of the task which is selected at the moment
+    var selectedItemSection: Int? {get}
     /// the index of the task which is selected at the moment
     var selectedItemIndex: Int? {get}
     /// the task which is selected at the moment

@@ -16,8 +16,6 @@ class Task {
     var collaborators: String
     
     var log: String
-    /// shows if the task is completed
-    var complete: Bool
     
     /**
      Constructor of the class
@@ -30,6 +28,5 @@ class Task {
         self.title = title
         self.collaborators = collaborators
         self.log = log
-        self.complete = complete
     }
 }

@@ -16,16 +16,12 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
    
     // @IBOutlet weak var myCell: MyTableViewCell!
     
-    var detailItem: String? {
-        didSet {
-           
-        }
-    }
+
     /// delegate (the MasterViewController)
     var delegate: TaskListProtocol!
     /// user's changes (of the particular task) are cancelled
     let sectionHeaders = ["Task", "Collaborators", "Log"]
-    var selectedTask: Task? = Task(title: "h")
+    var selectedTask: Task?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -55,9 +51,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
             }
         } */
         
-        print("detailItem: \(String(describing: detailItem))")
         print("selectedTask.title: \(selectedTask?.title)")
-        print("selectedTask.complete: \(selectedTask?.complete)")
         print("selectedTask.collaborators: \(selectedTask?.collaborators)")
         
         // Uncomment the following line to preserve selection between presentations
@@ -96,10 +90,9 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
         if let task = selectedTask {
             cell.myTextLabel.delegate = self
             cell.myTextLabel.text? = task.title
-            cell.myTextLabel.placeholder = task.title
         }
         else {
-            print ("missing detailItem value")
+            print ("missing selectedTask value")
         }
         return cell
     }
