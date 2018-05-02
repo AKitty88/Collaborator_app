@@ -22,6 +22,12 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
     /// user's changes (of the particular task) are cancelled
     let sectionHeaders = ["Task", "Collaborators", "Log"]
     
+    enum Sections: Int {
+        case sectionA = 0
+        case sectionB = 1
+        case sectionC = 2
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationItem.title = "Task"
@@ -81,17 +87,37 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var identifier: String
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Detail Cell A", for: indexPath) as! MyTableViewCell
+        guard let section = Sections(rawValue: indexPath.section) else {
+            fatalError("Wrong section: \(indexPath.section)")
+        }
+        
+        switch section {
+        case .sectionA:
+            identifier = "Detail Cell A"
+        case .sectionB:
+            identifier = "Detail Cell B"
+        case .sectionC:
+            identifier = "Detail Cell C"
+        }
+        
+        if identifier == "Detail Cell A" || identifier == "Detail Cell C" {
+            let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! MyTableViewCell
+        
 
-        if let task = delegate.selectedTask {
-            cell.myTextLabel.delegate = self
-            cell.myTextLabel.text? = task.title
+            if let task = delegate.selectedTask {
+                cell.myTextLabel.delegate = self
+                cell.myTextLabel.text? = task.title
+            }
+            else {
+                print ("missing selectedTask value")
+            }
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! UITableViewCell
+            return cell
         }
-        else {
-            print ("missing selectedTask value")
-        }
-        return cell
     }
  
 
