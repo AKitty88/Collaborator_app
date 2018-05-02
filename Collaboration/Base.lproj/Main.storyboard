@@ -137,7 +137,7 @@
                                     <outlet property="myTextLabel" destination="sbE-Y9-Ypm" id="IJD-jD-opB"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Detail Cell B" textLabel="n4O-BU-HeT" style="IBUITableViewCellStyleDefault" id="MpD-Jo-uhS" customClass="MyTableViewCell" customModule="Collaboration" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Detail Cell B" textLabel="n4O-BU-HeT" style="IBUITableViewCellStyleDefault" id="MpD-Jo-uhS">
                                 <rect key="frame" x="0.0" y="99.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MpD-Jo-uhS" id="hGw-j0-bA2">

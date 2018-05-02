@@ -10,8 +10,8 @@ import UIKit
 
 class DetailViewController: UITableViewController, UITextFieldDelegate {
     
-    // todo: Add button -> action: append tasklist (title: new task), tableview.reloaddata
-    // - check if everything is the same (this one <-> Assignment1) !!!
+    // todo: Add button -> action: append tasklist (title: new task), tableview.reloaddata     !!!
+    // textfieldshouldreturn    !!!!!!!
     
    
     // @IBOutlet weak var myCell: MyTableViewCell!
@@ -39,7 +39,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
         if let indexPath = tableView.indexPathForSelectedRow {
             if delegate.selectedTask != nil {
                 if let cell = tableView.cellForRow(at: indexPath as IndexPath) as? MyTableViewCell {
-                    delegate.save(withName: (cell.myTextLabel?.text) ?? "")
+                    delegate.save(withName: (cell.myTextLabel?.text) ?? "", history: (cell.myTextLabel?.text) ?? "")
                 }
             }
         }

@@ -36,14 +36,17 @@ class MasterViewController: UITableViewController, TaskListProtocol {
      - parameter isDue : tells us if the task has a duedate
      - parameter status : tells us if the task is completed
      */
-    func save(withName task: String) {
-        if selectedTask != nil {
+    func save(withName task: String, history log: String) {
+        //if selectedTask != nil {
+        
             selectedTask?.title = task
-        } else {
+        
+        /*} else {
             if let indexPath = tableView.indexPathForSelectedRow {
                 taskList[indexPath.section].append(Task(title: task))
             }
-        }
+        } */
+        
         tableView.reloadData()
     }
     
@@ -201,7 +204,7 @@ class MasterViewController: UITableViewController, TaskListProtocol {
             selectedTask = taskList[selectedItemSection!][selectedItemIndex!]
             
             if let cell = detailViewController?.tableView.cellForRow(at: indexPath as IndexPath) as? MyTableViewCell {
-                save(withName: (cell.myTextLabel?.text) ?? "")
+                save(withName: (cell.myTextLabel?.text) ?? "", history: (cell.myTextLabel?.text) ?? "")
             }
         }
     }
