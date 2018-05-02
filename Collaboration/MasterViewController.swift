@@ -23,8 +23,8 @@ class MasterViewController: UITableViewController, TaskListProtocol {
     let sectionHeaders = ["Ongoing", "Done"]
     
     @IBAction func AddClicked(_ sender: UIBarButtonItem) {
-        /* if let indexPath = indexPathForSelectedRow {
-        taskList[ */
+        //if let indexPath = indexPathForSelectedRow {
+        //taskList[
     }
     
     
@@ -83,54 +83,32 @@ class MasterViewController: UITableViewController, TaskListProtocol {
         // Dispose of any resources that can be recreated.
     }
 
-    /* @objc
-    func insertNewObject(_ sender: Any) {
-        
-        if let indexPath = myTableView.indexPathForSelectedRow {
-        
-        taskList[indexPath.section].insert(, at: 0)
-    
-        
-        
-        tableView.insertRows(at: [(selectedItemSection!, selectedItemIndex!) as! IndexPath], with: .automatic)
-    } */
-
-    // MARK: - Segues
-
-    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "showDetail" {
-            let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-            self.detailViewController = controller
-            controller.delegate = self
-            
-            controller.detailItem = "default_detailItem_value"
-            controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-            controller.navigationItem.leftItemsSupplementBackButton = true
-            
-            if let indexPath = tableView.indexPathForSelectedRow {
-                guard (segue.destination as! UINavigationController).topViewController != nil
-                    else {
-                        return
-                }
-                selectedItemSection = indexPath.section
-                selectedItemIndex = indexPath.row
-                selectedTask = taskList[selectedItemSection!][selectedItemIndex!]
-            }
-        }
-        else {
-            selectedItemSection = nil
-            selectedItemIndex = nil
-            selectedTask = nil
-        }
-    } */
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         var dvc : DetailViewController!
         
         if  detailViewController != nil {
+            
+            if segue.identifier == "showDetail" {
+                let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
+                self.detailViewController = controller
+                controller.delegate = self
+                
+                controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+                controller.navigationItem.leftItemsSupplementBackButton = true
+                
+                if let indexPath = tableView.indexPathForSelectedRow {
+                    guard (segue.destination as! UINavigationController).topViewController != nil
+                        else {
+                            return
+                    }
+                    selectedItemSection = indexPath.section
+                    selectedItemIndex = indexPath.row
+                    selectedTask = taskList[selectedItemSection!][selectedItemIndex!]
+                }
+            }
+            
             if let detailViewController = segue.destination as? UINavigationController {
                 dvc = detailViewController.topViewController as! DetailViewController
             } else {
@@ -154,18 +132,7 @@ class MasterViewController: UITableViewController, TaskListProtocol {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if section == 0 {
-            print("\(taskList[0].count)")
-            return taskList[0].count
-        }
-        else if section == 1 {
-            print("\(taskList[1].count)")
-            return taskList[1].count
-        }
-        else {
-            return 0
-        }
+        return taskList[section].count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -203,10 +170,11 @@ class MasterViewController: UITableViewController, TaskListProtocol {
             selectedItemIndex = indexPath.row
             selectedTask = taskList[selectedItemSection!][selectedItemIndex!]
             
-            if let cell = detailViewController?.tableView.cellForRow(at: indexPath as IndexPath) as? MyTableViewCell {
+            if let cell = detailViewController?.tableView.cellForRow(at: indexPath) as? MyTableViewCell {
                 save(withName: cell.myTextLabel?.text ?? "", history: cell.myTextLabel?.text ?? "")
             }
         }
+        tableView.reloadData()
     }
 }
 
