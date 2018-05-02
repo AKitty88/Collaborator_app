@@ -16,8 +16,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
 
     var detailItem: String? {
         didSet {
-            // Update the view.
-            configureView()
+           
         }
     }
     /// delegate (the MasterViewController)
@@ -39,13 +38,8 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
         taskDescription = thisItem.title
     }
     
-    func configureView() {
-        // Update the user interface for the detail item.
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureView()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -70,15 +64,19 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
         return 0        // todo
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Detail Cell A", for: indexPath) as! MyTableViewCell
 
-        // Configure the cell...
-
+        if let detail = detailItem {
+            cell.myTextLabel.delegate = self
+            cell.myTextLabel.text? = detail.description
+        }
+        
         return cell
     }
-    */
+ 
 
     /*
     // Override to support conditional editing of the table view.
