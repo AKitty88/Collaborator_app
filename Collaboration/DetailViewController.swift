@@ -11,8 +11,9 @@ import UIKit
 class DetailViewController: UITableViewController, UITextFieldDelegate {
     
     // todo: Add button -> action: append tasklist (title: new task), tableview.reloaddata
-    // only one task in detailviewcontroller
     // - check if everything is the same (this one <-> Assignment1) !!!
+    
+    var selectedTask = Task(title: "")
 
     var detailItem: String? {
         didSet {
@@ -61,7 +62,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0        // todo
+        return 1
     }
 
     
@@ -73,7 +74,6 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
             cell.myTextLabel.delegate = self
             cell.myTextLabel.text? = detail.description
         }
-        
         return cell
     }
  
