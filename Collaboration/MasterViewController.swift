@@ -84,31 +84,9 @@ class MasterViewController: UITableViewController, TaskListProtocol {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
         var dvc : DetailViewController!
         
         if  detailViewController != nil {
-            
-            if segue.identifier == "showDetail" {
-                let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-                self.detailViewController = controller
-                controller.delegate = self
-                
-                controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-                controller.navigationItem.leftItemsSupplementBackButton = true
-                
-                if let indexPath = tableView.indexPathForSelectedRow {
-                    guard (segue.destination as! UINavigationController).topViewController != nil
-                        else {
-                            return
-                    }
-                    selectedItemSection = indexPath.section
-                    selectedItemIndex = indexPath.row
-                    selectedTask = taskList[selectedItemSection!][selectedItemIndex!]
-                }
-            }
-            
             if let detailViewController = segue.destination as? UINavigationController {
                 dvc = detailViewController.topViewController as! DetailViewController
             } else {
