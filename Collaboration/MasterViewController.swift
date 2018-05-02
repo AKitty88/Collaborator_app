@@ -88,7 +88,7 @@ class MasterViewController: UITableViewController, TaskListProtocol {
 
     // MARK: - Segues
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "showDetail" {
             let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
@@ -113,6 +113,25 @@ class MasterViewController: UITableViewController, TaskListProtocol {
             selectedItemSection = nil
             selectedItemIndex = nil
             selectedTask = nil
+        }
+    } */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        var dvc : DetailViewController!
+        
+        if  detailViewController != nil {
+            if let detailViewController = segue.destination as? UINavigationController {
+                dvc = detailViewController.topViewController as! DetailViewController
+            } else {
+                dvc = segue.destination as! DetailViewController
+            }
+        
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let task = taskList[indexPath.section][indexPath.row]
+                dvc.selectedTask = task
+            }
         }
     }
 

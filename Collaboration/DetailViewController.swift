@@ -46,6 +46,10 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("detailItem: \(String(describing: detailItem))")
+        print("detailItem: \(String(describing: selectedTask))")
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
