@@ -37,20 +37,20 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /* if let detail = detailItem {
-            if let textF = myCell.myTextLabel {
-                textF.text = detail.description
+        if delegate == nil {
+            if let split = splitViewController {
+                let controllers = split.viewControllers
+                let masterViewController = (controllers[controllers.count-2] as! UINavigationController).topViewController as? MasterViewController
+                delegate = masterViewController
+                
+                if masterViewController?.taskList[0][0] != nil {
+                    masterViewController?.selectedTask = masterViewController?.taskList[0][0]
+                }
+                
+                masterViewController?.selectedItemSection = 0
+                masterViewController?.selectedItemIndex = 0
             }
-        } */
-        
-        /* print("selectedTask.title: \(String(describing: delegate.selectedTask?.title))")
-        print("selectedTask.collaborators: \(String(describing: delegate.selectedTask?.collaborators))") */
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        }
     }
 
     override func didReceiveMemoryWarning() {
