@@ -25,7 +25,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
     var delegate: TaskListProtocol!
     /// user's changes (of the particular task) are cancelled
     let sectionHeaders = ["Task", "Collaborators", "Log"]
-    var selectedTask = Task(title: "")
+    var selectedTask: Task? = Task(title: "h")
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -40,8 +40,9 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
     
     /// Gets invoked just before the view disappears
     override func viewWillDisappear(_ animated: Bool) {
-        
-        delegate.save(withName: "new_debug")
+        if let sel = selectedTask?.title {
+            delegate.save(withName: sel)
+        }
         
     }
     
@@ -55,9 +56,9 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
         } */
         
         print("detailItem: \(String(describing: detailItem))")
-        print("selectedTask.title: \(selectedTask.title)")
-        print("selectedTask.complete: \(selectedTask.complete)")
-        print("selectedTask.collaborators: \(selectedTask.collaborators)")
+        print("selectedTask.title: \(selectedTask?.title)")
+        print("selectedTask.complete: \(selectedTask?.complete)")
+        print("selectedTask.collaborators: \(selectedTask?.collaborators)")
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -92,9 +93,10 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Detail Cell A", for: indexPath) as! MyTableViewCell
 
-        if let detailIt = detailItem {
+        if let task = selectedTask {
             cell.myTextLabel.delegate = self
-            cell.myTextLabel.text? = detailIt.description
+            cell.myTextLabel.text? = task.title
+            cell.myTextLabel.placeholder = task.title
         }
         else {
             print ("missing detailItem value")
