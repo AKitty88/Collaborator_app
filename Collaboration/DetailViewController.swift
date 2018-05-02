@@ -29,8 +29,13 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
     
     /// Gets invoked just before the view disappears
     override func viewWillDisappear(_ animated: Bool) {
-        if let sel = delegate.selectedTask?.title {
-            delegate.save(withName: sel)
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            if delegate.selectedTask != nil {
+                if let cell = tableView.cellForRow(at: indexPath as IndexPath) as? MyTableViewCell {
+                    delegate.save(withName: (cell.myTextLabel?.text) ?? "")
+                }
+            }
         }
     }
     
