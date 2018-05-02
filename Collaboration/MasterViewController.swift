@@ -36,12 +36,13 @@ class MasterViewController: UITableViewController, TaskListProtocol {
      - parameter isDue : tells us if the task has a duedate
      - parameter status : tells us if the task is completed
      */
-    func save(withName task: String, isComplete status: Bool) {
+    func save(withName task: String) {
         if selectedItemIndex != nil {
             selectedTask?.title = task
-            selectedTask?.complete = status
         } else {
-            taskList[0].append(Task(title: task, complete: status))
+            if let indexPath = tableView.indexPathForSelectedRow {
+                taskList[indexPath.section].append(Task(title: task))
+            }            
         }
         tableView.reloadData()
     }
@@ -56,13 +57,11 @@ class MasterViewController: UITableViewController, TaskListProtocol {
         // Do any additional setup after loading the view, typically from a nib.
         navigationItem.leftBarButtonItem = editButtonItem
 
-        /* let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
-        navigationItem.rightBarButtonItem = addButton */ // !!!
-        
         if let split = splitViewController {
             let controllers = split.viewControllers
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
+        taskList[0].append(Task(title: "Hi"))
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -126,17 +125,15 @@ class MasterViewController: UITableViewController, TaskListProtocol {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if section == 0 {
-            //return taskList[0].count
             print("\(taskList)")
-            return 0  
+            return taskList[0].count
         }
         else if section == 1 {
-            //return taskList[1].count
             print("\(taskList)")
-            return 0
+            return taskList[1].count
         }
         else {
-            return 0        // todo
+            return 0
         }
     }
 

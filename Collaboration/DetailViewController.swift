@@ -23,20 +23,25 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
     /// delegate (the MasterViewController)
     var delegate: TaskListProtocol!
     /// user's changes (of the particular task) are cancelled
-    var isCancelled = false
     var taskDescription = ""
-    let sectionHeaders = ["Ongoing", "Done"]
+    let sectionHeaders = ["Task", "Collaborators", "Log"]
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationItem.title = "Task"
-        isCancelled = false
         
         guard let thisItem = delegate.selectedTask else {
-            taskDescription = ""
+            taskDescription = "test"
             return
         }
         taskDescription = thisItem.title
+    }
+    
+    /// Gets invoked just before the view disappears
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        delegate.save(withName: taskDescription)
+        
     }
     
     override func viewDidLoad() {
@@ -57,7 +62,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 3
+        return sectionHeaders.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -65,6 +70,10 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
         return 1
     }
 
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        // Return false if you do not want the specified item to be editable.
+        return sectionHeaders[section]
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -73,6 +82,9 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
         if let detail = detailItem {
             cell.myTextLabel.delegate = self
             cell.myTextLabel.text? = detail.description
+        }
+        else {
+            print ("line 87")
         }
         return cell
     }
