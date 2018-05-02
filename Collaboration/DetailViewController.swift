@@ -102,10 +102,9 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
             identifier = "Detail Cell C"
         }
         
-        if identifier == "Detail Cell A" || identifier == "Detail Cell C" {
+        if identifier == "Detail Cell A" {
             let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! MyTableViewCell
         
-
             if let task = delegate.selectedTask {
                 cell.myTextLabel.delegate = self
                 cell.myTextLabel.text? = task.title
@@ -114,7 +113,20 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
                 print ("missing selectedTask value")
             }
             return cell
-        } else {
+        }
+        else if identifier == "Detail Cell C" {
+            let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! MyTableViewCell
+            
+            if let task = delegate.selectedTask {
+                cell.myTextLabel.delegate = self
+                cell.myTextLabel.text? = task.log
+            }
+            else {
+                print ("missing selectedTask value")
+            }
+            return cell
+        }
+        else {
             let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! UITableViewCell
             return cell
         }
