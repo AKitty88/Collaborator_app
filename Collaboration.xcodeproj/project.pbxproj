@@ -17,6 +17,7 @@
 		4236220020914D990005E038 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423621FF20914D990005E038 /* DetailViewController.swift */; };
 		4236227C20916F670005E038 /* TaskListProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236227B20916F670005E038 /* TaskListProtocol.swift */; };
 		4236227E2091702B0005E038 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236227D2091702B0005E038 /* Task.swift */; };
+		42384130209974E90007EC74 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4238412F209974E90007EC74 /* MyTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		423621FF20914D990005E038 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		4236227B20916F670005E038 /* TaskListProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListProtocol.swift; sourceTree = "<group>"; };
 		4236227D2091702B0005E038 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		4238412F209974E90007EC74 /* MyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				423621DD209146D00005E038 /* Info.plist */,
 				4236227B20916F670005E038 /* TaskListProtocol.swift */,
 				4236227D2091702B0005E038 /* Task.swift */,
+				4238412F209974E90007EC74 /* MyTableViewCell.swift */,
 			);
 			path = Collaboration;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				4236227E2091702B0005E038 /* Task.swift in Sources */,
 				4236227C20916F670005E038 /* TaskListProtocol.swift in Sources */,
 				423621D0209146D00005E038 /* AppDelegate.swift in Sources */,
+				42384130209974E90007EC74 /* MyTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

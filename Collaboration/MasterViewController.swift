@@ -18,9 +18,16 @@ class MasterViewController: UITableViewController, TaskListProtocol {
     /// array of the tasks
     var taskList = [[Task(title: "test", complete: true)], [Task(title: "test", complete: true)]]
     
+    // @IBOutlet weak var myTableView: UITableView!
     var detailViewController: DetailViewController? = nil
     let sectionHeaders = ["Ongoing", "Done"]
-    @IBOutlet weak var myTableView: UITableView!
+    
+    @IBAction func AddClicked(_ sender: UIBarButtonItem) {
+        //if let indexPath = myTableView.indexPathForSelectedRow {
+        //taskList[
+    }
+    
+    
     
     /**
      Saves the task that is being edited (method of TaskListProtocol)
@@ -83,8 +90,6 @@ class MasterViewController: UITableViewController, TaskListProtocol {
     // MARK: - Segues
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-
         
         if segue.identifier == "showDetail" {
             let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController

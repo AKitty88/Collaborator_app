@@ -8,11 +8,9 @@
 
 import UIKit
 
-class DetailViewController: UITableViewController {
+class DetailViewController: UITableViewController, UITextFieldDelegate {
     
     // todo: Add button -> action: append tasklist (title: new task), tableview.reloaddata
-    // photo
-    // no segue from the add button
     // only one task in detailviewcontroller
     // - check if everything is the same (this one <-> Assignment1) !!!
 
