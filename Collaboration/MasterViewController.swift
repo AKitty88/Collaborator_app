@@ -199,6 +199,10 @@ class MasterViewController: UITableViewController, TaskListProtocol {
             selectedItemSection = indexPath.section
             selectedItemIndex = indexPath.row
             selectedTask = taskList[selectedItemSection!][selectedItemIndex!]
+            
+            if let cell = detailViewController?.tableView.cellForRow(at: indexPath as IndexPath) as? MyTableViewCell {
+                save(withName: (cell.myTextLabel?.text) ?? "")
+            }
         }
     }
 }
