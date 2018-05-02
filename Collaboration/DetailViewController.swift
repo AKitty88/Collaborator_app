@@ -24,7 +24,6 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
     /// delegate (the MasterViewController)
     var delegate: TaskListProtocol!
     /// user's changes (of the particular task) are cancelled
-    var taskDescription = ""
     let sectionHeaders = ["Task", "Collaborators", "Log"]
     var selectedTask = Task(title: "")
     
@@ -32,17 +31,17 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
         super.viewWillAppear(true)
         self.navigationItem.title = "Task"
         
-        guard let thisItem = delegate.selectedTask else {
+        /* guard let thisItem = delegate.selectedTask else {
             taskDescription = "test"
             return
         }
-        taskDescription = thisItem.title
+        taskDescription = thisItem.title */
     }
     
     /// Gets invoked just before the view disappears
     override func viewWillDisappear(_ animated: Bool) {
         
-        delegate.save(withName: taskDescription)
+        delegate.save(withName: "new_debug")
         
     }
     
