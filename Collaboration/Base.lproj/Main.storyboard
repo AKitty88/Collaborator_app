@@ -77,11 +77,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Master" id="Zdf-7t-Un8">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="LB3-pm-xow">
-                            <connections>
-                                <segue destination="06V-Vk-pYI" kind="show" id="G9p-Cq-XXX"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="LB3-pm-xow"/>
                     </navigationItem>
                     <connections>
                         <outlet property="myTableView" destination="r7i-6Z-zg0" id="iu2-Kd-5Xm"/>
@@ -182,7 +178,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="G9p-Cq-XXX"/>
         <segue reference="6S0-TO-JiA"/>
     </inferredMetricsTieBreakers>
 </document>
