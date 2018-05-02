@@ -21,25 +21,17 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
     var delegate: TaskListProtocol!
     /// user's changes (of the particular task) are cancelled
     let sectionHeaders = ["Task", "Collaborators", "Log"]
-    var selectedTask: Task?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationItem.title = "Task"
-        
-        /* guard let thisItem = delegate.selectedTask else {
-            taskDescription = "test"
-            return
-        }
-        taskDescription = thisItem.title */
     }
     
     /// Gets invoked just before the view disappears
     override func viewWillDisappear(_ animated: Bool) {
-        if let sel = selectedTask?.title {
+        if let sel = delegate.selectedTask?.title {
             delegate.save(withName: sel)
         }
-        
     }
     
     override func viewDidLoad() {
@@ -51,8 +43,8 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
             }
         } */
         
-        print("selectedTask.title: \(selectedTask?.title)")
-        print("selectedTask.collaborators: \(selectedTask?.collaborators)")
+        /* print("selectedTask.title: \(String(describing: delegate.selectedTask?.title))")
+        print("selectedTask.collaborators: \(String(describing: delegate.selectedTask?.collaborators))") */
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -87,7 +79,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Detail Cell A", for: indexPath) as! MyTableViewCell
 
-        if let task = selectedTask {
+        if let task = delegate.selectedTask {
             cell.myTextLabel.delegate = self
             cell.myTextLabel.text? = task.title
         }

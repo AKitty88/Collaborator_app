@@ -16,7 +16,7 @@ class MasterViewController: UITableViewController, TaskListProtocol {
     /// the task which is selected at the moment (property of TaskListProtocol)
     var selectedTask: Task?
     /// array of the tasks
-    var taskList = [[Task(title: "test", complete: true)], [Task(title: "test", complete: true)]]
+    var taskList = [[Task(title: "test1", complete: true)], [Task(title: "test2", complete: true)]]
     
     // @IBOutlet weak var myTableView: UITableView!
     var detailViewController: DetailViewController? = nil
@@ -61,8 +61,13 @@ class MasterViewController: UITableViewController, TaskListProtocol {
             let controllers = split.viewControllers
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
             detailViewController?.delegate = self
+            
+            selectedTask = taskList[0][0]
+            print("\(String(describing: selectedTask))")
+            
+            selectedItemSection = 0
+            selectedItemIndex = 0            
         }
-        //taskList[0].append(Task(title: "Hi"))
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -131,7 +136,7 @@ class MasterViewController: UITableViewController, TaskListProtocol {
         
             if let indexPath = tableView.indexPathForSelectedRow {
                 let task = taskList[indexPath.section][indexPath.row]
-                dvc.selectedTask = task
+                selectedTask = task
                 
                 dvc.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 dvc.navigationItem.leftItemsSupplementBackButton = true
@@ -148,11 +153,11 @@ class MasterViewController: UITableViewController, TaskListProtocol {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if section == 0 {
-            print("\(taskList)")
+            print("\(taskList[0].count)")
             return taskList[0].count
         }
         else if section == 1 {
-            print("\(taskList)")
+            print("\(taskList[1].count)")
             return taskList[1].count
         }
         else {
