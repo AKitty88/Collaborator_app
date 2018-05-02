@@ -23,8 +23,12 @@ class MasterViewController: UITableViewController, TaskListProtocol {
     let sectionHeaders = ["Ongoing", "Done"]
     
     @IBAction func AddClicked(_ sender: UIBarButtonItem) {
-        //if let indexPath = indexPathForSelectedRow {
-        //taskList[
+        //if let indexPath = tableView.indexPathForSelectedRow {
+        
+            taskList[selectedItemSection!].append(Task(title: ""))
+            tableView.reloadData()
+        
+        //}
     }
     
     
@@ -116,7 +120,7 @@ class MasterViewController: UITableViewController, TaskListProtocol {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
-        cell.textLabel!.text = taskList[indexPath.section][indexPath.row].title
+        cell.textLabel?.text = taskList[indexPath.section][indexPath.row].title
         return cell
     }
 
@@ -143,7 +147,7 @@ class MasterViewController: UITableViewController, TaskListProtocol {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if tableView.cellForRow(at: indexPath as IndexPath) != nil {
+        if tableView.cellForRow(at: indexPath) != nil {
             selectedItemSection = indexPath.section
             selectedItemIndex = indexPath.row
             selectedTask = taskList[selectedItemSection!][selectedItemIndex!]
