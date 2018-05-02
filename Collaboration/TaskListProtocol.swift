@@ -20,12 +20,11 @@ protocol TaskListProtocol {
     /**
      Saves the task that is being edited
      - parameter task : description of task
-     - parameter dateDue : date chosen by user
-     - parameter isDue : tells us if the task has a duedate
-     - parameter status : tells us if the task is completed
+     - parameter history : log
      */
     func save(withName task: String, history log: String)
     
     /// cancels the editing of the current task
     func cancel()
 }
+

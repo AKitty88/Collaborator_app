@@ -20,13 +20,11 @@ class Task {
     /**
      Constructor of the class
      - parameter title : description of task
-     - parameter date : date chosen by user
-     - parameter hasDueDate : tells us if the task has a duedate, if I don't specify it, it's set to false
-     - parameter complete : tells us if the task is completed, if I don't specify it, it's set to false
      */
-    init(title: String, collaborators: String = "", log: String = "", complete: Bool = false) {
+    init(title: String, collaborators: String = "", log: String = "") {
         self.title = title
         self.collaborators = collaborators
         self.log = log
     }
 }
+

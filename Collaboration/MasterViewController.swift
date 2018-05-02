@@ -5,7 +5,7 @@
 //  Created by Kitti Almasy on 26/4/18.
 //  Copyright © 2018 Kitti Almasy. All rights reserved.
 //
-// TEST GIT
+
 import UIKit
 
 class MasterViewController: UITableViewController, TaskListProtocol {
@@ -16,41 +16,25 @@ class MasterViewController: UITableViewController, TaskListProtocol {
     /// the task which is selected at the moment (property of TaskListProtocol)
     var selectedTask: Task?
     /// array of the tasks
-    var taskList = [[Task(title: "test1", complete: true)], [Task(title: "test2", complete: true)]]
+    var taskList = [[Task(title: "test1")], [Task(title: "test2")]]
     
     // @IBOutlet weak var myTableView: UITableView!
     var detailViewController: DetailViewController? = nil
     let sectionHeaders = ["Ongoing", "Done"]
     
+    // Gets called when user clicks on the Add button
     @IBAction func AddClicked(_ sender: UIBarButtonItem) {
-        //if let indexPath = tableView.indexPathForSelectedRow {
-        
-            taskList[selectedItemSection!].append(Task(title: ""))
-            tableView.reloadData()
-        
-        //}
+        taskList[0].append(Task(title: "New Task"))
+        tableView.reloadData()
     }
-    
-    
     
     /**
      Saves the task that is being edited (method of TaskListProtocol)
-     - parameter task : description of task
-     - parameter dateDue : date chosen by user
-     - parameter isDue : tells us if the task has a duedate
-     - parameter status : tells us if the task is completed
+     - parameter withName : description of task
+     - parameter history : log
      */
     func save(withName task: String, history log: String) {
-        //if selectedTask != nil {
-        
-            selectedTask?.title = task
-        
-        /*} else {
-            if let indexPath = tableView.indexPathForSelectedRow {
-                taskList[indexPath.section].append(Task(title: task))
-            }
-        } */
-        
+        selectedTask?.title = task
         tableView.reloadData()
     }
     
@@ -63,7 +47,7 @@ class MasterViewController: UITableViewController, TaskListProtocol {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         navigationItem.leftBarButtonItem = editButtonItem
-
+        
         if let split = splitViewController {
             let controllers = split.viewControllers
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
@@ -73,20 +57,20 @@ class MasterViewController: UITableViewController, TaskListProtocol {
             print("\(String(describing: selectedTask))")
             
             selectedItemSection = 0
-            selectedItemIndex = 0            
+            selectedItemIndex = 0
         }
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
         super.viewWillAppear(animated)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         var dvc : DetailViewController!
         
@@ -96,7 +80,8 @@ class MasterViewController: UITableViewController, TaskListProtocol {
             } else {
                 dvc = segue.destination as! DetailViewController
             }
-        
+            dvc.delegate = self
+            
             if let indexPath = tableView.indexPathForSelectedRow {
                 let task = taskList[indexPath.section][indexPath.row]
                 selectedTask = task
@@ -106,29 +91,29 @@ class MasterViewController: UITableViewController, TaskListProtocol {
             }
         }
     }
-
+    
     // MARK: - Table View
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return sectionHeaders.count
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return taskList[section].count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-
+        
         cell.textLabel?.text = taskList[indexPath.section][indexPath.row].title
         return cell
     }
-
+    
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-
+    
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         // Return false if you do not want the specified item to be editable.
         return sectionHeaders[section]
@@ -145,18 +130,17 @@ class MasterViewController: UITableViewController, TaskListProtocol {
         tableView.reloadData()
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         
-        if tableView.cellForRow(at: indexPath) != nil {
-            selectedItemSection = indexPath.section
-            selectedItemIndex = indexPath.row
-            selectedTask = taskList[selectedItemSection!][selectedItemIndex!]
-            
-            if let cell = detailViewController?.tableView.cellForRow(at: indexPath) as? MyTableViewCell {
-                save(withName: cell.myTextLabel?.text ?? "", history: cell.myTextLabel?.text ?? "")
-            }
-        }
+        let taskToMove = taskList[sourceIndexPath.section][sourceIndexPath.row]
+        taskList[destinationIndexPath.section].insert(taskToMove, at: destinationIndexPath.row)
+        taskList[sourceIndexPath.section].remove(at: sourceIndexPath.row)
         tableView.reloadData()
+        
     }
 }
 
