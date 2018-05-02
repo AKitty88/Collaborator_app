@@ -61,7 +61,7 @@ class MasterViewController: UITableViewController, TaskListProtocol {
             let controllers = split.viewControllers
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
-        taskList[0].append(Task(title: "Hi"))
+        //taskList[0].append(Task(title: "Hi"))
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -131,6 +131,10 @@ class MasterViewController: UITableViewController, TaskListProtocol {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let task = taskList[indexPath.section][indexPath.row]
                 dvc.selectedTask = task
+                dvc.detailItem = "default_detailItem_value"
+                
+                dvc.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+                dvc.navigationItem.leftItemsSupplementBackButton = true
             }
         }
     }

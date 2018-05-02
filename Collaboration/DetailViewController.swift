@@ -83,12 +83,12 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Detail Cell A", for: indexPath) as! MyTableViewCell
 
-        if let detail = detailItem {
+        if let detailIt = detailItem {
             cell.myTextLabel.delegate = self
-            cell.myTextLabel.text? = detail.description
+            cell.myTextLabel.text? = detailIt.description
         }
         else {
-            print ("line 87")
+            print ("missing detailItem value")
         }
         return cell
     }
