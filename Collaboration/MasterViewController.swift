@@ -60,6 +60,8 @@ class MasterViewController: UITableViewController, TaskListProtocol {
         if let split = splitViewController {
             let controllers = split.viewControllers
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
+            detailViewController?.delegate = self
+            detailViewController?.detailItem = "default_detailItem"
         }
         //taskList[0].append(Task(title: "Hi"))
     }

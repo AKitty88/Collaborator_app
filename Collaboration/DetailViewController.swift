@@ -13,8 +13,9 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
     // todo: Add button -> action: append tasklist (title: new task), tableview.reloaddata
     // - check if everything is the same (this one <-> Assignment1) !!!
     
-    var selectedTask = Task(title: "")
-
+   
+    // @IBOutlet weak var myCell: MyTableViewCell!
+    
     var detailItem: String? {
         didSet {
            
@@ -25,6 +26,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
     /// user's changes (of the particular task) are cancelled
     var taskDescription = ""
     let sectionHeaders = ["Task", "Collaborators", "Log"]
+    var selectedTask = Task(title: "")
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -47,8 +49,16 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        /* if let detail = detailItem {
+            if let textF = myCell.myTextLabel {
+                textF.text = detail.description
+            }
+        } */
+        
         print("detailItem: \(String(describing: detailItem))")
-        print("detailItem: \(String(describing: selectedTask))")
+        print("selectedTask.title: \(selectedTask.title)")
+        print("selectedTask.complete: \(selectedTask.complete)")
+        print("selectedTask.collaborators: \(selectedTask.collaborators)")
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
