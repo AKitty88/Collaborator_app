@@ -111,13 +111,10 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
         delegate.selectedTask?.title = (textField.text)!
         delegate.save(withName: (delegate.selectedTask?.title)!, history: "")
+        textField.resignFirstResponder()
+        return true
     }
 }
 

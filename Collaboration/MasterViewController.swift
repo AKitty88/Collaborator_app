@@ -74,7 +74,7 @@ class MasterViewController: UITableViewController, TaskListProtocol {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         var dvc : DetailViewController!
         
-        if  detailViewController != nil {
+        if detailViewController != nil {
             if let detailViewController = segue.destination as? UINavigationController {
                 dvc = detailViewController.topViewController as! DetailViewController
             } else {
