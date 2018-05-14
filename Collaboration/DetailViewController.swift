@@ -126,7 +126,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
         case 2:
             delegate.selectedTask?.collaborators = (textField.text)!
         case 3:
-            delegate.selectedTask?.log = (textField.text)!
+            delegate.selectedTask?.log.append(textField.text!)
         default:
             print ("default")
         }
