@@ -42,8 +42,12 @@ class Task {
         self.logs.append("\(getToday())" + " Tim " + "changed " + "\"" + "\(title)" + "\"")
     }
     
-    func moveRowLog() {
-        self.logs.append("\(getToday())" + " Tim " + "changed completion status of  " + "\"" + "\(title)" + "\"")
+    func logMovedToCompleted() {
+        self.logs.append("\(getToday())" + " Tim " + "changed status of " + "\"" + "\(title)" + "\" to completed")
+    }
+    
+    func logMovedToOngoing() {
+        self.logs.append("\(getToday())" + " Tim " + "changed status of " + "\"" + "\(title)" + "\" to ongoing")
     }
 }
 

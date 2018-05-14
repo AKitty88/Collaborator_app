@@ -141,7 +141,15 @@ class MasterViewController: UITableViewController, TaskListProtocol {
         taskList[sourceIndexPath.section].remove(at: sourceIndexPath.row)
         tableView.reloadData()
         
-        selectedTask?.moveRowLog()
+        if (destinationIndexPath != sourceIndexPath) {
+            if (destinationIndexPath.section == 0) {
+                selectedTask?.logMovedToOngoing()
+            }
+                
+            else if (destinationIndexPath.section == 1) {
+                selectedTask?.logMovedToCompleted()
+            }
+        }
     }
 }
 
