@@ -119,7 +119,19 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        delegate.selectedTask?.title = (textField.text)!
+        
+        switch (textField.tag) {
+        case 1:
+            delegate.selectedTask?.title = (textField.text)!
+        case 2:
+            delegate.selectedTask?.collaborators = (textField.text)!
+        case 3:
+            delegate.selectedTask?.log = (textField.text)!
+        default:
+            print ("default")
+        }
+        
+        //delegate.selectedTask?.title = (textField.text)!
         delegate.save(withName: (delegate.selectedTask?.title)!, history: "")
         textField.resignFirstResponder()
         return true
