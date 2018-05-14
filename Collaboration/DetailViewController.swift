@@ -15,6 +15,10 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
     /// user's changes (of the particular task) are cancelled
     let sectionHeaders = ["Task", "Collaborators", "Log"]
     
+    @IBAction func NewLog(_ sender: UIBarButtonItem) {
+        //delegate.selectedTask?.log.append(<#T##newElement: String##String#>)
+    }
+    
     enum Sections: Int {
         case sectionA = 0
         case sectionB = 1
@@ -97,7 +101,10 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
             
             if let task = delegate.selectedTask {
                 cell.myTextLabel.delegate = self
-                cell.myTextLabel.text? = task.log
+                
+                for logLine in task.log {
+                    cell.myTextLabel.text? = logLine
+                }
             }
             else {
                 print ("missing selectedTask value")

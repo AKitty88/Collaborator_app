@@ -15,7 +15,9 @@ class Task {
     
     var collaborators: String
     
-    var log: String
+    // var log2 = [String]()       // log2: []
+    // var log3 = [String()]       // log3: [""]
+    var log = [String()]
     
     /**
      Constructor of the class
@@ -30,7 +32,11 @@ class Task {
         // dateformatter.timeStyle = .short
         let today = dateformatter.string(from: Date())
         
-        self.log = "\(today)" + " Tim " + "created " + "\"" + "\(title)" + "\""
+        self.log[0] = "\(today)" + " Tim " + "created " + "\"" + "\(title)" + "\""
+    }
+    
+    func addLog() {
+        //self.log.append
     }
 }
 

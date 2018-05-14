@@ -24,7 +24,7 @@ class MasterViewController: UITableViewController, TaskListProtocol {
     
     // Gets called when user clicks on the Add button
     @IBAction func AddClicked(_ sender: UIBarButtonItem) {
-        taskList[0].append(Task(title: "New Task"))
+        taskList[0].append(Task(title: "New Task \(taskList[0].count)"))
         tableView.reloadData()
     }
     

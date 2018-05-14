@@ -162,7 +162,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I1p-pv-eSz" userLabel="text">
-                                            <rect key="frame" x="16" y="3" width="343" height="30"/>
+                                            <rect key="frame" x="200" y="3" width="159" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -184,7 +184,13 @@
                             <outlet property="delegate" destination="06V-Vk-pYI" id="Y2p-SA-jeb"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="RYA-Qr-3Bc"/>
+                    <navigationItem key="navigationItem" id="RYA-Qr-3Bc">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="DmM-kd-4aZ">
+                            <connections>
+                                <action selector="NewLog:" destination="06V-Vk-pYI" id="SjK-Cz-59f"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ElE-7w-yVF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
