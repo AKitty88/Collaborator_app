@@ -21,10 +21,16 @@ class Task {
      Constructor of the class
      - parameter title : description of task
      */
-    init(title: String, collaborators: String = "", log: String = "") {
+    init(title: String, collaborators: String = "") {
         self.title = title
         self.collaborators = collaborators
-        self.log = log
+        
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = "dd/MM/yy, HH:mm"
+        // dateformatter.timeStyle = .short
+        let today = dateformatter.string(from: Date())
+        
+        self.log = "\(today)" + " Tim " + "created " + "\"" + "\(title)" + "\""
     }
 }
 
