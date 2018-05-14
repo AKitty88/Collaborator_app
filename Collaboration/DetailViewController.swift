@@ -16,7 +16,8 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
     let sectionHeaders = ["Task", "Collaborators", "Log"]
     
     @IBAction func NewLog(_ sender: UIBarButtonItem) {
-        //delegate.selectedTask?.log.append(<#T##newElement: String##String#>)
+        delegate.selectedTask?.addLog()
+        tableView.reloadData()
     }
     
     enum Sections: Int {

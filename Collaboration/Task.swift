@@ -26,17 +26,20 @@ class Task {
     init(title: String, collaborators: String = "") {
         self.title = title
         self.collaborators = collaborators
-        
+        self.log[0] = "\(getToday())" + " Tim " + "created " + "\"" + "\(title)" + "\""
+    }
+    
+    func getToday() -> String
+    {
         let dateformatter = DateFormatter()
         dateformatter.dateFormat = "dd/MM/yy, HH:mm"
         // dateformatter.timeStyle = .short
         let today = dateformatter.string(from: Date())
-        
-        self.log[0] = "\(today)" + " Tim " + "created " + "\"" + "\(title)" + "\""
+        return today
     }
     
     func addLog() {
-        //self.log.append
+        self.log.append("\(getToday())" + " Tim " + "changed item " + "\"" + "\(title)" + "\"")
     }
 }
 
