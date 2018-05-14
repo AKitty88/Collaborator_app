@@ -141,6 +141,7 @@ class MasterViewController: UITableViewController, TaskListProtocol {
         taskList[sourceIndexPath.section].remove(at: sourceIndexPath.row)
         tableView.reloadData()
         
+        selectedTask?.moveRowLog()
     }
 }
 

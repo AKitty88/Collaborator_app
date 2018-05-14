@@ -60,7 +60,13 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        
+        /* if identifier == "Detail Cell A" {
+            return 1
+        }
+        else if identifier == "Detail Cell C" {         
+            return (delegate.selectedTask?.logs.count)!
+        } */
         return 1
     }
     
@@ -103,7 +109,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
             if let task = delegate.selectedTask {
                 cell.myTextLabel.delegate = self
                 
-                for logLine in task.log {
+                for logLine in task.logs {
                     cell.myTextLabel.text? = logLine
                 }
             }
@@ -126,7 +132,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
         case 2:
             delegate.selectedTask?.collaborators = (textField.text)!
         case 3:
-            delegate.selectedTask?.log.append(textField.text!)
+            delegate.selectedTask?.logs.append(textField.text!)
         default:
             print ("default")
         }

@@ -17,7 +17,7 @@ class Task {
     
     // var log2 = [String]()       // log2: []
     // var log3 = [String()]       // log3: [""]
-    var log = [String()]
+    var logs = [String()]
     
     /**
      Constructor of the class
@@ -26,7 +26,7 @@ class Task {
     init(title: String, collaborators: String = "") {
         self.title = title
         self.collaborators = collaborators
-        self.log[0] = "\(getToday())" + " Tim " + "created " + "\"" + "\(title)" + "\""
+        self.logs[0] = "\(getToday())" + " Tim " + "created " + "\"" + "\(title)" + "\""
     }
     
     func getToday() -> String
@@ -39,7 +39,11 @@ class Task {
     }
     
     func addLog() {
-        self.log.append("\(getToday())" + " Tim " + "changed item " + "\"" + "\(title)" + "\"")
+        self.logs.append("\(getToday())" + " Tim " + "changed " + "\"" + "\(title)" + "\"")
+    }
+    
+    func moveRowLog() {
+        self.logs.append("\(getToday())" + " Tim " + "changed completion status of  " + "\"" + "\(title)" + "\"")
     }
 }
 
