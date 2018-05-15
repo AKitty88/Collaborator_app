@@ -121,9 +121,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textField opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sbE-Y9-Ypm" userLabel="text">
-                                            <rect key="frame" x="16" y="3" width="343" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <textField opaque="NO" tag="1" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sbE-Y9-Ypm" userLabel="text">
+                                            <rect key="frame" x="16" y="7" width="343" height="30"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <textInputTraits key="textInputTraits"/>
@@ -132,6 +131,10 @@
                                             </connections>
                                         </textField>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="sbE-Y9-Ypm" secondAttribute="trailing" constant="16" id="u05-PL-WFy"/>
+                                        <constraint firstItem="sbE-Y9-Ypm" firstAttribute="leading" secondItem="CRV-1M-xmg" secondAttribute="leading" constant="16" id="yrO-B4-Aa5"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="myTextLabel" destination="sbE-Y9-Ypm" id="IJD-jD-opB"/>
@@ -161,9 +164,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textField opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I1p-pv-eSz" userLabel="text">
-                                            <rect key="frame" x="110" y="3" width="249" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <textField opaque="NO" tag="3" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I1p-pv-eSz" userLabel="text">
+                                            <rect key="frame" x="127" y="7" width="232" height="30"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <textInputTraits key="textInputTraits"/>
@@ -171,7 +173,25 @@
                                                 <outlet property="delegate" destination="06V-Vk-pYI" id="BHc-3H-f32"/>
                                             </connections>
                                         </textField>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tQJ-wS-7cZ">
+                                            <rect key="frame" x="67" y="11" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s4P-N3-Ver">
+                                            <rect key="frame" x="10" y="11" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="s4P-N3-Ver" firstAttribute="leading" secondItem="6yc-Md-Ynt" secondAttribute="leading" constant="10" id="GJ9-RF-Bhn"/>
+                                        <constraint firstItem="tQJ-wS-7cZ" firstAttribute="leading" secondItem="s4P-N3-Ver" secondAttribute="trailing" constant="15" id="IXK-mc-UQT"/>
+                                        <constraint firstAttribute="trailing" secondItem="I1p-pv-eSz" secondAttribute="trailing" constant="16" id="OA2-Sk-YbH"/>
+                                        <constraint firstItem="I1p-pv-eSz" firstAttribute="leading" secondItem="tQJ-wS-7cZ" secondAttribute="trailing" constant="18" id="ZDU-xn-L2N"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="myTextLabel" destination="I1p-pv-eSz" id="ROf-ix-h8o"/>
