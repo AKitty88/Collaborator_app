@@ -15,9 +15,11 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
     /// user's changes (of the particular task) are cancelled
     let sectionHeaders = ["Task", "Collaborators", "Log"]
     
-    var textFieldIndexPath: IndexPath? = nil;
+    var textFieldIndexPath: IndexPath? = nil
     
     @IBAction func NewLog(_ sender: UIBarButtonItem) {
+        print ("D - NewLog \(delegate.selectedTask?.title)")
+        
         delegate.selectedTask?.addLog()
         tableView.reloadData()
     }
@@ -35,6 +37,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
     
     /// Gets invoked just before the view disappears
     override func viewWillDisappear(_ animated: Bool) {
+        print ("D - viewWillDisappear \(delegate.selectedTask?.title)")
         
         if let indexPath = tableView.indexPathForSelectedRow {
             if delegate.selectedTask != nil {
@@ -46,6 +49,8 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
     }
     
     override func viewDidLoad() {
+        print ("D - viewDidLoad \(delegate.selectedTask?.title)")
+        
         super.viewDidLoad()
     }
     
@@ -78,6 +83,8 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print ("D - tableView cellForRowAt \(delegate.selectedTask?.title)")
+        
         var identifier: String
         
         guard let section = Sections(rawValue: indexPath.section) else {
@@ -124,11 +131,14 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(textField: UITextField!) {
+        print ("D - textFieldDidEndEditing \(delegate.selectedTask?.title)")
+        
         let pointInTable = textField.convert(textField.bounds.origin, to: self.tableView)
         textFieldIndexPath = self.tableView.indexPathForRow(at: pointInTable)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print ("D - textFieldShouldReturn \(delegate.selectedTask?.title)")
         
         switch (textField.tag) {
         case 1:
