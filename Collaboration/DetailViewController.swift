@@ -16,9 +16,9 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
     let sectionHeaders = ["Task", "Collaborators", "Log"]
     
     var textFieldIndexPath: IndexPath? = nil
-    
+
     @IBAction func NewLog(_ sender: UIBarButtonItem) {
-        print ("D - NewLog \(delegate.selectedTask?.title)")
+        print ("D - NewLog \(String(describing: delegate.selectedTask?.title))")
         
         delegate.selectedTask?.addLog()
         tableView.reloadData()
@@ -37,7 +37,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
     
     /// Gets invoked just before the view disappears
     override func viewWillDisappear(_ animated: Bool) {
-        print ("D - viewWillDisappear \(delegate.selectedTask?.title)")
+        print ("D - viewWillDisappear \(String(describing: delegate.selectedTask?.title))")
         
         if let indexPath = tableView.indexPathForSelectedRow {
             if delegate.selectedTask != nil {
@@ -49,7 +49,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
     }
     
     override func viewDidLoad() {
-        print ("D - viewDidLoad \(delegate.selectedTask?.title)")
+        print ("D - viewDidLoad \(String(describing: delegate.selectedTask?.title))")
         
         super.viewDidLoad()
     }
@@ -83,7 +83,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print ("D - tableView cellForRowAt \(delegate.selectedTask?.title)")
+        print ("D - tableView cellForRowAt \(String(describing: delegate.selectedTask?.title))")
         
         var identifier: String
         
@@ -131,14 +131,14 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(textField: UITextField!) {
-        print ("D - textFieldDidEndEditing \(delegate.selectedTask?.title)")
+        print ("D - textFieldDidEndEditing \(String(describing: delegate.selectedTask?.title))")
         
         let pointInTable = textField.convert(textField.bounds.origin, to: self.tableView)
         textFieldIndexPath = self.tableView.indexPathForRow(at: pointInTable)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print ("D - textFieldShouldReturn \(delegate.selectedTask?.title)")
+        print ("D - textFieldShouldReturn \(String(describing: delegate.selectedTask?.title))")
         
         switch (textField.tag) {
         case 1:

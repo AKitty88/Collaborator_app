@@ -24,7 +24,7 @@ class MasterViewController: UITableViewController, TaskListProtocol {
     
     // Gets called when user clicks on the Add button
     @IBAction func AddClicked(_ sender: UIBarButtonItem) {
-        print ("M - AddClicked \(selectedTask?.title)")
+        print ("M - AddClicked \(String(describing: selectedTask?.title))")
         
         taskList[0].append(Task(title: "New Task \(taskList[0].count)"))
         tableView.reloadData()
@@ -36,7 +36,7 @@ class MasterViewController: UITableViewController, TaskListProtocol {
      - parameter history : log
      */
     func save(withName task: String, history log: String) {
-        print ("M - save \(selectedTask?.title)")
+        print ("M - save \(String(describing: selectedTask?.title))")
         
         selectedTask?.title = task
         tableView.reloadData()
@@ -44,13 +44,13 @@ class MasterViewController: UITableViewController, TaskListProtocol {
     
     /// cancels the editing of the current task (method of TaskListProtocol)
     func cancel() {
-        print ("M - cancel \(selectedTask?.title)")
+        print ("M - cancel \(String(describing: selectedTask?.title))")
         
         navigationController?.popViewController(animated: true)
     }
     
     override func viewDidLoad() {
-        print ("M - viewDidLoad \(selectedTask?.title)")
+        print ("M - viewDidLoad \(String(describing: selectedTask?.title))")
         
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -68,7 +68,7 @@ class MasterViewController: UITableViewController, TaskListProtocol {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print ("M - viewWillAppear \(selectedTask?.title)")
+        print ("M - viewWillAppear \(String(describing: selectedTask?.title))")
         
         clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
         super.viewWillAppear(animated)
@@ -80,7 +80,7 @@ class MasterViewController: UITableViewController, TaskListProtocol {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print ("M - prepare \(selectedTask?.title)")
+        print ("M - prepare \(String(describing: selectedTask?.title))")
         
         var dvc : DetailViewController!
         
@@ -105,19 +105,19 @@ class MasterViewController: UITableViewController, TaskListProtocol {
     // MARK: - Table View
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        print ("M - numberOfSections \(selectedTask?.title)")
+        print ("M - numberOfSections \(String(describing: selectedTask?.title))")
         
         return sectionHeaders.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print ("M - tableView numberOfRowsInSection \(selectedTask?.title)")
+        print ("M - tableView numberOfRowsInSection \(String(describing: selectedTask?.title))")
         
         return taskList[section].count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print ("M - tableView cellForRowAt \(selectedTask?.title)")
+        print ("M - tableView cellForRowAt \(String(describing: selectedTask?.title))")
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
@@ -126,21 +126,21 @@ class MasterViewController: UITableViewController, TaskListProtocol {
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        print ("M - tableView canEditRowAt \(selectedTask?.title)")
+        print ("M - tableView canEditRowAt \(String(describing: selectedTask?.title))")
         
         // Return false if you do not want the specified item to be editable.
         return true
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        print ("M - tableView titleForHeaderInSection \(selectedTask?.title)")
+        print ("M - tableView titleForHeaderInSection \(String(describing: selectedTask?.title))")
         
         // Return false if you do not want the specified item to be editable.
         return sectionHeaders[section]
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        print ("M - tableView editingStyle \(selectedTask?.title)")
+        print ("M - tableView editingStyle \(String(describing: selectedTask?.title))")
         
         if editingStyle == .delete {
             taskList[indexPath.section].remove(at: indexPath.row)
@@ -158,13 +158,12 @@ class MasterViewController: UITableViewController, TaskListProtocol {
     
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         
-        print ("M - tableView moveRowAt \(selectedTask?.title)")
+        print ("M - tableView moveRowAt \(String(describing: selectedTask?.title))")
         let taskToMove = taskList[sourceIndexPath.section][sourceIndexPath.row]
         selectedTask = taskToMove
         
         taskList[destinationIndexPath.section].insert(taskToMove, at: destinationIndexPath.row)
         taskList[sourceIndexPath.section].remove(at: sourceIndexPath.row)
-        tableView.reloadData()
         
         if (destinationIndexPath.section != sourceIndexPath.section) {
             if (destinationIndexPath.section == 0) {
@@ -173,7 +172,8 @@ class MasterViewController: UITableViewController, TaskListProtocol {
                 
             else if (destinationIndexPath.section == 1) {
                 selectedTask?.logMovedToCompleted()
-            }
+            }            
+            detailViewController?.tableView.reloadData()
         }
     }
 }
