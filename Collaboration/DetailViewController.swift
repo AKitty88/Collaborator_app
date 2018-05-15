@@ -15,6 +15,8 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
     /// user's changes (of the particular task) are cancelled
     let sectionHeaders = ["Task", "Collaborators", "Log"]
     
+    var textFieldIndexPath: IndexPath? = nil;
+    
     @IBAction func NewLog(_ sender: UIBarButtonItem) {
         delegate.selectedTask?.addLog()
         tableView.reloadData()
@@ -121,6 +123,11 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
         }
     }
     
+    func textFieldDidEndEditing(textField: UITextField!) {
+        let pointInTable = textField.convert(textField.bounds.origin, to: self.tableView)
+        textFieldIndexPath = self.tableView.indexPathForRow(at: pointInTable)
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         switch (textField.tag) {
@@ -129,7 +136,8 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
         case 2:
             delegate.selectedTask?.collaborators = (textField.text)!
         case 3:
-            delegate.selectedTask?.logs.append(textField.text!)                 // TODO: indexpath.row
+            textFieldDidEndEditing(textField: textField)
+            delegate.selectedTask?.logs[(textFieldIndexPath?.row)!] = (textField.text!)
         default:
             print ("default")
         }
