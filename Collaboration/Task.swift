@@ -39,6 +39,7 @@ class Task {
     }
     
     func addLog() {
+        
         self.logs.append("\(getToday())" + " Tim " + "changed " + "\"" + "\(title)" + "\"")
     }
     

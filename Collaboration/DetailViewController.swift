@@ -108,10 +108,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
             
             if let task = delegate.selectedTask {
                 cell.myTextLabel.delegate = self
-                
-                for logLine in task.logs {
-                    cell.myTextLabel.text? = logLine
-                }
+                cell.myTextLabel.text? = task.logs[indexPath.row]
             }
             else {
                 print ("missing selectedTask value")
@@ -132,7 +129,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
         case 2:
             delegate.selectedTask?.collaborators = (textField.text)!
         case 3:
-            delegate.selectedTask?.logs.append(textField.text!)
+            delegate.selectedTask?.logs.append(textField.text!)                 // TODO: indexpath.row
         default:
             print ("default")
         }
