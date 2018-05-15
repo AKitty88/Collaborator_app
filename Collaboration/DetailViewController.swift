@@ -143,6 +143,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
         switch (textField.tag) {
         case 1:
             delegate.selectedTask?.title = (textField.text)!
+            delegate.selectedTask?.taskNameChangedLog()
         case 2:
             delegate.selectedTask?.collaborators = (textField.text)!
         case 3:
@@ -152,7 +153,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
             print ("default")
         }
         
-        //delegate.selectedTask?.title = (textField.text)!
+        tableView.reloadData()
         delegate.save(withName: (delegate.selectedTask?.title)!, history: "")
         textField.resignFirstResponder()
         return true

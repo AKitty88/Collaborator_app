@@ -39,7 +39,6 @@ class Task {
     }
     
     func addLog() {
-        
         self.logs.append("\(getToday())" + " Tim " + "changed " + "\"" + "\(title)" + "\"")
     }
     
@@ -49,6 +48,10 @@ class Task {
     
     func logMovedToOngoing() {
         self.logs.append("\(getToday())" + " Tim " + "changed status of " + "\"" + "\(title)" + "\" to ongoing")
+    }
+    
+    func taskNameChangedLog() {
+        self.logs.append("\(getToday())" + " Tim " + "changed topic to " + "\"" + "\(title)" + "\"")
     }
 }
 
