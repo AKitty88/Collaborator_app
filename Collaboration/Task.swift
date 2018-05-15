@@ -15,8 +15,8 @@ class Task {
     
     var collaborators: String
     
-    // var log2 = [String]()       // log2: []
-    // var log3 = [String()]       // log3: [""]
+    // var log2 = [String]()       // []
+    // var log3 = [String()]       // [""]
     var logs = [String()]
     
     /**

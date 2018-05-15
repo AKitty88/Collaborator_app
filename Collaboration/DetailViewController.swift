@@ -61,12 +61,12 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        /* if identifier == "Detail Cell A" {
+        if section == 0 {
             return 1
         }
-        else if identifier == "Detail Cell C" {         
+        else if section == 2 {
             return (delegate.selectedTask?.logs.count)!
-        } */
+        }
         return 1
     }
     
