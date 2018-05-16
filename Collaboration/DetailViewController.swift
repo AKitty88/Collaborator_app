@@ -126,6 +126,13 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
         }
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! UITableViewCell
+            
+            if let task = delegate.selectedTask {
+                cell.textLabel?.text = task.collaborators
+            }
+            else {
+                print ("missing selectedTask value")
+            }
             return cell
         }
     }

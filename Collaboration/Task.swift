@@ -23,7 +23,7 @@ class Task {
      Constructor of the class
      - parameter title : description of task
      */
-    init(title: String, collaborators: String = "") {
+    init(title: String, collaborators: String = "Tim") {
         self.title = title
         self.collaborators = collaborators
         self.logs[0] = "\(getToday())" + " Tim " + "created " + "\"" + "\(title)" + "\""
