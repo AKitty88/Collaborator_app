@@ -214,13 +214,7 @@
                             <outlet property="delegate" destination="06V-Vk-pYI" id="Y2p-SA-jeb"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="RYA-Qr-3Bc">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="DmM-kd-4aZ">
-                            <connections>
-                                <action selector="NewLog:" destination="06V-Vk-pYI" id="SjK-Cz-59f"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="RYA-Qr-3Bc"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ElE-7w-yVF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
