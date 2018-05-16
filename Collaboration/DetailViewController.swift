@@ -17,7 +17,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
     var textFieldIndexPath: IndexPath? = nil
     
     
-
+    /// Gets invoked when the user clickes on the Add button
     @IBAction func NewLog(_ sender: UIBarButtonItem) {
         print ("D - NewLog \(String(describing: delegate.selectedTask?.title))")
         
@@ -25,6 +25,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
         tableView.reloadData()
     }
     
+    /// Helps to decide which cell it is
     enum Sections: Int {
         case sectionA = 0
         case sectionB = 1

@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+/// Cell class for the cell that displays the log messages
 class MyTableViewCellForLog: UITableViewCell {
     
     @IBOutlet weak var myTextLabel: UITextField!

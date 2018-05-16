@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+/// Cell class for the cell that displays the task's name
 class MyTableViewCellForTaskname: UITableViewCell {
     
     @IBOutlet weak var myTextLabel: UITextField!

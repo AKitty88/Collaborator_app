@@ -6,10 +6,11 @@
 //  Copyright © 2018 Kitti Almasy. All rights reserved.
 //
 
+
 import UIKit
 
 class MasterViewController: UITableViewController, TaskListProtocol {
-    
+    /// the section of the task which is selected at the moment (property of TaskListProtocol)
     var selectedItemSection: Int?
     /// the index of the task which is selected at the moment (property of TaskListProtocol)
     var selectedItemIndex: Int?
@@ -128,14 +129,14 @@ class MasterViewController: UITableViewController, TaskListProtocol {
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         print ("M - tableView canEditRowAt \(String(describing: selectedTask?.title))")
         
-        // Return false if you do not want the specified item to be editable.
+        // Return false if you do not want the specified item to be editable
         return true
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         print ("M - tableView titleForHeaderInSection \(String(describing: selectedTask?.title))")
         
-        // Return false if you do not want the specified item to be editable.
+        // Return false if you do not want the specified item to be editable
         return sectionHeaders[section]
     }
     
