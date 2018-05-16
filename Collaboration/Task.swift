@@ -32,7 +32,7 @@ class Task {
         
         self.date = today
         self.collaborators = collaborators
-        self.logs[0] = "\(getToday())" + " Tim " + "created " + "\"" + "\(title)" + "\""
+        self.logs[0] = "created " + "\"" + "\(title)" + "\""
     }
     
     func getToday() -> String
