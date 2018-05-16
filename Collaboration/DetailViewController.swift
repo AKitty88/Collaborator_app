@@ -42,7 +42,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
         
         if let indexPath = tableView.indexPathForSelectedRow {
             if delegate.selectedTask != nil {
-                if let cell = tableView.cellForRow(at: indexPath as IndexPath) as? MyTableViewCellForTaskname {             // DEBUG
+                if let cell = tableView.cellForRow(at: indexPath as IndexPath) as? MyTableViewCellForTaskname {
                     delegate.save(withName: (cell.myTextLabel?.text) ?? "", history: (cell.myTextLabel?.text) ?? "")
                 }
             }
