@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4219C40A20ABC175000E9E21 /* MyTableViewCellForLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4219C40920ABC175000E9E21 /* MyTableViewCellForLog.swift */; };
+		4219C40C20ABC536000E9E21 /* MyTableViewCellForTaskname.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4219C40B20ABC536000E9E21 /* MyTableViewCellForTaskname.swift */; };
 		423621D0209146D00005E038 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423621CF209146D00005E038 /* AppDelegate.swift */; };
 		423621D2209146D00005E038 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423621D1209146D00005E038 /* MasterViewController.swift */; };
 		423621D7209146D00005E038 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 423621D5209146D00005E038 /* Main.storyboard */; };
@@ -17,7 +19,6 @@
 		4236220020914D990005E038 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423621FF20914D990005E038 /* DetailViewController.swift */; };
 		4236227C20916F670005E038 /* TaskListProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236227B20916F670005E038 /* TaskListProtocol.swift */; };
 		4236227E2091702B0005E038 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236227D2091702B0005E038 /* Task.swift */; };
-		42384130209974E90007EC74 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4238412F209974E90007EC74 /* MyTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4219C40920ABC175000E9E21 /* MyTableViewCellForLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCellForLog.swift; sourceTree = "<group>"; };
+		4219C40B20ABC536000E9E21 /* MyTableViewCellForTaskname.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCellForTaskname.swift; sourceTree = "<group>"; };
 		423621CC209146D00005E038 /* Collaboration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Collaboration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		423621CF209146D00005E038 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		423621D1209146D00005E038 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -54,7 +57,6 @@
 		423621FF20914D990005E038 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		4236227B20916F670005E038 /* TaskListProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListProtocol.swift; sourceTree = "<group>"; };
 		4236227D2091702B0005E038 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
-		4238412F209974E90007EC74 /* MyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +116,8 @@
 				423621DD209146D00005E038 /* Info.plist */,
 				4236227B20916F670005E038 /* TaskListProtocol.swift */,
 				4236227D2091702B0005E038 /* Task.swift */,
-				4238412F209974E90007EC74 /* MyTableViewCell.swift */,
+				4219C40920ABC175000E9E21 /* MyTableViewCellForLog.swift */,
+				4219C40B20ABC536000E9E21 /* MyTableViewCellForTaskname.swift */,
 			);
 			path = Collaboration;
 			sourceTree = "<group>";
@@ -271,12 +274,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4219C40C20ABC536000E9E21 /* MyTableViewCellForTaskname.swift in Sources */,
 				4236220020914D990005E038 /* DetailViewController.swift in Sources */,
+				4219C40A20ABC175000E9E21 /* MyTableViewCellForLog.swift in Sources */,
 				423621D2209146D00005E038 /* MasterViewController.swift in Sources */,
 				4236227E2091702B0005E038 /* Task.swift in Sources */,
 				4236227C20916F670005E038 /* TaskListProtocol.swift in Sources */,
 				423621D0209146D00005E038 /* AppDelegate.swift in Sources */,
-				42384130209974E90007EC74 /* MyTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

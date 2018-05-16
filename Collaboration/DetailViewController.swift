@@ -4,7 +4,11 @@
 //
 //  Created by Kitti Almasy on 26/4/18.
 //  Copyright © 2018 Kitti Almasy. All rights reserved.
-//
+
+// TODOs:
+// labels
+// AM/PM
+// bug: wrong taskname change
 
 import UIKit
 
@@ -14,8 +18,10 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
     var delegate: TaskListProtocol!
     /// user's changes (of the particular task) are cancelled
     let sectionHeaders = ["Task", "Collaborators", "Log"]
-    
+    /// helps to find cell for the clicked textfield
     var textFieldIndexPath: IndexPath? = nil
+    
+    
 
     @IBAction func NewLog(_ sender: UIBarButtonItem) {
         print ("D - NewLog \(String(describing: delegate.selectedTask?.title))")
@@ -41,7 +47,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
         
         if let indexPath = tableView.indexPathForSelectedRow {
             if delegate.selectedTask != nil {
-                if let cell = tableView.cellForRow(at: indexPath as IndexPath) as? MyTableViewCell {
+                if let cell = tableView.cellForRow(at: indexPath as IndexPath) as? MyTableViewCellForTaskname {             // DEBUG
                     delegate.save(withName: (cell.myTextLabel?.text) ?? "", history: (cell.myTextLabel?.text) ?? "")
                 }
             }
@@ -101,7 +107,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
         }
         
         if identifier == "Detail Cell A" {
-            let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! MyTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! MyTableViewCellForTaskname
             
             if let task = delegate.selectedTask {
                 cell.myTextLabel.delegate = self
@@ -112,10 +118,23 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
             }
             return cell
         }
-        else if identifier == "Detail Cell C" {
-            let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! MyTableViewCell
+        else if identifier == "Detail Cell B" {
+            let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! UITableViewCell
             
             if let task = delegate.selectedTask {
+                cell.textLabel?.text = task.collaborators
+            }
+            else {
+                print ("missing selectedTask value")
+            }
+            return cell
+        }
+        else if identifier == "Detail Cell C" {
+            let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! MyTableViewCellForLog
+            
+            if let task = delegate.selectedTask {
+                cell.dateLabel.text? = "date"
+                cell.collaboratorLabel.text? = "collaborator"
                 cell.myTextLabel.delegate = self
                 cell.myTextLabel.text? = task.logs[indexPath.row]
             }
@@ -126,13 +145,6 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
         }
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! UITableViewCell
-            
-            if let task = delegate.selectedTask {
-                cell.textLabel?.text = task.collaborators
-            }
-            else {
-                print ("missing selectedTask value")
-            }
             return cell
         }
     }
