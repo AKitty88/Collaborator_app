@@ -5,11 +5,6 @@
 //  Created by Kitti Almasy on 26/4/18.
 //  Copyright © 2018 Kitti Almasy. All rights reserved.
 
-// TODOs:
-// labels
-// AM/PM
-// bug: wrong taskname change
-
 import UIKit
 
 class DetailViewController: UITableViewController, UITextFieldDelegate {

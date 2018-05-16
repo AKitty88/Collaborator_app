@@ -168,9 +168,9 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I1p-pv-eSz" userLabel="text">
-                                            <rect key="frame" x="127" y="14.5" width="232" height="15"/>
+                                            <rect key="frame" x="127" y="12" width="232" height="20"/>
                                             <nil key="textColor"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <textInputTraits key="textInputTraits"/>
                                             <connections>
                                                 <outlet property="delegate" destination="06V-Vk-pYI" id="BHc-3H-f32"/>
