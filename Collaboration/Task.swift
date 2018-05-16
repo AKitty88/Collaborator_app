@@ -13,8 +13,8 @@ class Task {
     ///  description of the task
     var title: String
     
+    var date: String
     var collaborators: String
-    
     // var log2 = [String]()       // []
     // var log3 = [String()]       // [""]
     var logs = [String()]
@@ -25,6 +25,12 @@ class Task {
      */
     init(title: String, collaborators: String = "Tim") {
         self.title = title
+        
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = "dd/MM/yy, HH:mm a"
+        let today = dateformatter.string(from: Date())
+        
+        self.date = today
         self.collaborators = collaborators
         self.logs[0] = "\(getToday())" + " Tim " + "created " + "\"" + "\(title)" + "\""
     }
@@ -32,26 +38,25 @@ class Task {
     func getToday() -> String
     {
         let dateformatter = DateFormatter()
-        dateformatter.dateFormat = "dd/MM/yy, HH:mm"
-        // dateformatter.timeStyle = .short
+        dateformatter.dateFormat = "dd/MM/yy, HH:mm a"
         let today = dateformatter.string(from: Date())
         return today
     }
     
     func addLog() {
-        self.logs.append("\(getToday())" + " Tim " + "changed " + "\"" + "\(title)" + "\"")
+        self.logs.append("changed " + "\"" + "\(title)" + "\"")
     }
     
     func logMovedToCompleted() {
-        self.logs.append("\(getToday())" + " Tim " + "changed status of " + "\"" + "\(title)" + "\" to completed")
+        self.logs.append("changed status of " + "\"" + "\(title)" + "\" to completed")
     }
     
     func logMovedToOngoing() {
-        self.logs.append("\(getToday())" + " Tim " + "changed status of " + "\"" + "\(title)" + "\" to ongoing")
+        self.logs.append("changed status of " + "\"" + "\(title)" + "\" to ongoing")
     }
     
     func taskNameChangedLog() {
-        self.logs.append("\(getToday())" + " Tim " + "changed topic to " + "\"" + "\(title)" + "\"")
+        self.logs.append("changed topic to " + "\"" + "\(title)" + "\"")
     }
 }
 

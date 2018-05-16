@@ -133,8 +133,8 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
             let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! MyTableViewCellForLog
             
             if let task = delegate.selectedTask {
-                cell.dateLabel.text? = "date"
-                cell.collaboratorLabel.text? = "collaborator"
+                cell.dateLabel.text? = task.date
+                cell.collaboratorLabel.text? = task.collaborators
                 cell.myTextLabel.delegate = self
                 cell.myTextLabel.text? = task.logs[indexPath.row]
             }
