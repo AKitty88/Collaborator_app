@@ -22,6 +22,7 @@
 		42A0924920B2465500BBA917 /* PeerToPeer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A0924820B2465500BBA917 /* PeerToPeer.swift */; };
 		42A0924B20B25DE300BBA917 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A0924A20B25DE300BBA917 /* ChatView.swift */; };
 		42A0924D20B2672F00BBA917 /* SentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A0924C20B2672F00BBA917 /* SentData.swift */; };
+		42FABC4F20B2A72F0019E810 /* Peer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FABC4E20B2A72F0019E810 /* Peer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		42A0924820B2465500BBA917 /* PeerToPeer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerToPeer.swift; sourceTree = "<group>"; };
 		42A0924A20B25DE300BBA917 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		42A0924C20B2672F00BBA917 /* SentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentData.swift; sourceTree = "<group>"; };
+		42FABC4E20B2A72F0019E810 /* Peer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Peer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 				42A0924820B2465500BBA917 /* PeerToPeer.swift */,
 				42A0924A20B25DE300BBA917 /* ChatView.swift */,
 				42A0924C20B2672F00BBA917 /* SentData.swift */,
+				42FABC4E20B2A72F0019E810 /* Peer.swift */,
 			);
 			path = Collaboration;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				4219C40C20ABC536000E9E21 /* MyTableViewCellForTaskname.swift in Sources */,
 				4236220020914D990005E038 /* DetailViewController.swift in Sources */,
 				4219C40A20ABC175000E9E21 /* MyTableViewCellForLog.swift in Sources */,
+				42FABC4F20B2A72F0019E810 /* Peer.swift in Sources */,
 				423621D2209146D00005E038 /* MasterViewController.swift in Sources */,
 				42A0924B20B25DE300BBA917 /* ChatView.swift in Sources */,
 				42A0924D20B2672F00BBA917 /* SentData.swift in Sources */,

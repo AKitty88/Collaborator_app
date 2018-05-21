@@ -6,7 +6,7 @@
 //  Copyright © 2018 Kitti Almasy. All rights reserved.
 
 
-// check pics !!! FIRST TODO !!!
+// check pics
 // create another view on storyboard
 // connect viewTapped()
 
@@ -25,6 +25,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate, PeerToPe
     
     var peerToPeer = PeerToPeerManager()
     var sentData = SentData()
+    var peerlist = [Peer]()
     
     /// Helps to decide which cell it is
     enum Sections: Int {
@@ -35,11 +36,6 @@ class DetailViewController: UITableViewController, UITextFieldDelegate, PeerToPe
     
     @IBAction func viewTapped(_ sender: Any) {
         peerToPeer.send(data: sentData.json)
-        view.setNeedsDisplay()
-    }
-    
-    func manager(_ manager: PeerToPeerManager, didReceive data: Data) {
-        sentData.json = sentData
         view.setNeedsDisplay()
     }
     

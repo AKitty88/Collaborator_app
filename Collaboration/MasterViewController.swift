@@ -18,7 +18,7 @@ class MasterViewController: UITableViewController, TaskListProtocol {
     var selectedTask: Task?
     /// array of the tasks
     var taskList = [[Task(title: "test1")], [Task(title: "test2")]]
-    
+        
     // @IBOutlet weak var myTableView: UITableView!
     var detailViewController: DetailViewController? = nil
     let sectionHeaders = ["Ongoing", "Done"]
@@ -92,6 +92,10 @@ class MasterViewController: UITableViewController, TaskListProtocol {
                 dvc = segue.destination as! DetailViewController
             }
             dvc.delegate = self
+            // dvc.peerlist = ptp.session.connectedPeers        // TODO ptp
+            let inoutStr = "inoutStr"
+            let dataIn: Data? = inoutStr.data(using: .utf8)
+            // ptp.send(data: (dataIn)!)
             
             if let indexPath = tableView.indexPathForSelectedRow {
                 let task = taskList[indexPath.section][indexPath.row]
@@ -101,6 +105,21 @@ class MasterViewController: UITableViewController, TaskListProtocol {
                 dvc.navigationItem.leftItemsSupplementBackButton = true
             }
         }
+    }
+    
+    func update() {
+        tableView.reloadData()
+    }
+    
+    func manager(_ manager: PeerToPeerManager, didReceive data: Data) {
+        // sentData.json = sentData // only Rene
+        let sentData = String(data: data, encoding: .utf8)
+        print("Received data "\(sentData!)"")
+        view.setNeedsDisplay()
+    }
+    
+    func updatePeers() {
+        self.peers = peers
     }
     
     // MARK: - Table View
