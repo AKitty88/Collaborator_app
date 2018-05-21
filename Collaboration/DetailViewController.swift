@@ -6,7 +6,8 @@
 //  Copyright © 2018 Kitti Almasy. All rights reserved.
 
 
-// create another view file
+// check pics !!! FIRST TODO !!!
+// create another view on storyboard
 // connect viewTapped()
 
 
@@ -22,8 +23,8 @@ class DetailViewController: UITableViewController, UITextFieldDelegate, PeerToPe
     /// helps to find cell for the clicked textfield
     var textFieldIndexPath: IndexPath? = nil
     
-    var viewModel = AnimalViewModel()
     var peerToPeer = PeerToPeerManager()
+    var sentData = SentData()
     
     /// Helps to decide which cell it is
     enum Sections: Int {
@@ -33,13 +34,12 @@ class DetailViewController: UITableViewController, UITextFieldDelegate, PeerToPe
     }
     
     @IBAction func viewTapped(_ sender: Any) {
-        viewModel.nextColour()
-        peerToPeer.send(data: viewModel.json)
+        peerToPeer.send(data: sentData.json)
         view.setNeedsDisplay()
     }
     
     func manager(_ manager: PeerToPeerManager, didReceive data: Data) {
-        viewModel.json = data
+        sentData.json = sentData
         view.setNeedsDisplay()
     }
     
@@ -65,8 +65,6 @@ class DetailViewController: UITableViewController, UITextFieldDelegate, PeerToPe
         print ("D - viewDidLoad \(String(describing: delegate.selectedTask?.title))")
         
         super.viewDidLoad()
-        guard let view = view as? DrawableView else { return }
-        view.delegate = viewModel
         peerToPeer.delegate = self
     }
     
