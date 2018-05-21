@@ -5,9 +5,15 @@
 //  Created by Kitti Almasy on 26/4/18.
 //  Copyright © 2018 Kitti Almasy. All rights reserved.
 
+
+// create another view file
+// connect viewTapped()
+
+
+
 import UIKit
 
-class DetailViewController: UITableViewController, UITextFieldDelegate {
+class DetailViewController: UITableViewController, UITextFieldDelegate, PeerToPeerManagerDelegate {
     
     /// delegate (the MasterViewController)
     var delegate: TaskListProtocol!
@@ -16,11 +22,25 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
     /// helps to find cell for the clicked textfield
     var textFieldIndexPath: IndexPath? = nil
     
+    var viewModel = AnimalViewModel()
+    var peerToPeer = PeerToPeerManager()
+    
     /// Helps to decide which cell it is
     enum Sections: Int {
         case sectionA = 0
         case sectionB = 1
         case sectionC = 2
+    }
+    
+    @IBAction func viewTapped(_ sender: Any) {
+        viewModel.nextColour()
+        peerToPeer.send(data: viewModel.json)
+        view.setNeedsDisplay()
+    }
+    
+    func manager(_ manager: PeerToPeerManager, didReceive data: Data) {
+        viewModel.json = data
+        view.setNeedsDisplay()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,6 +65,9 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
         print ("D - viewDidLoad \(String(describing: delegate.selectedTask?.title))")
         
         super.viewDidLoad()
+        guard let view = view as? DrawableView else { return }
+        view.delegate = viewModel
+        peerToPeer.delegate = self
     }
     
     override func didReceiveMemoryWarning() {

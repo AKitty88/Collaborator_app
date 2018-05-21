@@ -19,6 +19,7 @@
 		4236220020914D990005E038 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423621FF20914D990005E038 /* DetailViewController.swift */; };
 		4236227C20916F670005E038 /* TaskListProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236227B20916F670005E038 /* TaskListProtocol.swift */; };
 		4236227E2091702B0005E038 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236227D2091702B0005E038 /* Task.swift */; };
+		42A0924920B2465500BBA917 /* PeerToPeer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A0924820B2465500BBA917 /* PeerToPeer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		423621FF20914D990005E038 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		4236227B20916F670005E038 /* TaskListProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListProtocol.swift; sourceTree = "<group>"; };
 		4236227D2091702B0005E038 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		42A0924820B2465500BBA917 /* PeerToPeer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerToPeer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				4236227D2091702B0005E038 /* Task.swift */,
 				4219C40920ABC175000E9E21 /* MyTableViewCellForLog.swift */,
 				4219C40B20ABC536000E9E21 /* MyTableViewCellForTaskname.swift */,
+				42A0924820B2465500BBA917 /* PeerToPeer.swift */,
 			);
 			path = Collaboration;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				423621D2209146D00005E038 /* MasterViewController.swift in Sources */,
 				4236227E2091702B0005E038 /* Task.swift in Sources */,
 				4236227C20916F670005E038 /* TaskListProtocol.swift in Sources */,
+				42A0924920B2465500BBA917 /* PeerToPeer.swift in Sources */,
 				423621D0209146D00005E038 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
