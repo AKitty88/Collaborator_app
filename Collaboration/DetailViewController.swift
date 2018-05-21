@@ -6,7 +6,7 @@
 //  Copyright © 2018 Kitti Almasy. All rights reserved.
 
 
-// check pics
+// pics: PeertoPeerMan. only, others are ready
 // create another view on storyboard
 // connect viewTapped()
 
@@ -78,13 +78,18 @@ class DetailViewController: UITableViewController, UITextFieldDelegate, PeerToPe
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if section == 0 {
-            return 1
+        if section == 1 {
+            if peerlist != nil {
+                return peerlist.count
+            }
         }
         else if section == 2 {
             return (delegate.selectedTask?.logs.count)!
         }
-        return 1
+        // else if section == 0
+        else {
+            return 1
+        }
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
