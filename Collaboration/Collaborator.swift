@@ -8,6 +8,14 @@
 
 import Foundation
 
-class Peer {
+class Collaborator {
+    var name: String
     
+    init() {
+        name = "Tim"
+    }
+    
+    func getName() -> String {
+        return name
+    }
 }

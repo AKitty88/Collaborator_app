@@ -25,7 +25,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate, PeerToPe
     
     var peerToPeer = PeerToPeerManager()
     var sentData = SentData()
-    var peerlist = [Peer]()
+    var peerlist = [Collaborator?]()
     
     /// Helps to decide which cell it is
     enum Sections: Int {
@@ -125,12 +125,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate, PeerToPe
         else if identifier == "Detail Cell B" {
             let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! UITableViewCell
             
-            if let task = delegate.selectedTask {
-                cell.textLabel?.text = task.collaborators
-            }
-            else {
-                print ("missing selectedTask value")
-            }
+            cell.textLabel?.text = peerlist[indexPath.row]?.getName()
             return cell
         }
         else if identifier == "Detail Cell C" {
