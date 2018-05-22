@@ -44,6 +44,15 @@ class PeerToPeerManager: NSObject {
         serviceBrowser.invitePeer(peer, to: session, withContext: nil, timeout: t)
     }
     
+    func send(peers: [MCPeerID], data: Data) {
+        guard !peers.isEmpty else { return }
+        do {
+            try session.send(data, toPeers: session.connectedPeers, with: .reliable)
+        } catch {
+            print("Error sending \(data.count) bytes: \(error)")
+        }
+    }
+    
     func send(data: Data) {
         guard !session.connectedPeers.isEmpty else { return }
         do {
