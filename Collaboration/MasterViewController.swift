@@ -23,6 +23,8 @@ class MasterViewController: UITableViewController, TaskListProtocol {
     var detailViewController: DetailViewController? = nil
     let sectionHeaders = ["Ongoing", "Done"]
     
+    var peerToPeer = PeerToPeerManager()
+    
     // Gets called when user clicks on the Add button
     @IBAction func AddClicked(_ sender: UIBarButtonItem) {
         print ("M - AddClicked \(String(describing: selectedTask?.title))")
@@ -92,7 +94,7 @@ class MasterViewController: UITableViewController, TaskListProtocol {
                 dvc = segue.destination as! DetailViewController
             }
             dvc.delegate = self
-            // dvc.peerlist = ptp.session.connectedPeers        // TODO ptp
+            dvc.peerlist = peerToPeer.session.connectedPeers
             let inoutStr = "inoutStr"
             let dataIn: Data? = inoutStr.data(using: .utf8)
             // ptp.send(data: (dataIn)!)
@@ -110,18 +112,7 @@ class MasterViewController: UITableViewController, TaskListProtocol {
     func update() {
         tableView.reloadData()
     }
-    
-    func manager(_ manager: PeerToPeerManager, didReceive data: Data) {
-        // sentData.json = sentData // only Rene
-        let sentData = String(data: data, encoding: .utf8)
-        print("Received data \(String(describing: sentData))")
-        view.setNeedsDisplay()
-    }
-    
-    func updatePeers() {
-        self.peers = peers
-    }
-    
+        
     // MARK: - Table View
     
     override func numberOfSections(in tableView: UITableView) -> Int {

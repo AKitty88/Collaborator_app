@@ -14,6 +14,7 @@
 
 import UIKit
 import Foundation
+import MultipeerConnectivity
 
 class DetailViewController: UITableViewController, UITextFieldDelegate, PeerToPeerManagerDelegate {
     
@@ -26,7 +27,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate, PeerToPe
     
     var peerToPeer = PeerToPeerManager()
     var sentData = SentData()
-    var peerlist = [Collaborator?]()
+    var peerlist = [MCPeerID]()
     
     /// Helps to decide which cell it is
     enum Sections: Int {
@@ -35,11 +36,22 @@ class DetailViewController: UITableViewController, UITextFieldDelegate, PeerToPe
         case sectionC = 2
     }
     
-    @IBAction func viewTapped(_ sender: Any) {
+    @IBAction func CollaboratorTapped(_ sender: Any) {
         peerToPeer.send(data: sentData.json)
         view.setNeedsDisplay()
     }
     
+    func manager(_ manager: PeerToPeerManager, didReceive data: Data) {
+        // sentData.json = sentData // only Rene
+        let sentData = String(data: data, encoding: .utf8)
+        print("Received data \(String(describing: sentData))")
+        view.setNeedsDisplay()
+    }
+    
+    func updatePeers() {
+        self.peerlist = peerToPeer.session.connectedPeers
+    }
+        
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationItem.title = "Task"
@@ -131,7 +143,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate, PeerToPe
         else if identifier == "Detail Cell B" {
             let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! UITableViewCell
             
-            cell.textLabel?.text = peerlist[indexPath.row]?.getName()
+            cell.textLabel?.text = peerlist[indexPath.row].getName()
             return cell
         }
         else if identifier == "Detail Cell C" {

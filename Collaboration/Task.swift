@@ -9,7 +9,7 @@
 import Foundation
 
 /// Properties and methods of the tasks
-class Task {
+class Task: Codable {
     ///  description of the task
     var title: String
     /// date of the log (when it was created)
