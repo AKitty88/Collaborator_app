@@ -42,9 +42,8 @@ class DetailViewController: UITableViewController, UITextFieldDelegate, PeerToPe
     }
     
     func manager(_ manager: PeerToPeerManager, didReceive data: Data) {
-        // sentData.json = sentData // only Rene
-        let sentData = String(data: data, encoding: .utf8)
-        print("Received data \(String(describing: sentData))")
+        self.sentData.json = data
+        print("Received data \(String(describing: self.sentData.json))")
         view.setNeedsDisplay()
     }
     
