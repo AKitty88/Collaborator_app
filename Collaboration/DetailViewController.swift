@@ -13,6 +13,7 @@
 
 
 import UIKit
+import Foundation
 
 class DetailViewController: UITableViewController, UITextFieldDelegate, PeerToPeerManagerDelegate {
     

@@ -14,34 +14,30 @@ protocol PeerToPeerManagerDelegate: AnyObject {
 }
 
 class PeerToPeerManager: NSObject {
-    static let serviceType = "animal-exchange"
-    
+    static let serviceType = "task-exchange"
     var delegate: PeerToPeerManagerDelegate?
     
-    private let peerId = MCPeerID(displayName: "Rene Hexel")
+    private let peerId = MCPeerID(displayName: "first person")
     private let serviceAdvertiser: MCNearbyServiceAdvertiser
     private let serviceBrowser: MCNearbyServiceBrowser
+    public var session: MCSession
     
     override init() {
         let service = PeerToPeerManager.serviceType
         serviceAdvertiser = MCNearbyServiceAdvertiser(peer: peerId, discoveryInfo: [ peerId.displayName : UIDevice.current.name ], serviceType: service)
         serviceBrowser = MCNearbyServiceBrowser(peer: peerId, serviceType: service)
+        session = MCSession(peer: peerId, securityIdentity: nil, encryptionPreference: .required)
         super.init()
         serviceAdvertiser.delegate = self
         serviceAdvertiser.startAdvertisingPeer()
         serviceBrowser.delegate = self
         serviceBrowser.startBrowsingForPeers()
+        session.delegate = self
     }
     
     deinit {
         serviceAdvertiser.stopAdvertisingPeer()
     }
-    
-    lazy var session: MCSession = {
-        let session = MCSession(peer: peerId, securityIdentity: nil, encryptionPreference: .required)
-        session.delegate = self
-        return session
-    }()
     
     func invite(peer: MCPeerID, timeout t: TimeInterval = 10) {
         print("inviting \(peer.displayName)")
