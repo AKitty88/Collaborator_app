@@ -103,6 +103,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate, PeerToPe
         else {
             return 1
         }
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -143,7 +144,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate, PeerToPe
         else if identifier == "Detail Cell B" {
             let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! UITableViewCell
             
-            cell.textLabel?.text = peerlist[indexPath.row].getName()
+            cell.textLabel?.text = peerlist[indexPath.row].displayName
             return cell
         }
         else if identifier == "Detail Cell C" {

@@ -22,8 +22,6 @@
 		4288586920B3B01A00CE649B /* Task_Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4288586820B3B01A00CE649B /* Task_Json.swift */; };
 		42A0924920B2465500BBA917 /* PeerToPeer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A0924820B2465500BBA917 /* PeerToPeer.swift */; };
 		42A0924B20B25DE300BBA917 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A0924A20B25DE300BBA917 /* ChatView.swift */; };
-		42A0924D20B2672F00BBA917 /* SentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A0924C20B2672F00BBA917 /* SentData.swift */; };
-		42FABC4F20B2A72F0019E810 /* Collaborator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FABC4E20B2A72F0019E810 /* Collaborator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,8 +63,6 @@
 		4288586820B3B01A00CE649B /* Task_Json.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task_Json.swift; sourceTree = "<group>"; };
 		42A0924820B2465500BBA917 /* PeerToPeer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerToPeer.swift; sourceTree = "<group>"; };
 		42A0924A20B25DE300BBA917 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
-		42A0924C20B2672F00BBA917 /* SentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentData.swift; sourceTree = "<group>"; };
-		42FABC4E20B2A72F0019E810 /* Collaborator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collaborator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,8 +126,6 @@
 				4219C40B20ABC536000E9E21 /* MyTableViewCellForTaskname.swift */,
 				42A0924820B2465500BBA917 /* PeerToPeer.swift */,
 				42A0924A20B25DE300BBA917 /* ChatView.swift */,
-				42A0924C20B2672F00BBA917 /* SentData.swift */,
-				42FABC4E20B2A72F0019E810 /* Collaborator.swift */,
 				4288586820B3B01A00CE649B /* Task_Json.swift */,
 			);
 			path = Collaboration;
@@ -292,11 +286,9 @@
 				4219C40C20ABC536000E9E21 /* MyTableViewCellForTaskname.swift in Sources */,
 				4236220020914D990005E038 /* DetailViewController.swift in Sources */,
 				4219C40A20ABC175000E9E21 /* MyTableViewCellForLog.swift in Sources */,
-				42FABC4F20B2A72F0019E810 /* Collaborator.swift in Sources */,
 				423621D2209146D00005E038 /* MasterViewController.swift in Sources */,
 				42A0924B20B25DE300BBA917 /* ChatView.swift in Sources */,
 				4288586920B3B01A00CE649B /* Task_Json.swift in Sources */,
-				42A0924D20B2672F00BBA917 /* SentData.swift in Sources */,
 				4236227E2091702B0005E038 /* Task.swift in Sources */,
 				4236227C20916F670005E038 /* TaskListProtocol.swift in Sources */,
 				42A0924920B2465500BBA917 /* PeerToPeer.swift in Sources */,

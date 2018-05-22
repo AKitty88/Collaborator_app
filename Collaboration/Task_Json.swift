@@ -15,4 +15,8 @@ class Task_Json {
         get { return try! JSONEncoder().encode(forJson)}
         set { forJson = try! JSONDecoder().decode(Task.self, from: newValue)}
     }
+    
+    init(data: Data) {
+        json = data
+    }
 }
