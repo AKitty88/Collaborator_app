@@ -95,6 +95,7 @@ class MasterViewController: UITableViewController, TaskListProtocol {
             }
             dvc.delegate = self
             dvc.peerlist = peerToPeer.session.connectedPeers
+            print ("dvc.peerlist: \(dvc.peerlist)")
             let inoutStr = "inoutStr"
             let dataIn: Data? = inoutStr.data(using: .utf8)
             peerToPeer.send(data: (dataIn)!)

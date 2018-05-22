@@ -40,9 +40,9 @@ class PeerToPeerManager: NSObject {
     }
     
     func invite(peer: MCPeerID, timeout t: TimeInterval = 10) {
-        print("inviting \(peer.displayName)")
+        print("inviting \(peer.displayName)")        
         serviceBrowser.invitePeer(peer, to: session, withContext: nil, timeout: t)
-        
+        print("session: \(session) , session.connectedPeers: \(session.connectedPeers)")
     }
     
     func send(peers: [MCPeerID], data: Data) {
