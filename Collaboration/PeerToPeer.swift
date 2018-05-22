@@ -14,7 +14,7 @@ protocol PeerToPeerManagerDelegate: AnyObject {
 }
 
 class PeerToPeerManager: NSObject {
-    static let serviceType = "task-exchange"
+    static let serviceType = "task-kitty"
     var delegate: PeerToPeerManagerDelegate?
     
     private let peerId = MCPeerID(displayName: "first person")
@@ -23,35 +23,28 @@ class PeerToPeerManager: NSObject {
     public var session: MCSession
     
     override init() {
+        print("Initialising P2P Manager")
         let service = PeerToPeerManager.serviceType
+        session = MCSession(peer: peerId, securityIdentity: nil, encryptionPreference: .required)
         serviceAdvertiser = MCNearbyServiceAdvertiser(peer: peerId, discoveryInfo: [ peerId.displayName : UIDevice.current.name ], serviceType: service)
         serviceBrowser = MCNearbyServiceBrowser(peer: peerId, serviceType: service)
-        session = MCSession(peer: peerId, securityIdentity: nil, encryptionPreference: .required)
         super.init()
+        session.delegate = self
         serviceAdvertiser.delegate = self
         serviceAdvertiser.startAdvertisingPeer()
         serviceBrowser.delegate = self
         serviceBrowser.startBrowsingForPeers()
-        session.delegate = self
     }
     
     deinit {
         serviceAdvertiser.stopAdvertisingPeer()
+        serviceBrowser.stopBrowsingForPeers()
     }
     
     func invite(peer: MCPeerID, timeout t: TimeInterval = 10) {
         print("inviting \(peer.displayName)")        
         serviceBrowser.invitePeer(peer, to: session, withContext: nil, timeout: t)
         print("session: \(session) , session.connectedPeers: \(session.connectedPeers)")
-    }
-    
-    func send(peers: [MCPeerID], data: Data) {
-        guard !peers.isEmpty else { return }
-        do {
-            try session.send(data, toPeers: session.connectedPeers, with: .reliable)
-        } catch {
-            print("Error sending \(data.count) bytes: \(error)")
-        }
     }
     
     func send(data: Data) {
@@ -93,14 +86,14 @@ extension PeerToPeerManager: MCNearbyServiceBrowserDelegate {
 
 extension PeerToPeerManager: MCSessionDelegate {
     func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
-        print("peer \(peerID) didChangeState: \(state)")
+        print("peer \(peerID) didChangeState: \(state.rawValue)")
     }
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         print("didReceiveData: \(data)")
-        DispatchQueue.main.async {
-            self.delegate?.manager(self, didReceive: data)
-        }
+        //DispatchQueue.main.async {
+            delegate?.manager(self, didReceive: data)
+        //}
     }
     
     func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {

@@ -18,12 +18,12 @@ class MasterViewController: UITableViewController, TaskListProtocol {
     var selectedTask: Task?
     /// array of the tasks
     var taskList = [[Task(title: "test1")], [Task(title: "test2")]]
-        
+    
+    var p2p: PeerToPeerManager()
+    
     // @IBOutlet weak var myTableView: UITableView!
     var detailViewController: DetailViewController? = nil
     let sectionHeaders = ["Ongoing", "Done"]
-    
-    var peerToPeer = PeerToPeerManager()
     
     // Gets called when user clicks on the Add button
     @IBAction func AddClicked(_ sender: UIBarButtonItem) {
@@ -58,6 +58,8 @@ class MasterViewController: UITableViewController, TaskListProtocol {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         navigationItem.leftBarButtonItem = editButtonItem
+
+        p2p.delegate = self
         
         if let split = splitViewController {
             let controllers = split.viewControllers
@@ -94,11 +96,13 @@ class MasterViewController: UITableViewController, TaskListProtocol {
                 dvc = segue.destination as! DetailViewController
             }
             dvc.delegate = self
-            dvc.peerlist = peerToPeer.session.connectedPeers
-            print ("dvc.peerlist: \(dvc.peerlist)")
-            let inoutStr = "inoutStr"
-            let dataIn: Data? = inoutStr.data(using: .utf8)
-            peerToPeer.send(data: (dataIn)!)
+//            dvc.peerlist = dvc.peerToPeer.session.connectedPeers
+            dvc.peerlist = p2p.session.connectedPeers
+
+//            print ("dvc.peerlist: \(dvc.peerlist)")
+//            let inoutStr = "inoutStr"
+//            let dataIn: Data? = inoutStr.data(using: .utf8)
+//            dvc.peerToPeer.send(data: (dataIn)!)
             
             if let indexPath = tableView.indexPathForSelectedRow {
                 let task = taskList[indexPath.section][indexPath.row]

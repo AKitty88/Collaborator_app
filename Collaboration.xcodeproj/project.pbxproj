@@ -118,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				423621CF209146D00005E038 /* AppDelegate.swift */,
+				42A0924820B2465500BBA917 /* PeerToPeer.swift */,
 				423621D1209146D00005E038 /* MasterViewController.swift */,
 				423621FF20914D990005E038 /* DetailViewController.swift */,
 				423621D5209146D00005E038 /* Main.storyboard */,
@@ -128,7 +129,6 @@
 				4236227D2091702B0005E038 /* Task.swift */,
 				4219C40920ABC175000E9E21 /* MyTableViewCellForLog.swift */,
 				4219C40B20ABC536000E9E21 /* MyTableViewCellForTaskname.swift */,
-				42A0924820B2465500BBA917 /* PeerToPeer.swift */,
 				42A0924A20B25DE300BBA917 /* ChatView.swift */,
 				4288586A20B3D62B00CE649B /* SentData.swift */,
 				4288586820B3B01A00CE649B /* Task_Json.swift */,
