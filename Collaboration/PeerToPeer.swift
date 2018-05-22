@@ -11,6 +11,7 @@ import MultipeerConnectivity
 
 protocol PeerToPeerManagerDelegate: AnyObject {
     func manager(_ manager: PeerToPeerManager, didReceive data: Data)
+    func updatePeers()
 }
 
 class PeerToPeerManager: NSObject {

@@ -9,7 +9,7 @@
 
 import UIKit
 
-class MasterViewController: UITableViewController, TaskListProtocol {
+class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerManagerDelegate {
     /// the section of the task which is selected at the moment (property of TaskListProtocol)
     var selectedItemSection: Int?
     /// the index of the task which is selected at the moment (property of TaskListProtocol)
@@ -19,7 +19,9 @@ class MasterViewController: UITableViewController, TaskListProtocol {
     /// array of the tasks
     var taskList = [[Task(title: "test1")], [Task(title: "test2")]]
     
-    var p2p: PeerToPeerManager()
+    var sentData = SentData()
+    
+    var peerToPeer = PeerToPeerManager()
     
     // @IBOutlet weak var myTableView: UITableView!
     var detailViewController: DetailViewController? = nil
@@ -52,6 +54,17 @@ class MasterViewController: UITableViewController, TaskListProtocol {
         navigationController?.popViewController(animated: true)
     }
     
+    func manager(_ manager: PeerToPeerManager, didReceive data: Data) {
+        self.sentData.json = data
+        print("Received data \(String(describing: self.sentData.json))")
+        //        view.setNeedsDisplay()
+    }
+    
+    func updatePeers() {
+        detailViewController?.peerlist = peerToPeer.session.connectedPeers
+        detailViewController?.tableView.reloadData()        // DEBUG: might not need it
+    }
+    
     override func viewDidLoad() {
         print ("M - viewDidLoad \(String(describing: selectedTask?.title))")
         
@@ -59,7 +72,7 @@ class MasterViewController: UITableViewController, TaskListProtocol {
         // Do any additional setup after loading the view, typically from a nib.
         navigationItem.leftBarButtonItem = editButtonItem
 
-        p2p.delegate = self
+        peerToPeer.delegate = self
         
         if let split = splitViewController {
             let controllers = split.viewControllers
@@ -97,7 +110,7 @@ class MasterViewController: UITableViewController, TaskListProtocol {
             }
             dvc.delegate = self
 //            dvc.peerlist = dvc.peerToPeer.session.connectedPeers
-            dvc.peerlist = p2p.session.connectedPeers
+            dvc.peerlist = peerToPeer.session.connectedPeers
 
 //            print ("dvc.peerlist: \(dvc.peerlist)")
 //            let inoutStr = "inoutStr"

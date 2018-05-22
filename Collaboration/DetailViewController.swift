@@ -16,7 +16,7 @@ import UIKit
 import Foundation
 import MultipeerConnectivity
 
-class DetailViewController: UITableViewController, UITextFieldDelegate, PeerToPeerManagerDelegate {
+class DetailViewController: UITableViewController, UITextFieldDelegate {
     
     /// delegate (the MasterViewController)
     var delegate: TaskListProtocol!
@@ -25,8 +25,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate, PeerToPe
     /// helps to find cell for the clicked textfield
     var textFieldIndexPath: IndexPath? = nil
     
-    var peerToPeer = PeerToPeerManager()
-    var sentData = SentData()
+//    var peerToPeer = PeerToPeerManager()
     var peerlist = [MCPeerID]()
     
     /// Helps to decide which cell it is
@@ -37,20 +36,10 @@ class DetailViewController: UITableViewController, UITextFieldDelegate, PeerToPe
     }
     
     @IBAction func CollaboratorTapped(_ sender: Any) {
-        peerToPeer.send(data: sentData.json)
+        //peerToPeer.send(data: sentData.json)
         view.setNeedsDisplay()
     }
     
-    func manager(_ manager: PeerToPeerManager, didReceive data: Data) {
-        self.sentData.json = data
-        print("Received data \(String(describing: self.sentData.json))")
-        view.setNeedsDisplay()
-    }
-    
-    func updatePeers() {
-        self.peerlist = peerToPeer.session.connectedPeers
-    }
-        
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationItem.title = "Task"
@@ -73,7 +62,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate, PeerToPe
         print ("D - viewDidLoad \(String(describing: delegate.selectedTask?.title))")
         
         super.viewDidLoad()
-        peerToPeer.delegate = self
+        // peerToPeer.delegate = self
     }
     
     override func didReceiveMemoryWarning() {
