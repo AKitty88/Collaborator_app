@@ -60,9 +60,9 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
         //        view.setNeedsDisplay()
     }
     
-    func updatePeers() {
-        detailViewController?.peerlist = peerToPeer.session.connectedPeers
-        detailViewController?.tableView.reloadData()        // DEBUG: might not need it
+    func updatePeers() {                                                            // DEBUG: might not need it
+        detailViewController?.peerlist = peerToPeer.session.connectedPeers          // DEBUG: might not need it
+        detailViewController?.tableView.reloadData()                                // DEBUG: might not need it
     }
     
     override func viewDidLoad() {

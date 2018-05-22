@@ -18,7 +18,7 @@ class PeerToPeerManager: NSObject {
     static let serviceType = "task-kitty"
     var delegate: PeerToPeerManagerDelegate?
     
-    private let peerId = MCPeerID(displayName: "first person")
+    private let peerId = MCPeerID(displayName: "first person")//rand.nr
     private let serviceAdvertiser: MCNearbyServiceAdvertiser
     private let serviceBrowser: MCNearbyServiceBrowser
     public var session: MCSession
