@@ -232,9 +232,41 @@
                     <navigationItem key="navigationItem" id="RYA-Qr-3Bc"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ElE-7w-yVF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="Yec-jw-1S3"/>
+                <tapGestureRecognizer id="Yec-jw-1S3">
+                    <connections>
+                        <segue destination="ACA-OA-yVd" kind="show" id="aoI-TF-2cU"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="866.39999999999998" y="127.28635682158921"/>
+        </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="Sr2-cM-ELZ">
+            <objects>
+                <tableViewController id="ACA-OA-yVd" customClass="ChatViewController" customModule="Collaboration" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Wrp-6h-iLL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="DgQ-fB-SBn">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DgQ-fB-SBn" id="mxp-hf-C3c">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ACA-OA-yVd" id="F5K-MW-3gB"/>
+                            <outlet property="delegate" destination="ACA-OA-yVd" id="4Ip-XU-nXy"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sfW-Lc-72I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1676" y="129"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
