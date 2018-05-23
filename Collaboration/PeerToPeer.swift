@@ -50,7 +50,7 @@ class PeerToPeerManager: NSObject {
         print("session: \(session) , session.connectedPeers: \(session.connectedPeers)")
     }
     
-    func send(data: Data) {             // peerToPeer.send(data: viewModel.json) -> put in CollaboratorTapped action (connect action)
+    func send(data: Data) {
         print("PtP - send")
         
         guard !session.connectedPeers.isEmpty else { return }

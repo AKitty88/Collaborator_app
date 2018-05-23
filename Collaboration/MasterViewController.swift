@@ -9,7 +9,8 @@
 
 import UIKit
 
-class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerManagerDelegate {
+class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerManagerDelegate {    
+    
     /// the section of the task which is selected at the moment (property of TaskListProtocol)
     var selectedItemSection: Int?
     /// the index of the task which is selected at the moment (property of TaskListProtocol)
@@ -20,6 +21,8 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
     var taskList = [[Task(title: "test1")], [Task(title: "test2")]]
     
     var peerToPeer = PeerToPeerManager()
+    
+   var sentData: Task_Json?
     
     // @IBOutlet weak var myTableView: UITableView!
     var detailViewController: DetailViewController? = nil
@@ -53,9 +56,8 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
     }
     
     func manager(_ manager: PeerToPeerManager, didReceive data: Data) {            // TODO
-        //self.sentData.json = data
-        //print("Received data \(String(describing: self.sentData.json))")
-        //        view.setNeedsDisplay()
+        self.sentData?.json = data
+        print("Received data \(String(describing: self.sentData?.json))")
     }
     
     func updatePeers() {                                                            // DEBUG: might not need it

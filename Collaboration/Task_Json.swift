@@ -16,7 +16,6 @@ class Task_Json {
         set { forJson = try! JSONDecoder().decode(Task.self, from: newValue)}
     }
     
-    init(data: Data) {
-        json = data
+    init() {        
     }
 }

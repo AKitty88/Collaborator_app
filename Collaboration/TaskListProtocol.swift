@@ -17,7 +17,9 @@ protocol TaskListProtocol {
     /// the task which is selected at the moment
     var selectedTask: Task? {get}
     
-    var sentData: SentData? {get}
+    var sentData: Task_Json? {get set}
+    
+    var peerToPeer: PeerToPeerManager {get}
     
     /**
      Saves the task that is being edited

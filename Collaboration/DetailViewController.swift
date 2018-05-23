@@ -38,7 +38,10 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
     @objc func CollaboratorTapped(_ sender: UITapGestureRecognizer) {
         //delegate.peerToPeer.send(data: viewModel.json)
         print ("tapped")
-        delegate.send(data: "MY sent data")
+        
+        delegate.sentData = Task_Json()
+        delegate.peerToPeer.send(data: (delegate.sentData?.json)!)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
