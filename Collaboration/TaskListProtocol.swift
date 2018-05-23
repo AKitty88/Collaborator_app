@@ -17,6 +17,8 @@ protocol TaskListProtocol {
     /// the task which is selected at the moment
     var selectedTask: Task? {get}
     
+    var sentData: SentData? {get}
+    
     /**
      Saves the task that is being edited
      - parameter task : description of task
