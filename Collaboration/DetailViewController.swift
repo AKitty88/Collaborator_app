@@ -16,7 +16,25 @@ import UIKit
 import Foundation
 import MultipeerConnectivity
 
-class DetailViewController: UITableViewController, UITextFieldDelegate {
+class DetailViewController: UITableViewController, UITextFieldDelegate, TaskListProtocol {
+    var selectedItemSection: Int?
+    
+    var selectedItemIndex: Int?
+    
+    var selectedTask: Task?
+    
+    var sentData: Task_Json?
+    
+    var peerToPeer = PeerToPeerManager ()
+    
+    func save(withName task: String, history log: String) {
+        <#code#>
+    }
+    
+    func cancel() {
+        <#code#>
+    }
+    
     
     /// delegate (the MasterViewController)
     var delegate: TaskListProtocol!
@@ -41,12 +59,14 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
         
         delegate.sentData = Task_Json()
         delegate.peerToPeer.send(data: (delegate.sentData?.json)!)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationItem.title = "Task"
+        
+        selectedTask = delegate.selectedTask
+        
     }
     
     /// Gets invoked just before the view disappears
