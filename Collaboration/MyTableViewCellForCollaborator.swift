@@ -10,8 +10,5 @@ import Foundation
 import UIKit
 
 class MyTableViewCellForCollaborator: UITableViewCell {
-    
-    var user = String()
-    
     @IBOutlet weak var myLabel: UILabel!
 }

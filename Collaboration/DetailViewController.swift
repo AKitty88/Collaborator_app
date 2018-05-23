@@ -136,7 +136,6 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
         else if identifier == "Detail Cell B" {
             let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! MyTableViewCellForCollaborator
             
-            cell.user = peerlist[indexPath.row].displayName
             cell.myLabel.text = peerlist[indexPath.row].displayName
             return cell
         }
@@ -190,9 +189,8 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 1 {
-            let cell = tableView.cellForRow(at: indexPath) as! MyTableViewCellForCollaborator
-            print ("Collab is \(cell.user)")
+        if indexPath.section == 1 {            
+            CollaboratorClicked()
         }
     }
     
