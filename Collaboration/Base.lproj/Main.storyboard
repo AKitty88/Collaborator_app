@@ -152,16 +152,24 @@
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eEc-L0-8Bg">
                                             <rect key="frame" x="16" y="12" width="343" height="21"/>
+                                            <gestureRecognizers/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
+                                            <connections>
+                                                <outletCollection property="gestureRecognizers" destination="Yec-jw-1S3" appends="YES" id="msp-bd-hmu"/>
+                                            </connections>
                                         </label>
                                     </subviews>
+                                    <gestureRecognizers/>
                                     <constraints>
                                         <constraint firstItem="eEc-L0-8Bg" firstAttribute="leading" secondItem="hGw-j0-bA2" secondAttribute="leadingMargin" id="2sO-b0-NHp"/>
                                         <constraint firstItem="eEc-L0-8Bg" firstAttribute="bottom" secondItem="hGw-j0-bA2" secondAttribute="bottomMargin" id="INa-EL-5vz"/>
                                         <constraint firstItem="eEc-L0-8Bg" firstAttribute="trailing" secondItem="hGw-j0-bA2" secondAttribute="trailingMargin" id="aEc-e4-i28"/>
                                     </constraints>
+                                    <connections>
+                                        <outletCollection property="gestureRecognizers" destination="Yec-jw-1S3" appends="YES" id="v3y-Xi-QTQ"/>
+                                    </connections>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="myLabel" destination="eEc-L0-8Bg" id="Z0a-me-RWE"/>
@@ -224,6 +232,7 @@
                     <navigationItem key="navigationItem" id="RYA-Qr-3Bc"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ElE-7w-yVF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Yec-jw-1S3"/>
             </objects>
             <point key="canvasLocation" x="866.39999999999998" y="127.28635682158921"/>
         </scene>

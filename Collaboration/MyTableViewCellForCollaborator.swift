@@ -11,6 +11,4 @@ import UIKit
 
 class MyTableViewCellForCollaborator: UITableViewCell {
     @IBOutlet weak var myLabel: UILabel!
-    
-    
 }

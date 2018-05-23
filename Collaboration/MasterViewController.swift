@@ -52,9 +52,9 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
         navigationController?.popViewController(animated: true)
     }
     
-    func manager(_ manager: PeerToPeerManager, didReceive data: Data) {
-        self.sentData.json = data
-        print("Received data \(String(describing: self.sentData.json))")
+    func manager(_ manager: PeerToPeerManager, didReceive data: Data) {            // TODO
+        //self.sentData.json = data
+        //print("Received data \(String(describing: self.sentData.json))")
         //        view.setNeedsDisplay()
     }
     

@@ -35,9 +35,9 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
         case sectionC = 2
     }
     
-    @IBAction func CollaboratorTapped(_ sender: Any) {
-        delegate.peerToPeer.send(data: viewModel.json)
-        view.setNeedsDisplay()
+    @objc func CollaboratorTapped(_ sender: UITapGestureRecognizer) {
+        //delegate.peerToPeer.send(data: viewModel.json)
+        print ("tapped")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,8 +60,11 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         print ("D - viewDidLoad \(String(describing: delegate.selectedTask?.title))")
-        
         super.viewDidLoad()
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(CollaboratorTapped))
+        tap.numberOfTapsRequired = 1
+        view.addGestureRecognizer(tap)
     }
     
     override func didReceiveMemoryWarning() {
@@ -129,9 +132,9 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
             return cell
         }
         else if identifier == "Detail Cell B" {
-            let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! UITableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! MyTableViewCellForCollaborator
             
-            cell.textLabel?.text = peerlist[indexPath.row].displayName
+            cell.myLabel.text = peerlist[indexPath.row].displayName
             return cell
         }
         else if identifier == "Detail Cell C" {
