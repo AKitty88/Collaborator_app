@@ -36,7 +36,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
     }
     
     @IBAction func CollaboratorTapped(_ sender: Any) {
-        //peerToPeer.send(data: sentData.json)
+        delegate.peerToPeer.send(data: viewModel.json)
         view.setNeedsDisplay()
     }
     
@@ -62,7 +62,6 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
         print ("D - viewDidLoad \(String(describing: delegate.selectedTask?.title))")
         
         super.viewDidLoad()
-        // peerToPeer.delegate = self
     }
     
     override func didReceiveMemoryWarning() {

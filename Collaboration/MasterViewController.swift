@@ -19,8 +19,6 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
     /// array of the tasks
     var taskList = [[Task(title: "test1")], [Task(title: "test2")]]
     
-    var sentData = SentData()
-    
     var peerToPeer = PeerToPeerManager()
     
     // @IBOutlet weak var myTableView: UITableView!

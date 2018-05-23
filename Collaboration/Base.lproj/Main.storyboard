@@ -143,22 +143,29 @@
                                     <outlet property="myTextLabel" destination="sbE-Y9-Ypm" id="IJD-jD-opB"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Detail Cell B" textLabel="n4O-BU-HeT" style="IBUITableViewCellStyleDefault" id="MpD-Jo-uhS">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Detail Cell B" id="MpD-Jo-uhS" customClass="MyTableViewCellForCollaborator" customModule="Collaboration" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="99.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MpD-Jo-uhS" id="hGw-j0-bA2">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="n4O-BU-HeT">
-                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eEc-L0-8Bg">
+                                            <rect key="frame" x="16" y="12" width="343" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="eEc-L0-8Bg" firstAttribute="leading" secondItem="hGw-j0-bA2" secondAttribute="leadingMargin" id="2sO-b0-NHp"/>
+                                        <constraint firstItem="eEc-L0-8Bg" firstAttribute="bottom" secondItem="hGw-j0-bA2" secondAttribute="bottomMargin" id="INa-EL-5vz"/>
+                                        <constraint firstItem="eEc-L0-8Bg" firstAttribute="trailing" secondItem="hGw-j0-bA2" secondAttribute="trailingMargin" id="aEc-e4-i28"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="myLabel" destination="eEc-L0-8Bg" id="Z0a-me-RWE"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Detail Cell C" id="cRd-PJ-RMs" customClass="MyTableViewCellForLog" customModule="Collaboration" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="143.5" width="375" height="44"/>

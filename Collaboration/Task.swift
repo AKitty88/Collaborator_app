@@ -14,12 +14,21 @@ class Task: Codable {
     var title: String
     /// date of the log (when it was created)
     var date: String
+    
     /// people who worked on the log
     var collaborators: String
     // var log2 = [String]()       // []
     // var log3 = [String()]       // [""]
     /// array for the logs
     var logs = [String()]
+    
+    /* public required init(from decoder: Decoder) throws {
+        
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        
+    } */
     
     /**
      Constructor of the class
@@ -38,8 +47,7 @@ class Task: Codable {
         self.logs[0] = "created " + "\"" + "\(title)" + "\""
     }
     /// Returns the actual date and time
-    func getToday() -> String
-    {
+    func getToday() -> String {
         let dateformatter = DateFormatter()
         dateformatter.dateFormat = "dd/MM/yy, HH:mm a"
         let today = dateformatter.string(from: Date())

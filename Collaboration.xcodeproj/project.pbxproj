@@ -19,6 +19,7 @@
 		4236220020914D990005E038 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423621FF20914D990005E038 /* DetailViewController.swift */; };
 		4236227C20916F670005E038 /* TaskListProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236227B20916F670005E038 /* TaskListProtocol.swift */; };
 		4236227E2091702B0005E038 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236227D2091702B0005E038 /* Task.swift */; };
+		42415CDC20B5250500C69F70 /* MyTableViewCellForCollaborator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42415CDB20B5250500C69F70 /* MyTableViewCellForCollaborator.swift */; };
 		4288586920B3B01A00CE649B /* Task_Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4288586820B3B01A00CE649B /* Task_Json.swift */; };
 		4288586B20B3D62B00CE649B /* SentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4288586A20B3D62B00CE649B /* SentData.swift */; };
 		4288586C20B3D62B00CE649B /* SentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4288586A20B3D62B00CE649B /* SentData.swift */; };
@@ -63,6 +64,7 @@
 		423621FF20914D990005E038 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		4236227B20916F670005E038 /* TaskListProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListProtocol.swift; sourceTree = "<group>"; };
 		4236227D2091702B0005E038 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		42415CDB20B5250500C69F70 /* MyTableViewCellForCollaborator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCellForCollaborator.swift; sourceTree = "<group>"; };
 		4288586820B3B01A00CE649B /* Task_Json.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task_Json.swift; sourceTree = "<group>"; };
 		4288586A20B3D62B00CE649B /* SentData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentData.swift; sourceTree = "<group>"; };
 		42A0924820B2465500BBA917 /* PeerToPeer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerToPeer.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				42A0924A20B25DE300BBA917 /* ChatView.swift */,
 				4288586A20B3D62B00CE649B /* SentData.swift */,
 				4288586820B3B01A00CE649B /* Task_Json.swift */,
+				42415CDB20B5250500C69F70 /* MyTableViewCellForCollaborator.swift */,
 			);
 			path = Collaboration;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				4219C40C20ABC536000E9E21 /* MyTableViewCellForTaskname.swift in Sources */,
 				4236220020914D990005E038 /* DetailViewController.swift in Sources */,
 				4219C40A20ABC175000E9E21 /* MyTableViewCellForLog.swift in Sources */,
+				42415CDC20B5250500C69F70 /* MyTableViewCellForCollaborator.swift in Sources */,
 				423621D2209146D00005E038 /* MasterViewController.swift in Sources */,
 				42A0924B20B25DE300BBA917 /* ChatView.swift in Sources */,
 				4288586920B3B01A00CE649B /* Task_Json.swift in Sources */,
