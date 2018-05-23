@@ -96,9 +96,9 @@ extension PeerToPeerManager: MCSessionDelegate {
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         print("PtP - session didReceiveData: \(data)")
-        //DispatchQueue.main.async {
-            delegate?.manager(self, didReceive: data)
-        //}
+        DispatchQueue.main.async {
+            self.delegate?.manager(self, didReceive: data)
+        }
     }
     
     func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {

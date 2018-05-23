@@ -46,6 +46,11 @@ class Task: Codable {
         self.collaborators = collaborators
         self.logs[0] = "created " + "\"" + "\(title)" + "\""
     }
+    
+//    init(data: Data) {
+//        data.
+//    }
+    
     /// Returns the actual date and time
     func getToday() -> String {
         let dateformatter = DateFormatter()
