@@ -37,14 +37,18 @@ class ChatViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if section == 1 {
-            return (delegate.selectedTask?.logs.count)!
-        }
-            // else if section == 0
-        else {
-            return 1
-        }
-        return 1
+//        if section == 2 {
+//            return (delegate.selectedTask?.logs.count)!
+//        } else if section == 1 {
+//            return pe
+//        }
+//
+//            // else if section == 0
+//        else {
+//            return 1
+//        }
+                    return 0
+
     }
 
     /*

@@ -16,25 +16,7 @@ import UIKit
 import Foundation
 import MultipeerConnectivity
 
-class DetailViewController: UITableViewController, UITextFieldDelegate, TaskListProtocol {
-    var selectedItemSection: Int?
-    
-    var selectedItemIndex: Int?
-    
-    var selectedTask: Task?
-    
-    var sentData: Task_Json?
-    
-    var peerToPeer = PeerToPeerManager ()
-    
-    func save(withName task: String, history log: String) {
-        <#code#>
-    }
-    
-    func cancel() {
-        <#code#>
-    }
-    
+class DetailViewController: UITableViewController, UITextFieldDelegate {
     
     /// delegate (the MasterViewController)
     var delegate: TaskListProtocol!
@@ -53,9 +35,8 @@ class DetailViewController: UITableViewController, UITextFieldDelegate, TaskList
         case sectionC = 2
     }
     
-    @objc func CollaboratorTapped(_ sender: UITapGestureRecognizer) {
-        //delegate.peerToPeer.send(data: viewModel.json)
-        print ("tapped")
+    func CollaboratorClicked() {
+        print ("D - CollaboratorClicked")
         
         delegate.sentData = Task_Json()
         delegate.peerToPeer.send(data: (delegate.sentData?.json)!)
@@ -64,9 +45,6 @@ class DetailViewController: UITableViewController, UITextFieldDelegate, TaskList
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationItem.title = "Task"
-        
-        selectedTask = delegate.selectedTask
-        
     }
     
     /// Gets invoked just before the view disappears
@@ -86,9 +64,9 @@ class DetailViewController: UITableViewController, UITextFieldDelegate, TaskList
         print ("D - viewDidLoad \(String(describing: delegate.selectedTask?.title))")
         super.viewDidLoad()
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(CollaboratorTapped))
-        tap.numberOfTapsRequired = 1
-        view.addGestureRecognizer(tap)
+//        let tap = UITapGestureRecognizer(target: self, action: #selector(CollaboratorTapped))
+//        tap.numberOfTapsRequired = 1
+//        view.addGestureRecognizer(tap)
     }
     
     override func didReceiveMemoryWarning() {
@@ -158,6 +136,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate, TaskList
         else if identifier == "Detail Cell B" {
             let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! MyTableViewCellForCollaborator
             
+            cell.user = peerlist[indexPath.row].displayName
             cell.myLabel.text = peerlist[indexPath.row].displayName
             return cell
         }
@@ -209,5 +188,14 @@ class DetailViewController: UITableViewController, UITextFieldDelegate, TaskList
         textField.resignFirstResponder()
         return true
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1 {
+            let cell = tableView.cellForRow(at: indexPath) as! MyTableViewCellForCollaborator
+            print ("Collab is \(cell.user)")
+        }
+    }
+    
+    
 }
 
