@@ -9,11 +9,11 @@
 import Foundation
 
 class Task_Json {
-    var forJson: Task
+    var taskInJson: Task
     
     var json: Data {
-        get { return try! JSONEncoder().encode(forJson)}
-        set { forJson = try! JSONDecoder().decode(Task.self, from: newValue)}
+        get { return try! JSONEncoder().encode(taskInJson)}
+        set { taskInJson = try! JSONDecoder().decode(Task.self, from: newValue)}
     }
     
     init(tasklist: [Task], id: String) {
@@ -25,23 +25,23 @@ class Task_Json {
             }
             
             if found {
-                forJson = task
+                taskInJson = task
                 return
             }
         }
         
         if found == false {
-            forJson = Task(title: "Not found task")
+            taskInJson = Task(title: "Not found task")
         } else {
-            forJson = Task(title: "Found task")
+            taskInJson = Task(title: "Found task")
         }
     }
     
     init(to_json: Task) {
-        forJson = to_json
+        taskInJson = to_json
     }
     
     init() {
-        forJson = Task(title: "Default")
+        taskInJson = Task(title: "Default")
     }
 }

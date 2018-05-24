@@ -17,6 +17,9 @@ class Task: Codable {
     /// date of the log (when it was created)
     var date: String
     
+    /// tells us if the task is completed or ongoing
+    var completed: Bool
+    
     /// people who worked on the log
     var collaborators: String
     // var log2 = [String]()       // []
@@ -37,7 +40,7 @@ class Task: Codable {
      - parameter title : description of the task
      - collaborators : people who worked on the log
      */
-    init(title: String, collaborators: String = "Tim") {
+    init(title: String, collaborators: String = "Tim") {                // TODO: collaborators, test2
         self.title = title
         
         let dateformatter = DateFormatter()
@@ -45,6 +48,7 @@ class Task: Codable {
         let today = dateformatter.string(from: Date())
         
         self.date = today
+        self.completed = false
         self.collaborators = collaborators
         self.logs[0] = "created " + "\"" + "\(title)" + "\""
     }

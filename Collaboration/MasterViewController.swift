@@ -57,9 +57,13 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
     
     /// method called from session (didreceive) when data was received
     func manager(_ manager: PeerToPeerManager, didReceive data: Data) {
-        var json = Task_Json()
-        json.json = data
+        var task_json = Task_Json()
+        task_json.json = data
         print("Received data \(String(describing: data))")
+        
+        // if (task_json.taskInJson == )
+        
+        
         
         // Ongoing task
         if (selectedItemSection == 0) {
@@ -97,6 +101,7 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
             selectedTask = taskList[0][0]
             selectedItemSection = 0
             selectedItemIndex = 0
+            taskList[1][0].completed = true                                         // only for test2 default task
         }
     }
     
@@ -217,10 +222,12 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
         if (destinationIndexPath.section != sourceIndexPath.section) {
             if (destinationIndexPath.section == 0) {
                 selectedTask?.logMovedToOngoing()
+                selectedTask?.completed = false
             }
                 
             else if (destinationIndexPath.section == 1) {
                 selectedTask?.logMovedToCompleted()
+                selectedTask?.completed = true
             }            
             detailViewController?.tableView.reloadData()
         }
