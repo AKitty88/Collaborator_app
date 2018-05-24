@@ -22,14 +22,15 @@ class Task_Json {
     
     init(tasklist: [Task], id: String) {
         taskInJson = Task(title: "Not found task")
+        var counter = -1
         
         for task in tasklist {
+            counter += 1
+            
             if (task.task_id == id) {
                 found = true
-            }
-            
-            if found {
                 taskInJson = task
+                taskInJson.found_index = counter
             }
         }
     }

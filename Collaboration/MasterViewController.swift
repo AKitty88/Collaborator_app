@@ -57,17 +57,25 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
     
     /// method called from session (didreceive) when data was received
     func manager(_ manager: PeerToPeerManager, didReceive data: Data) {
+        
         var task_json = Task_Json()
         task_json.json = data
-        print("Received data \(String(describing: data))")
+        print("Received json: \(String(describing: task_json.json))")
         
         if (task_json.taskInJson.completed == false) {
-            task_json = Task_Json(tasklist: taskList[0], id: (selectedTask?.task_id)!)
+            task_json = Task_Json(tasklist: taskList[0], id: task_json.taskInJson.task_id)
+            
+            if (task_json.taskInJson.title == "Not found task" ) {
+                task_json.json = data
+                taskList.append([task_json.taskInJson])
+            } else {
+                
+            }
         }
         else if (task_json.taskInJson.completed == true) {
-            task_json = Task_Json(tasklist: taskList[1], id: (selectedTask?.task_id)!)
+            task_json = Task_Json(tasklist: taskList[1], id: task_json.taskInJson.task_id)
         }
-        
+        task_json.json = data
         
         
         
