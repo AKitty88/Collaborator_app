@@ -37,6 +37,10 @@ class Task_Json {
         }
     }
     
+    init(json: Task) {
+        forJson = json
+    }
+    
     init() {
         forJson = Task(title: "Default")
     }

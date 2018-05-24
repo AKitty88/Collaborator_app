@@ -60,6 +60,8 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
         json.json = data
         print("Received data \(String(describing: data))")
         
+        
+        
         // taskList[0].append(forJson)              // NEEDED !!!
     }
     
