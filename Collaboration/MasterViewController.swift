@@ -69,17 +69,19 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
                 task_json.json = data
                 taskList.append([task_json.taskInJson])
             } else {
-                
+                taskList[0][task_json.taskInJson.found_index!] = task_json.taskInJson
             }
         }
         else if (task_json.taskInJson.completed == true) {
             task_json = Task_Json(tasklist: taskList[1], id: task_json.taskInJson.task_id)
+            
+            if (task_json.taskInJson.title == "Not found task" ) {
+                task_json.json = data
+                taskList.append([task_json.taskInJson])
+            } else {
+                taskList[1][task_json.taskInJson.found_index!] = task_json.taskInJson
+            }
         }
-        task_json.json = data
-        
-        
-        
-        // taskList[0].append(forJson)              // NEEDED !!!
     }
     
     func updatePeers() {                                                            // DEBUG: might not need it
