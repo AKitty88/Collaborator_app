@@ -18,7 +18,7 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
     /// the task which is selected at the moment (property of TaskListProtocol)
     var selectedTask: Task?
     /// array of the tasks
-    var taskList = [[Task(title: "test1")], [Task(title: "test2")]]
+    var taskList = [[Task(title: "Test1")], [Task(title: "Test2")]]
     
     var peerToPeer = PeerToPeerManager()
     
@@ -74,10 +74,10 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
             }
         }
         else if (task_json.taskInJson.completed == true) {
-            task_json = Task_Json(tasklist: taskList[1], id: task_json.taskInJson.task_id!)
-            
-            if (task_json.taskInJson.title == "Not found task" ) {
-                task_json.json = data
+            task_json = Task_Json(tasklist: taskList[1], id: task_json.taskInJson.task_id!)     // define a find function instead of this TODO
+                                                                                                // it should return with the counter
+            if (task_json.taskInJson.title == "Not found task" ) {                              // I should delete the found_index and use taskList[0][counter]
+                task_json.json = data                                                           // taskList[0][counter].title = task_json.taskInJson.title, date, completed, logs (only these!)
                 taskList[1].append(task_json.taskInJson)
             } else {
                 taskList[1][task_json.taskInJson.found_index!] = task_json.taskInJson
