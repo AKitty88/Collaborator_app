@@ -82,6 +82,8 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
                 taskList[1][task_json.taskInJson.found_index!] = task_json.taskInJson
             }
         }
+        tableView.reloadData()
+        detailViewController?.tableView.reloadData()
     }
     
     func updatePeers() {                                                            // DEBUG: might not need it
