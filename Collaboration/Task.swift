@@ -10,6 +10,8 @@ import Foundation
 
 /// Properties and methods of the tasks
 class Task: Codable {
+    let a = UUID().uuidString
+    
     ///  description of the task
     var title: String
     /// date of the log (when it was created)
@@ -46,11 +48,7 @@ class Task: Codable {
         self.collaborators = collaborators
         self.logs[0] = "created " + "\"" + "\(title)" + "\""
     }
-    
-//    init(data: Data) {
-//        data.
-//    }
-    
+   
     /// Returns the actual date and time
     func getToday() -> String {
         let dateformatter = DateFormatter()
@@ -58,18 +56,22 @@ class Task: Codable {
         let today = dateformatter.string(from: Date())
         return today
     }
+    
     /// Gets invoked when the Add button is clicked, adds a new log line to the logs array
     func addLog() {
         self.logs.append("changed " + "\"" + "\(title)" + "\"")
     }
+    
     /// Gets invoked when the task is moved from the Ongoing section to the Completed section
     func logMovedToCompleted() {
         self.logs.append("changed status of " + "\"" + "\(title)" + "\" to completed")
     }
+    
     /// Gets invoked when the task is moved from the Completed section to the Ongoing section
     func logMovedToOngoing() {
         self.logs.append("changed status of " + "\"" + "\(title)" + "\" to ongoing")
     }
+    
     /// Gets invoked when the task's name is edited and return is pressed
     func taskNameChangedLog() {
         self.logs.append("changed topic to " + "\"" + "\(title)" + "\"")

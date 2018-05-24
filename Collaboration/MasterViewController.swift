@@ -56,10 +56,16 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
     }
     
     func manager(_ manager: PeerToPeerManager, didReceive data: Data) {            // TODO
-        self.sentData?.json = data
-        print("Received data \(String(describing: self.sentData?.json))")
+        var forJson = Task(title: "test")
+
+        var json: Data {
+            get { return try! JSONEncoder().encode(forJson)}
+            set { forJson = try! JSONDecoder().decode(Task.self, from: newValue)}
+        }
+        json = data
+        print("Received data \(String(describing: data))")
         
-        //taskList.append(Task(self.sentData?.json))
+        // taskList[0].append(forJson)              // NEEDED !!!
     }
     
     func updatePeers() {                                                            // DEBUG: might not need it
