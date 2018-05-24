@@ -67,7 +67,7 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
             
             if (task_json.taskInJson.title == "Not found task" ) {
                 task_json.json = data
-                taskList.append([task_json.taskInJson])
+                taskList[0].append(task_json.taskInJson)
             } else {
                 taskList[0][task_json.taskInJson.found_index!] = task_json.taskInJson
             }
@@ -77,7 +77,7 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
             
             if (task_json.taskInJson.title == "Not found task" ) {
                 task_json.json = data
-                taskList.append([task_json.taskInJson])
+                taskList[1].append(task_json.taskInJson)
             } else {
                 taskList[1][task_json.taskInJson.found_index!] = task_json.taskInJson
             }
