@@ -19,6 +19,8 @@ protocol TaskListProtocol {
     
     var sentData: Task_Json? {get set}
     
+    var taskList: [[Task]] {get set}
+    
     var peerToPeer: PeerToPeerManager {get}
     
     /**

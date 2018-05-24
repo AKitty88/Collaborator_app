@@ -122,7 +122,10 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
             
             if let indexPath = tableView.indexPathForSelectedRow {
                 let task = taskList[indexPath.section][indexPath.row]
+                selectedItemSection = indexPath.section
+                selectedItemIndex = indexPath.row
                 selectedTask = task
+                
                 
                 dvc.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 dvc.navigationItem.leftItemsSupplementBackButton = true
@@ -193,6 +196,8 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
         print ("M - tableView moveRowAt \(String(describing: selectedTask?.title))")
         let taskToMove = taskList[sourceIndexPath.section][sourceIndexPath.row]
         selectedTask = taskToMove
+        selectedItemSection = destinationIndexPath.section
+        selectedItemIndex = destinationIndexPath.row
         
         taskList[destinationIndexPath.section].insert(taskToMove, at: destinationIndexPath.row)
         taskList[sourceIndexPath.section].remove(at: sourceIndexPath.row)
