@@ -18,8 +18,6 @@ class Task_Json {
         set { taskInJson = try! JSONDecoder().decode(Task.self, from: newValue)}
     }
     
-    //func find(tasklist: [Task], id: String)
-    
     init(tasklist: [Task], id: String) {
         taskInJson = Task(title: "Not found task")
         var counter = -1

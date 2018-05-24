@@ -25,7 +25,6 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
     /// helps to find cell for the clicked textfield
     var textFieldIndexPath: IndexPath? = nil
     
-//    var peerToPeer = PeerToPeerManager()
     var peerlist = [MCPeerID]()
     
     /// Helps to decide which cell it is

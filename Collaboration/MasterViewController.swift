@@ -33,6 +33,7 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
         print ("M - AddClicked \(String(describing: selectedTask?.title))")
         
         taskList[0].append(Task(title: "New Task \(taskList[0].count)"))
+        taskList[0][taskList[0].count-1].task_id = UUID().uuidString
         tableView.reloadData()
     }
     
@@ -63,7 +64,7 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
         print("Received json: \(String(describing: task_json.json))")
         
         if (task_json.taskInJson.completed == false) {
-            task_json = Task_Json(tasklist: taskList[0], id: task_json.taskInJson.task_id)
+            task_json = Task_Json(tasklist: taskList[0], id: task_json.taskInJson.task_id!)
             
             if (task_json.taskInJson.title == "Not found task" ) {
                 task_json.json = data
@@ -73,7 +74,7 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
             }
         }
         else if (task_json.taskInJson.completed == true) {
-            task_json = Task_Json(tasklist: taskList[1], id: task_json.taskInJson.task_id)
+            task_json = Task_Json(tasklist: taskList[1], id: task_json.taskInJson.task_id!)
             
             if (task_json.taskInJson.title == "Not found task" ) {
                 task_json.json = data
@@ -109,6 +110,8 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
             selectedItemSection = 0
             selectedItemIndex = 0
             taskList[1][0].completed = true                                         // only for test2 default task
+            taskList[0][0].task_id = "AB8419ED-058E-4726-AB87-1CC88CD573DE"         // only for test1 default task
+            taskList[1][0].task_id = "AB8419ED-058E-4726-AB87-1CC88CD573DF"         // only for test2 default task
         }
     }
     

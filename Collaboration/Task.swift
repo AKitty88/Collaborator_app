@@ -11,7 +11,7 @@ import Foundation
 /// Properties and methods of the tasks
 class Task: Codable {
     /// unique identifier of the task
-    let task_id = UUID().uuidString    
+    var task_id: String?
     ///  description of the task
     var title: String
     /// date of the log (when it was created)
