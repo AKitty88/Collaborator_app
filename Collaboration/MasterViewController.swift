@@ -61,20 +61,15 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
         task_json.json = data
         print("Received data \(String(describing: data))")
         
-        // if (task_json.taskInJson == )
-        
-        
-        
-        // Ongoing task
-        if (selectedItemSection == 0) {
+        if (task_json.taskInJson.completed == false) {
             task_json = Task_Json(tasklist: taskList[0], id: (selectedTask?.task_id)!)
-        }                   // Completed task
-        else if (selectedItemSection == 1) {
+        }
+        else if (task_json.taskInJson.completed == true) {
             task_json = Task_Json(tasklist: taskList[1], id: (selectedTask?.task_id)!)
         }
-        else {              // Not found task
-            task_json = Task_Json(tasklist: taskList[1], id: String(-1))
-        }
+        
+        
+        
         
         // taskList[0].append(forJson)              // NEEDED !!!
     }
