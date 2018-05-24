@@ -22,7 +22,7 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
     
     var peerToPeer = PeerToPeerManager()
     
-   var sentData: Task_Json?
+   var sentData: Data?
     
     // @IBOutlet weak var myTableView: UITableView!
     var detailViewController: DetailViewController? = nil
@@ -55,12 +55,22 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
         navigationController?.popViewController(animated: true)
     }
     
-    func manager(_ manager: PeerToPeerManager, didReceive data: Data) {            // TODO
+    /// method called from session (didreceive) when data was received
+    func manager(_ manager: PeerToPeerManager, didReceive data: Data) {
         var json = Task_Json()
         json.json = data
         print("Received data \(String(describing: data))")
         
-        
+        // Ongoing task
+        if (selectedItemSection == 0) {
+            task_json = Task_Json(tasklist: taskList[0], id: (selectedTask?.task_id)!)
+        }                   // Completed task
+        else if (selectedItemSection == 1) {
+            task_json = Task_Json(tasklist: taskList[1], id: (selectedTask?.task_id)!)
+        }
+        else {              // Not found task
+            task_json = Task_Json(tasklist: taskList[1], id: String(-1))
+        }
         
         // taskList[0].append(forJson)              // NEEDED !!!
     }

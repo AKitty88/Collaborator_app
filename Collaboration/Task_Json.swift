@@ -37,8 +37,8 @@ class Task_Json {
         }
     }
     
-    init(json: Task) {
-        forJson = json
+    init(to_json: Task) {
+        forJson = to_json
     }
     
     init() {

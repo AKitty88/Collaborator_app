@@ -37,21 +37,9 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
     
     func CollaboratorClicked() {
         print ("D - CollaboratorClicked")
-        var task_json = Task_Json(json: delegate.selectedTask!)
-        
-//        // Ongoing task
-//        if (delegate.selectedItemSection == 0) {
-//            task_json = Task_Json(tasklist: delegate.taskList[0], id: (delegate.selectedTask?.task_id)!)
-//        }                   // Completed task
-//        else if (delegate.selectedItemSection == 1) {
-//            task_json = Task_Json(tasklist: delegate.taskList[1], id: (delegate.selectedTask?.task_id)!)
-//        }
-//        else {              // Not found task
-//            task_json = Task_Json(tasklist: delegate.taskList[1], id: String(-1))
-//        }
-        
-        delegate.sentData = task_json
-        delegate.peerToPeer.send(data: (delegate.sentData?.json)!)
+        let task_json = Task_Json(to_json: delegate.selectedTask!)
+        delegate.sentData = task_json.json
+        delegate.peerToPeer.send(data: (delegate.sentData)!)
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -17,9 +17,9 @@ protocol TaskListProtocol {
     /// the task which is selected at the moment
     var selectedTask: Task? {get}
     
-    var sentData: Task_Json? {get set}
+    var sentData: Data? {get set}
     
-    var taskList: [[Task]] {get set}
+    // var taskList: [[Task]] {get set}
     
     var peerToPeer: PeerToPeerManager {get}
     
