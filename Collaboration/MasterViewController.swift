@@ -61,26 +61,27 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
         
         var task_json = Task_Json()
         task_json.json = data
+        var found_index: Int
         print("Received json: \(String(describing: task_json.json))")
         
         if (task_json.taskInJson.completed == false) {
-            task_json = Task_Json(tasklist: taskList[0], id: task_json.taskInJson.task_id!)
+            found_index = task_json.find(tasklist: taskList[0], id: task_json.taskInJson.task_id!)
             
-            if (task_json.taskInJson.title == "Not found task" ) {
-                task_json.json = data
+            if (found_index == -1) {
                 taskList[0].append(task_json.taskInJson)
-            } else {
-                taskList[0][task_json.taskInJson.found_index!] = task_json.taskInJson
             }
+            else if (found_index > -1) {
+                taskList[0][found_index] = task_json.taskInJson
+            }                                                    // taskList[0][counter].title = task_json.taskInJson.title, date, completed, logs (only these!)
         }
         else if (task_json.taskInJson.completed == true) {
-            task_json = Task_Json(tasklist: taskList[1], id: task_json.taskInJson.task_id!)     // define a find function instead of this TODO
-                                                                                                // it should return with the counter
-            if (task_json.taskInJson.title == "Not found task" ) {                              // I should delete the found_index and use taskList[0][counter]
-                task_json.json = data                                                           // taskList[0][counter].title = task_json.taskInJson.title, date, completed, logs (only these!)
+            found_index = task_json.find(tasklist: taskList[1], id: task_json.taskInJson.task_id!)
+            
+            if (found_index == -1) {
                 taskList[1].append(task_json.taskInJson)
-            } else {
-                taskList[1][task_json.taskInJson.found_index!] = task_json.taskInJson
+            }
+            else if (found_index > -1) {
+                taskList[1][found_index] = task_json.taskInJson
             }
         }
         tableView.reloadData()
