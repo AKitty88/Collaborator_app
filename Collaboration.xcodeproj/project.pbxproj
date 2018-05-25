@@ -119,6 +119,7 @@
 				42A0924820B2465500BBA917 /* PeerToPeer.swift */,
 				423621D1209146D00005E038 /* MasterViewController.swift */,
 				423621FF20914D990005E038 /* DetailViewController.swift */,
+				42415CDD20B555C700C69F70 /* ChatViewController.swift */,
 				423621D5209146D00005E038 /* Main.storyboard */,
 				423621D8209146D00005E038 /* Assets.xcassets */,
 				423621DA209146D00005E038 /* LaunchScreen.storyboard */,
@@ -129,7 +130,6 @@
 				4219C40B20ABC536000E9E21 /* MyTableViewCellForTaskname.swift */,
 				4288586820B3B01A00CE649B /* Task_Json.swift */,
 				42415CDB20B5250500C69F70 /* MyTableViewCellForCollaborator.swift */,
-				42415CDD20B555C700C69F70 /* ChatViewController.swift */,
 			);
 			path = Collaboration;
 			sourceTree = "<group>";

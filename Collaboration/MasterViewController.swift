@@ -131,11 +131,11 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
             selectedTask = taskList[0][0]
             selectedItemSection = 0
             selectedItemIndex = 0
-            taskList[1][0].completed = true                                         // only for test2 default task
-            taskList[0][0].task_id = "AB8419ED-058E-4726-AB87-1CC88CD573DE"         // only for test1 default task
-            taskList[0][0].username = String(describing: peerToPeer.peerId.displayName)
-            taskList[1][0].task_id = "AB8419ED-058E-4726-AB87-1CC88CD573DF"         // only for test2 default task
-            taskList[1][0].username = String(describing: peerToPeer.peerId.displayName)
+            taskList[0][0].task_id = "AB8419ED-058E-4726-AB87-1CC88CD573DE"                 // for test1 default task
+            taskList[0][0].username = String(describing: peerToPeer.peerId.displayName)     // for test1 default task
+            taskList[1][0].task_id = "AB8419ED-058E-4726-AB87-1CC88CD573DF"                 // for test2 default task
+            taskList[1][0].username = String(describing: peerToPeer.peerId.displayName)     // for test2 default task
+            taskList[1][0].completed = true                                                 // for test2 default task
         }
     }
     

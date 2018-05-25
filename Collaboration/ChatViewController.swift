@@ -10,8 +10,7 @@ import UIKit
 
 class ChatViewController: UITableViewController {
 
-    /// delegate (the MasterViewController)
-    var delegate: TaskListProtocol!
+    var chatDelegate: TaskListProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,18 +36,13 @@ class ChatViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-//        if section == 2 {
-//            return (delegate.selectedTask?.logs.count)!
-//        } else if section == 1 {
-//            return pe
-//        }
-//
-//            // else if section == 0
-//        else {
-//            return 1
-//        }
-                    return 0
-
+        if section == 1 {
+            return 1
+        }
+            // else if section == 0
+        else {
+            return 1
+        }
     }
 
     /*

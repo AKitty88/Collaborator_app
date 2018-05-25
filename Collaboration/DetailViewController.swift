@@ -39,9 +39,6 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
         let task_json = Task_Json(to_json: delegate.selectedTask!)
         delegate.sentData = task_json.json
         delegate.peerToPeer.send(data: (delegate.sentData)!)
-        
-//        let chatViewController = ChatViewController()
-//        self.navigationController?.pushViewController(chatViewController, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -197,9 +194,19 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print ("D - prepare for segue")
+        print ("D - prepare for segue: ShowChatView")
         
-        
+        if segue.identifier == "ShowChatView" {
+            var chatViewController: ChatViewController
+            
+            if let navController = segue.destination as? UINavigationController {
+                chatViewController = navController.topViewController as! ChatViewController
+            } else {
+                chatViewController = segue.destination as! ChatViewController
+            }
+            chatViewController.chatDelegate = delegate
+            self.navigationController?.pushViewController(chatViewController, animated: true)
+        }
     }
 }
 
