@@ -23,19 +23,11 @@ class Task: Codable {
     
     // var log2 = [String]()       // []
     // var log3 = [String()]       // [""]
+    
     /// array for the logs
     var logs = [String()]
     
-    /// used only if task was found in tasklist to indicate where it is
-    var found_index: Int?
-    
-    /* public required init(from decoder: Decoder) throws {
-        
-    }
-    
-    public func encode(to encoder: Encoder) throws {
-        
-    } */
+    var collaborators = "User"
     
     /**
      Constructor of the class

@@ -18,7 +18,7 @@ class PeerToPeerManager: NSObject {
     static let serviceType = "task-kitty"
     var delegate: PeerToPeerManagerDelegate?
     
-    let peerId = MCPeerID(displayName: "User \(arc4random_uniform(10))")            // TODO: use peerId for collaborator label in task.log
+    let peerId = MCPeerID(displayName: "User \(arc4random_uniform(10))")
     private let serviceAdvertiser: MCNearbyServiceAdvertiser
     private let serviceBrowser: MCNearbyServiceBrowser
     public var session: MCSession

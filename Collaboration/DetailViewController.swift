@@ -143,7 +143,12 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
             
             if let task = delegate.selectedTask {
                 cell.dateLabel.text? = task.date
-                cell.collaboratorLabel.text? = String(describing: peerlist)
+                
+                if (peerlist.isEmpty) {
+                    cell.collaboratorLabel.text? = "User"
+                } else {
+                    cell.collaboratorLabel.text? = delegate.peerToPeer.peerId.displayName
+                }
                 cell.myTextLabel.delegate = self
                 cell.myTextLabel.text? = task.logs[indexPath.row]
             }
