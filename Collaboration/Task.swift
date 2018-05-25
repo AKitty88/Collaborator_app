@@ -27,7 +27,7 @@ class Task: Codable {
     /// array for the logs
     var logs = [String()]
     
-    var collaborators = "User"
+    var username = "User"
     
     /**
      Constructor of the class

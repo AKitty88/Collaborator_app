@@ -142,13 +142,8 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
             let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! MyTableViewCellForLog
             
             if let task = delegate.selectedTask {
-                cell.dateLabel.text? = task.date
-                
-                if (peerlist.isEmpty) {
-                    cell.collaboratorLabel.text? = "User"
-                } else {
-                    cell.collaboratorLabel.text? = delegate.peerToPeer.peerId.displayName
-                }
+                cell.dateLabel.text? = task.date                
+                cell.collaboratorLabel.text? = task.username
                 cell.myTextLabel.delegate = self
                 cell.myTextLabel.text? = task.logs[indexPath.row]
             }
