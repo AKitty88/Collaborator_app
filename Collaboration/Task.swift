@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MultipeerConnectivity
 
 /// Properties and methods of the tasks
 class Task: Codable {
@@ -20,8 +21,6 @@ class Task: Codable {
     /// tells us if the task is completed or ongoing
     var completed: Bool
     
-    /// people who worked on the log
-    var collaborators: String
     // var log2 = [String]()       // []
     // var log3 = [String()]       // [""]
     /// array for the logs
@@ -41,9 +40,8 @@ class Task: Codable {
     /**
      Constructor of the class
      - parameter title : description of the task
-     - collaborators : people who worked on the log
      */
-    init(title: String, collaborators: String = "Tim") {                // TODO: collaborators, test2
+    init(title: String) {
         self.title = title
         
         let dateformatter = DateFormatter()
@@ -52,7 +50,6 @@ class Task: Codable {
         
         self.date = today
         self.completed = false
-        self.collaborators = collaborators
         self.logs[0] = "created " + "\"" + "\(title)" + "\""
     }
    

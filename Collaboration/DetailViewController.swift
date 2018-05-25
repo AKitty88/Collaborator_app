@@ -143,7 +143,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
             
             if let task = delegate.selectedTask {
                 cell.dateLabel.text? = task.date
-                cell.collaboratorLabel.text? = task.collaborators
+                cell.collaboratorLabel.text? = String(describing: peerlist)
                 cell.myTextLabel.delegate = self
                 cell.myTextLabel.text? = task.logs[indexPath.row]
             }
@@ -173,7 +173,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
             delegate.selectedTask?.title = (textField.text)!
             delegate.selectedTask?.taskNameChangedLog()
         case 2:
-            delegate.selectedTask?.collaborators = (textField.text)!
+            print ("case 2")
         case 3:
             textFieldDidEndEditing(textField: textField)
             delegate.selectedTask?.logs[(textFieldIndexPath?.row)!] = (textField.text!)
