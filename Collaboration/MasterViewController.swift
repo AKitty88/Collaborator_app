@@ -163,13 +163,7 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
                 dvc = segue.destination as! DetailViewController
             }
             dvc.delegate = self
-//            dvc.peerlist = dvc.peerToPeer.session.connectedPeers
             dvc.peerlist = peerToPeer.session.connectedPeers
-
-//            print ("dvc.peerlist: \(dvc.peerlist)")
-//            let inoutStr = "inoutStr"
-//            let dataIn: Data? = inoutStr.data(using: .utf8)
-//            dvc.peerToPeer.send(data: (dataIn)!)
             
             if let indexPath = tableView.indexPathForSelectedRow {
                 let task = taskList[indexPath.section][indexPath.row]

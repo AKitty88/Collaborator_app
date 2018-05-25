@@ -167,6 +167,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="myLabel" destination="eEc-L0-8Bg" id="Z0a-me-RWE"/>
+                                    <segue destination="ACA-OA-yVd" kind="show" identifier="ShowChatView" id="nus-YV-Cqh"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Detail Cell C" id="cRd-PJ-RMs" customClass="MyTableViewCellForLog" customModule="Collaboration" customModuleProvider="target">

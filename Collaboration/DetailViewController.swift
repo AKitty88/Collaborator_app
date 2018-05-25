@@ -196,6 +196,10 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
         }
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print ("D - prepare for segue")
+        
+        
+    }
 }
 
