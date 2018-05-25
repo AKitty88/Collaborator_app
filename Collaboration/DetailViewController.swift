@@ -3,14 +3,7 @@
 //  Collaboration
 //
 //  Created by Kitti Almasy on 26/4/18.
-//  Copyright © 2018 Kitti Almasy. All rights reserved.
-
-
-// pics: PeertoPeerMan. only, others are ready
-// create another view on storyboard
-// connect viewTapped()
-
-
+//  Copyright © 2018 Kitti Almasy s5110592. All rights reserved.
 
 import UIKit
 import Foundation
@@ -27,7 +20,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
     
     var peerlist = [MCPeerID]()
     
-    /// Helps to decide which cell it is
+    /// Helps to decide which cell the actual cell is
     enum Sections: Int {
         case sectionA = 0
         case sectionB = 1
@@ -104,7 +97,6 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print ("D - tableView cellForRowAt \(String(describing: delegate.selectedTask?.title))")
-        
         var identifier: String
         
         guard let section = Sections(rawValue: indexPath.section) else {

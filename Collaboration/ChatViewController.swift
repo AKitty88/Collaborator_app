@@ -3,7 +3,7 @@
 //  Collaboration
 //
 //  Created by Kitti Almasy on 23/5/18.
-//  Copyright © 2018 Kitti Almasy. All rights reserved.
+//  Copyright © 2018 Kitti Almasy s5110592. All rights reserved.
 //
 
 import UIKit
@@ -13,6 +13,7 @@ class ChatViewController: UITableViewController {
     var chatDelegate: TaskListProtocol!
     
     override func viewDidLoad() {
+        print ("C - viewDidLoad")
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
@@ -20,6 +21,12 @@ class ChatViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print ("C - viewWillAppear")
+        super.viewWillAppear(true)
+        self.navigationItem.title = "\(String(describing: chatDelegate.selectedTask?.title))"
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,23 +44,32 @@ class ChatViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if section == 1 {
-            return 1
-        }
-            // else if section == 0
+            return (chatDelegate.selectedTask?.logs.count)!
+        } // else if section == 0
         else {
             return 1
         }
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        print ("C - tableView cellForRowAt")
 
-        // Configure the cell...
-
-        return cell
+        if (indexPath.section == 0) {
+            
+            // define new cell class -> put it in this function:
+            let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! MyTableViewCellForTaskname
+            return cell
+        }
+        else if (indexPath.section == 1) {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+            
+            if let task = chatDelegate.selectedTask {
+                cell.myTextLabel.delegate = self
+                cell.myTextLabel.text? = task.log
+            }
+            return cell
+        }        
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.

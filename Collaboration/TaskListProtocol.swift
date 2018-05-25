@@ -3,7 +3,7 @@
 //  Collaboration
 //
 //  Created by Kitti Almasy on 26/4/18.
-//  Copyright © 2018 Kitti Almasy. All rights reserved.
+//  Copyright © 2018 Kitti Almasy s5110592. All rights reserved.
 //
 
 import Foundation
