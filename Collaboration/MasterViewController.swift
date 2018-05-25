@@ -61,27 +61,42 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
         
         var task_json = Task_Json()
         task_json.json = data
-        var found_index: Int
+        var found_index_1 = -2
+        var found_index_2 = -2
+        var compl = -1                                                  // it tells us if the task is completed in the receiver's tasklist
+        var done = 0
         print("Received json: \(String(describing: task_json.json))")
         
-        if (task_json.taskInJson.completed == false) {
-            found_index = task_json.find(tasklist: taskList[0], id: task_json.taskInJson.task_id!)
-            
-            if (found_index == -1) {
-                taskList[0].append(task_json.taskInJson)
-            }
-            else if (found_index > -1) {
-                taskList[0][found_index] = task_json.taskInJson
-            }                                                    // taskList[0][counter].title = task_json.taskInJson.title, date, completed, logs (only these!)
+        found_index_1 = task_json.find(tasklist: taskList[0], id: task_json.taskInJson.task_id!)
+        found_index_2 = task_json.find(tasklist: taskList[1], id: task_json.taskInJson.task_id!)
+        
+        if (found_index_1 == -1 && (found_index_2 == -1)) {
+            taskList[0].append(task_json.taskInJson)
+            compl = -1                                                  // not known if completed or not
+            done = 1
         }
-        else if (task_json.taskInJson.completed == true) {
-            found_index = task_json.find(tasklist: taskList[1], id: task_json.taskInJson.task_id!)
-            
-            if (found_index == -1) {
-                taskList[1].append(task_json.taskInJson)
+        else if (found_index_2 == -1 && (done == 0)) {
+            taskList[1].append(task_json.taskInJson)
+            compl = -1                                                  // not known if completed or not
+            done = 1
+        }
+        else if (found_index_1 > -1) {
+            taskList[0][found_index_1] = task_json.taskInJson
+            compl = 0                                                   // not completed
+            done = 1
+        }
+        else if (found_index_2 > -1) {
+            taskList[1][found_index_2] = task_json.taskInJson
+            compl = 1                                                   // completed
+            done = 1
+        }
+        
+        if ((task_json.taskInJson.completed && (compl == 0) && (found_index_1 > -1)) || (!task_json.taskInJson.completed && (compl == 1) && (found_index_2 > -1))) {
+            if (compl == 0) {
+                taskList[0].remove(at: found_index_1)
             }
-            else if (found_index > -1) {
-                taskList[1][found_index] = task_json.taskInJson
+            else if (compl == 1) {
+                taskList[1].remove(at: found_index_2)
             }
         }
         tableView.reloadData()
