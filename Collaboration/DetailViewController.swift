@@ -40,8 +40,8 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
         delegate.sentData = task_json.json
         delegate.peerToPeer.send(data: (delegate.sentData)!)
         
-        let chatViewController = ChatViewController()
-        self.navigationController?.pushViewController(chatViewController, animated: true)
+//        let chatViewController = ChatViewController()
+//        self.navigationController?.pushViewController(chatViewController, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
