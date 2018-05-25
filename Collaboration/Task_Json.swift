@@ -11,8 +11,6 @@ import Foundation
 class Task_Json {
     var taskInJson: Task
     
-    var found = false
-    
     var json: Data {
         get { return try! JSONEncoder().encode(taskInJson)}
         set { taskInJson = try! JSONDecoder().decode(Task.self, from: newValue)}
@@ -25,7 +23,6 @@ class Task_Json {
             counter += 1
             
             if (task.task_id == id) {
-                found = true
                 return counter
             }
         }
