@@ -64,8 +64,6 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
         task_json.json = data
         var found_index_1 = -2
         var found_index_2 = -2
-        var compl = -1                                                  // it tells us if the task is completed in the receiver's tasklist
-        var done = 0
         print("Received json: \(String(describing: task_json.json))")
         
         found_index_1 = task_json.find(tasklist: taskList[0], id: task_json.taskInJson.task_id!)
@@ -74,12 +72,8 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
         if (found_index_1 == -1 && (found_index_2 == -1)) {
             if (!task_json.taskInJson.completed) {
                 taskList[0].append(task_json.taskInJson)
-                compl = -1                                                  // not known if completed or not
-                done = 1
             } else if (task_json.taskInJson.completed) {
                 taskList[1].append(task_json.taskInJson)
-                compl = -1                                                  // not known if completed or not
-                done = 1
             }
         }
         
@@ -96,13 +90,9 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
         else {
             if (found_index_1 > -1) {
                 taskList[0][found_index_1] = task_json.taskInJson
-                compl = 0                                                   // not completed
-                done = 1
             }
             if (found_index_2 > -1) {
                 taskList[1][found_index_2] = task_json.taskInJson
-                compl = 1                                                   // completed
-                done = 1
             }
         }
         tableView.reloadData()
