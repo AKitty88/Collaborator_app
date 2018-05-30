@@ -260,6 +260,9 @@
                                         <constraint firstItem="vzh-y9-zCo" firstAttribute="top" secondItem="mxp-hf-C3c" secondAttribute="top" constant="6" id="rlM-iD-T0f"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="myTextLabel" destination="vzh-y9-zCo" id="gE6-aZ-Gbw"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Chat Cell B" textLabel="SBO-ow-ZUR" style="IBUITableViewCellStyleDefault" id="qq9-nd-dDK">
                                 <rect key="frame" x="0.0" y="99.5" width="375" height="44"/>
