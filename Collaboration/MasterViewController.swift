@@ -12,9 +12,9 @@ import UIKit
 class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerManagerDelegate {    
     
     /// the section of the task which is selected at the moment (property of TaskListProtocol)
-    var selectedItemSection: Int?
+    var selectedItemSection: Int?               // DEBUG: Might be not needed
     /// the index of the task which is selected at the moment (property of TaskListProtocol)
-    var selectedItemIndex: Int?
+    var selectedItemIndex: Int?                 // DEBUG: Might be not needed
     /// the task which is selected at the moment (property of TaskListProtocol)
     var selectedTask: Task?
     /// array of the tasks
@@ -65,7 +65,7 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
         task_json.json = data
         var found_index_1 = -2
         var found_index_2 = -2
-        print("Received json: \(String(describing: task_json.json))")                   // FAULT: 2nd time it doesn't send the data (back), when there is new log message
+        print("Received json: \(String(describing: task_json.json))")
         
         found_index_1 = task_json.find(tasklist: taskList[0], id: task_json.taskInJson.task_id!)
         found_index_2 = task_json.find(tasklist: taskList[1], id: task_json.taskInJson.task_id!)
@@ -82,22 +82,26 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
             if (found_index_1 > -1) {
                 taskList[0].remove(at: found_index_1)
                 taskList[1].append(task_json.taskInJson)
+                selectedTask = taskList[0][found_index_1]
             }
             else if (found_index_2 > -1) {
                 taskList[1].remove(at: found_index_2)
                 taskList[0].append(task_json.taskInJson)
+                selectedTask = taskList[1][found_index_2]
             }
         }
         else {
             if (found_index_1 > -1) {
                 taskList[0][found_index_1] = task_json.taskInJson
+                selectedTask = taskList[0][found_index_1]
             }
             if (found_index_2 > -1) {
                 taskList[1][found_index_2] = task_json.taskInJson
+                selectedTask = taskList[1][found_index_2]
             }
         }
         tableView.reloadData()
-        detailViewController?.tableView.reloadData()                                // FAULT: doesn't reload
+        detailViewController?.tableView.reloadData()                                // FAULT: doesn't reload: Yammer !!!
     }
     
     func updatePeers() {                                                            // DEBUG: might not need it
@@ -157,11 +161,11 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
             dvc.peerlist = peerToPeer.session.connectedPeers
             
             if let indexPath = tableView.indexPathForSelectedRow {
+                
                 let task = taskList[indexPath.section][indexPath.row]
                 selectedItemSection = indexPath.section
                 selectedItemIndex = indexPath.row
                 selectedTask = task
-                
                 
                 dvc.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 dvc.navigationItem.leftItemsSupplementBackButton = true
