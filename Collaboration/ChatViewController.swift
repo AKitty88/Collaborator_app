@@ -62,7 +62,7 @@ class ChatViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "Chat Cell B", for: indexPath)
             
             if let task = chatDelegate.selectedTask {
-                cell.textLabel?.text = task.date + " " + task.username + " " + task.logs[chatDelegate.selectedItemIndex!]
+                cell.textLabel?.text = task.date + " " + task.username + " " + task.logs[indexPath.row]
             }
             return cell
         }        

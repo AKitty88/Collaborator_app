@@ -65,7 +65,7 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
         task_json.json = data
         var found_index_1 = -2
         var found_index_2 = -2
-        print("Received json: \(String(describing: task_json.json))")
+        print("Received json: \(String(describing: task_json.json))")                   // FAULT: 2nd time it doesn't send the data (back), when there is new log message
         
         found_index_1 = task_json.find(tasklist: taskList[0], id: task_json.taskInJson.task_id!)
         found_index_2 = task_json.find(tasklist: taskList[1], id: task_json.taskInJson.task_id!)
