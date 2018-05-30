@@ -59,6 +59,7 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
     
     /// method called from session (didreceive) when data was received
     func manager(_ manager: PeerToPeerManager, didReceive data: Data) {
+        print ("M - manager \(String(describing: selectedTask?.title))")
         
         var task_json = Task_Json()
         task_json.json = data
@@ -96,7 +97,7 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
             }
         }
         tableView.reloadData()
-        detailViewController?.tableView.reloadData()
+        detailViewController?.tableView.reloadData()                                // FAULT: doesn't reload
     }
     
     func updatePeers() {                                                            // DEBUG: might not need it

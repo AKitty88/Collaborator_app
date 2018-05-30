@@ -43,7 +43,7 @@ class PeerToPeerManager: NSObject {
         serviceBrowser.stopBrowsingForPeers()
     }
     
-    func invite(peer: MCPeerID, timeout t: TimeInterval = 10) {
+    func invite(peer: MCPeerID, timeout t: TimeInterval = 1000) {
         print("PtP - invite \(peer.displayName)")
         
         serviceBrowser.invitePeer(peer, to: session, withContext: nil, timeout: t)
