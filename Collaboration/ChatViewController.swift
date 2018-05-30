@@ -55,17 +55,14 @@ class ChatViewController: UITableViewController {
         print ("C - tableView cellForRowAt")
 
         if (indexPath.section == 0) {
-            
-            // define new cell class -> put it in this function:
-            let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! MyTableViewCellForTaskname
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Chat Cell A", for: indexPath) as! MyTableViewCellForTaskname
             return cell
-        }
-        else if (indexPath.section == 1) {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        } // else if (indexPath.section == 1)
+        else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Chat Cell B", for: indexPath)
             
             if let task = chatDelegate.selectedTask {
-                cell.myTextLabel.delegate = self
-                cell.myTextLabel.text? = task.log
+                cell.textLabel?.text = task.logs[chatDelegate.selectedItemIndex!]
             }
             return cell
         }        
