@@ -247,16 +247,17 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vzh-y9-zCo">
-                                            <rect key="frame" x="24" y="6" width="329" height="30"/>
+                                            <rect key="frame" x="16" y="6" width="343" height="30"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="vzh-y9-zCo" secondAttribute="trailing" constant="6" id="oGE-AW-zDo"/>
-                                        <constraint firstItem="vzh-y9-zCo" firstAttribute="centerY" secondItem="mxp-hf-C3c" secondAttribute="centerY" id="qWA-06-OV8"/>
-                                        <constraint firstItem="vzh-y9-zCo" firstAttribute="leading" secondItem="mxp-hf-C3c" secondAttribute="leadingMargin" constant="8" id="yb9-tx-n7h"/>
+                                        <constraint firstAttribute="trailing" secondItem="vzh-y9-zCo" secondAttribute="trailing" constant="16" id="FbM-H4-tju"/>
+                                        <constraint firstAttribute="bottom" secondItem="vzh-y9-zCo" secondAttribute="bottom" constant="7.5" id="Ndw-qC-SCo"/>
+                                        <constraint firstItem="vzh-y9-zCo" firstAttribute="leading" secondItem="mxp-hf-C3c" secondAttribute="leading" constant="16" id="Oga-w4-NSD"/>
+                                        <constraint firstItem="vzh-y9-zCo" firstAttribute="top" secondItem="mxp-hf-C3c" secondAttribute="top" constant="6" id="rlM-iD-T0f"/>
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
