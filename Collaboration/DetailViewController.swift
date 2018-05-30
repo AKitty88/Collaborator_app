@@ -197,7 +197,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
                 chatViewController = segue.destination as! ChatViewController
             }
             chatViewController.chatDelegate = delegate
-            self.navigationController?.pushViewController(chatViewController, animated: true)
+            // self.navigationController?.pushViewController(chatViewController, animated: true)
         }
     }
 }

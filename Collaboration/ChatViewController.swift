@@ -26,7 +26,7 @@ class ChatViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         print ("C - viewWillAppear")
         super.viewWillAppear(true)
-        self.navigationItem.title = "\(String(describing: chatDelegate.selectedTask?.title))"
+        self.navigationItem.title = "\(String(describing: chatDelegate.selectedTask?.title))"           // TODO: Optional -> change
     }
 
     override func didReceiveMemoryWarning() {
