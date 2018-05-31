@@ -239,32 +239,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Chat Cell A" id="DgQ-fB-SBn" customClass="MyTableViewCellForTaskname" customModule="Collaboration" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Chat Cell A" id="DgQ-fB-SBn" customClass="MyTableViewCellForChat" customModule="Collaboration" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DgQ-fB-SBn" id="mxp-hf-C3c" customClass="MyTableViewCellForTaskname" customModule="Collaboration" customModuleProvider="target">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DgQ-fB-SBn" id="mxp-hf-C3c" customClass="MyTableViewCellForTaskname" customModule="Collaboration" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textField opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="343" placeholderIntrinsicHeight="30" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vzh-y9-zCo">
-                                            <rect key="frame" x="16" y="6" width="343" height="30"/>
+                                        <textField opaque="NO" tag="1" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4iO-Vt-LEX" userLabel="text">
+                                            <rect key="frame" x="16" y="7" width="343" height="30"/>
                                             <nil key="textColor"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <textInputTraits key="textInputTraits"/>
                                             <connections>
-                                                <outlet property="delegate" destination="ACA-OA-yVd" id="GEH-NI-0TW"/>
+                                                <outlet property="delegate" destination="06V-Vk-pYI" id="tHl-c6-ywd"/>
                                             </connections>
                                         </textField>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="vzh-y9-zCo" secondAttribute="trailing" constant="16" id="FbM-H4-tju"/>
-                                        <constraint firstAttribute="bottom" secondItem="vzh-y9-zCo" secondAttribute="bottom" constant="7.5" id="Ndw-qC-SCo"/>
-                                        <constraint firstItem="vzh-y9-zCo" firstAttribute="leading" secondItem="mxp-hf-C3c" secondAttribute="leading" constant="16" id="Oga-w4-NSD"/>
-                                        <constraint firstItem="vzh-y9-zCo" firstAttribute="top" secondItem="mxp-hf-C3c" secondAttribute="top" constant="6" id="rlM-iD-T0f"/>
+                                        <constraint firstAttribute="bottom" secondItem="4iO-Vt-LEX" secondAttribute="bottom" constant="6.5" id="0aC-qE-dkj"/>
+                                        <constraint firstAttribute="trailing" secondItem="4iO-Vt-LEX" secondAttribute="trailing" constant="16" id="6x2-DH-9ua"/>
+                                        <constraint firstItem="4iO-Vt-LEX" firstAttribute="top" secondItem="mxp-hf-C3c" secondAttribute="top" constant="7" id="ld8-lR-jEZ"/>
+                                        <constraint firstItem="4iO-Vt-LEX" firstAttribute="leading" secondItem="mxp-hf-C3c" secondAttribute="leading" constant="16" id="xyS-Qm-rQT"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="myTextLabel" destination="vzh-y9-zCo" id="gE6-aZ-Gbw"/>
+                                    <outlet property="myTextLabel" destination="4iO-Vt-LEX" id="6yb-Mj-Nav"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Chat Cell B" textLabel="SBO-ow-ZUR" style="IBUITableViewCellStyleDefault" id="qq9-nd-dDK">

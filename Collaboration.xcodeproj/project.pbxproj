@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4219C40A20ABC175000E9E21 /* MyTableViewCellForLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4219C40920ABC175000E9E21 /* MyTableViewCellForLog.swift */; };
 		4219C40C20ABC536000E9E21 /* MyTableViewCellForTaskname.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4219C40B20ABC536000E9E21 /* MyTableViewCellForTaskname.swift */; };
+		423004A820BFE6890047300E /* MyTableViewCellForChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423004A720BFE6890047300E /* MyTableViewCellForChat.swift */; };
 		423621D0209146D00005E038 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423621CF209146D00005E038 /* AppDelegate.swift */; };
 		423621D2209146D00005E038 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423621D1209146D00005E038 /* MasterViewController.swift */; };
 		423621D7209146D00005E038 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 423621D5209146D00005E038 /* Main.storyboard */; };
@@ -45,6 +46,7 @@
 /* Begin PBXFileReference section */
 		4219C40920ABC175000E9E21 /* MyTableViewCellForLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCellForLog.swift; sourceTree = "<group>"; };
 		4219C40B20ABC536000E9E21 /* MyTableViewCellForTaskname.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCellForTaskname.swift; sourceTree = "<group>"; };
+		423004A720BFE6890047300E /* MyTableViewCellForChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCellForChat.swift; sourceTree = "<group>"; };
 		423621CC209146D00005E038 /* Collaboration.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Collaboration.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		423621CF209146D00005E038 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		423621D1209146D00005E038 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				4236227D2091702B0005E038 /* Task.swift */,
 				4219C40920ABC175000E9E21 /* MyTableViewCellForLog.swift */,
 				4219C40B20ABC536000E9E21 /* MyTableViewCellForTaskname.swift */,
+				423004A720BFE6890047300E /* MyTableViewCellForChat.swift */,
 				4288586820B3B01A00CE649B /* Task_Json.swift */,
 				42415CDB20B5250500C69F70 /* MyTableViewCellForCollaborator.swift */,
 			);
@@ -297,6 +300,7 @@
 				42415CDE20B555C700C69F70 /* ChatViewController.swift in Sources */,
 				42A0924920B2465500BBA917 /* PeerToPeer.swift in Sources */,
 				423621D0209146D00005E038 /* AppDelegate.swift in Sources */,
+				423004A820BFE6890047300E /* MyTableViewCellForChat.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

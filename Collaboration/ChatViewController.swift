@@ -55,7 +55,7 @@ class ChatViewController: UITableViewController, UITextFieldDelegate {
         print ("C - tableView cellForRowAt")
 
         if (indexPath.section == 0) {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Chat Cell A", for: indexPath) as! MyTableViewCellForTaskname
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Chat Cell A", for: indexPath) as! MyTableViewCellForChat
             return cell
         } // else if (indexPath.section == 1)
         else {
