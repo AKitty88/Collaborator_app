@@ -9,7 +9,7 @@
 
 import UIKit
 
-class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerManagerDelegate {    
+class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerManagerDelegate {
     
     /// the section of the task which is selected at the moment (property of TaskListProtocol)
     var selectedItemSection: Int?               // DEBUG: Might be not needed
@@ -43,21 +43,21 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
      - parameter withName : description of task
      - parameter history : log
      */
-    func save(withName task: String, history log: String) {
-        print ("M - save \(String(describing: selectedTask?.title))")
+    func SaveTask(withName task: String, history log: String) {
+        print ("M - SaveTask \(String(describing: selectedTask?.title))")
         
         selectedTask?.title = task
         tableView.reloadData()
     }
     
-    /// cancels the editing of the current task (method of TaskListProtocol)
-    func cancel() {
+    /// Cancels the editing of the current task (method of TaskListProtocol)
+    func Cancel() {
         print ("M - cancel \(String(describing: selectedTask?.title))")
         
         navigationController?.popViewController(animated: true)
     }
     
-    /// method called from session (didreceive) when data was received
+    /// Method called from session (didreceive) when data was received
     func manager(_ manager: PeerToPeerManager, didReceive data: Data) {
         print ("M - manager \(String(describing: selectedTask?.title))")
         

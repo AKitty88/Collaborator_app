@@ -46,7 +46,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
         if let indexPath = tableView.indexPathForSelectedRow {
             if delegate.selectedTask != nil {
                 if let cell = tableView.cellForRow(at: indexPath as IndexPath) as? MyTableViewCellForTaskname {
-                    delegate.save(withName: (cell.myTextLabel?.text) ?? "", history: (cell.myTextLabel?.text) ?? "")
+                    delegate.SaveTask(withName: (cell.myTextLabel?.text) ?? "", history: (cell.myTextLabel?.text) ?? "")
                 }
             }
         }
@@ -174,7 +174,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
         }
         
         tableView.reloadData()
-        delegate.save(withName: (delegate.selectedTask?.title)!, history: "")
+        delegate.SaveTask(withName: (delegate.selectedTask?.title)!, history: "")
         textField.resignFirstResponder()
         return true
     }

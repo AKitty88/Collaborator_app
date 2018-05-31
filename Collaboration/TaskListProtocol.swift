@@ -26,9 +26,9 @@ protocol TaskListProtocol {
      - parameter task : description of task
      - parameter history : log
      */
-    func save(withName task: String, history log: String)
-    
+    func SaveTask(withName task: String, history log: String)
+ 
     /// cancels the editing of the current task
-    func cancel()
+    func Cancel()
 }
 

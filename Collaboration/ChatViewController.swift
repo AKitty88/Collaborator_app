@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChatViewController: UITableViewController {
+class ChatViewController: UITableViewController, UITextFieldDelegate {
 
     var chatDelegate: TaskListProtocol!
     
@@ -33,7 +33,7 @@ class ChatViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+   
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -66,6 +66,14 @@ class ChatViewController: UITableViewController {
             }
             return cell
         }        
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print ("C - textFieldShouldReturn \(String(describing: chatDelegate.selectedTask?.title))")
+        
+        chatDelegate.selectedTask?.logs.append(textField.text!)
+        textField.resignFirstResponder()
+        return true
     }
 
     /*
