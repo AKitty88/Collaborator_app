@@ -71,7 +71,7 @@ class ChatViewController: UITableViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         print ("C - textFieldShouldReturn \(String(describing: chatDelegate.selectedTask?.title))")
         
-        chatDelegate.selectedTask?.logs.append(textField.text!)
+        chatDelegate.selectedTask?.logs.append("said: " + "\"" + textField.text! + "\"")
         textField.resignFirstResponder()
         return true
     }
