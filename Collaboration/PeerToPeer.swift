@@ -10,7 +10,6 @@ import Foundation
 import MultipeerConnectivity
 
 protocol PeerToPeerManagerDelegate: AnyObject {
-    //var tableView: UITableView! { get set }
     
     func manager(_ manager: PeerToPeerManager, didReceive data: Data)
     func updatePeers()
