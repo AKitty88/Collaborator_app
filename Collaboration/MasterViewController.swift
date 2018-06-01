@@ -21,7 +21,7 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
     
     var peerToPeer = PeerToPeerManager()
     
-   var sentData: Data?
+    var sentData: Data?
     
     // @IBOutlet weak var myTableView: UITableView!
     var detailViewController: DetailViewController? = nil
@@ -114,7 +114,7 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         navigationItem.leftBarButtonItem = editButtonItem
-
+        
         peerToPeer.delegate = self
         
         if let split = splitViewController {
@@ -175,7 +175,7 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
     func update() {
         tableView.reloadData()
     }
-        
+    
     // MARK: - Table View
     
     override func numberOfSections(in tableView: UITableView) -> Int {

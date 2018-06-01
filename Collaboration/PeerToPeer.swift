@@ -16,7 +16,7 @@ protocol PeerToPeerManagerDelegate: AnyObject {
 
 class PeerToPeerManager: NSObject {
     static let serviceType = "task-kitty"
-    var delegate: PeerToPeerManagerDelegate?
+    weak var delegate: PeerToPeerManagerDelegate?
     
     let peerId = MCPeerID(displayName: "User \(arc4random_uniform(10))")
     private let serviceAdvertiser: MCNearbyServiceAdvertiser
@@ -98,6 +98,7 @@ extension PeerToPeerManager: MCSessionDelegate {
         print("PtP - session didReceiveData: \(data)")
         DispatchQueue.main.async {
             self.delegate?.manager(self, didReceive: data)
+            // self.delegate?.tableView.reloadData()            // next TODO
         }
     }
     
