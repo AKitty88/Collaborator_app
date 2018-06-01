@@ -17,13 +17,13 @@ class Task_Json {
     }
     
     func find(tasklist: [Task], id: String) -> Int {
-        var counter = -1
+        var index = -1
         
         for task in tasklist {
-            counter += 1
+            index += 1
             
             if (task.task_id == id) {
-                return counter
+                return index
             }
         }
         return -1
