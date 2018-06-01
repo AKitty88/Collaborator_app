@@ -22,14 +22,11 @@ class CollaborationTests: XCTestCase {
     }
     
     func testTaskComplete() {
-        let id = "AB8419ED-058E-4726-AB87-1CC88CD573DE"
         let titl = "Get beer"
         let compl = false
         
         var task = Task(title: titl)
-        task.task_id = id
         XCTAssertEqual([task.title], [titl])
-        XCTAssertEqual([task.task_id!], [id])
         XCTAssertEqual([task.completed], [compl])
         
         let dateformatter = DateFormatter()
