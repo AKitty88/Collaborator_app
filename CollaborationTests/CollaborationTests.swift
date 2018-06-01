@@ -21,9 +21,23 @@ class CollaborationTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testTaskComplete() {
+        let id = "AB8419ED-058E-4726-AB87-1CC88CD573DE"
+        let titl = "Get beer"
+        let compl = false
+        
+        var task = Task(title: titl)
+        task.task_id = id
+        XCTAssertEqual([task.title], [titl])
+        XCTAssertEqual([task.task_id!], [id])
+        XCTAssertEqual([task.completed], [compl])
+        
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = "dd/MM/yy, HH:mm a"
+        let dat = task.date
+        let today = dateformatter.string(from: Date())
+        
+        XCTAssertEqual([dat], [today])
     }
     
     func testPerformanceExample() {
