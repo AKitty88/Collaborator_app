@@ -6,7 +6,6 @@
 //  Copyright © 2018 Kitti Almasy s5110592. All rights reserved.
 //
 
-
 import UIKit
 
 class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerManagerDelegate {

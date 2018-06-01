@@ -73,6 +73,8 @@ class ChatViewController: UITableViewController, UITextFieldDelegate {
         
         chatDelegate.selectedTask?.logs.append("said: " + "\"" + textField.text! + "\"")
         textField.resignFirstResponder()
+        tableView.reloadData()
+        
         return true
     }
 
