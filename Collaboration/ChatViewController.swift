@@ -79,8 +79,11 @@ class ChatViewController: UITableViewController, UITextFieldDelegate {
         
         chatDelegate.selectedTask?.logs.append("said: " + "\"" + textField.text! + "\"")
         textField.resignFirstResponder()
-        tableView.reloadData()
         
+        let task_json = Task_Json(to_json: chatDelegate.selectedTask!)
+        chatDelegate.sentData = task_json.json
+        chatDelegate.peerToPeer.send(data: (chatDelegate.sentData)!)
+        tableView.reloadData()
         
         return true
     }
