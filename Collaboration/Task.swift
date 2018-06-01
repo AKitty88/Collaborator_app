@@ -29,6 +29,9 @@ class Task: Codable {
     
     var username = "User"
     
+    /// name of the user who created the actual log message
+    var logCreator = [String()]
+    
     /**
      Constructor of the class
      - parameter title : description of the task
@@ -43,6 +46,7 @@ class Task: Codable {
         self.date = today
         self.completed = false
         self.logs[0] = "created " + "\"" + "\(title)" + "\""
+        self.logCreator[0] = username
     }
    
     /// Returns the actual date and time
@@ -56,21 +60,25 @@ class Task: Codable {
     /// Gets invoked when the Add button is clicked, adds a new log line to the logs array
     func addLog() {
         self.logs.append("changed " + "\"" + "\(title)" + "\"")
+        self.logCreator.append(self.username)
     }
     
     /// Gets invoked when the task is moved from the Ongoing section to the Completed section
     func logMovedToCompleted() {
         self.logs.append("changed status of " + "\"" + "\(title)" + "\" to completed")
+        self.logCreator.append(self.username)
     }
     
     /// Gets invoked when the task is moved from the Completed section to the Ongoing section
     func logMovedToOngoing() {
         self.logs.append("changed status of " + "\"" + "\(title)" + "\" to ongoing")
+        self.logCreator.append(self.username)
     }
     
     /// Gets invoked when the task's name is edited and return is pressed
     func taskNameChangedLog() {
         self.logs.append("changed topic to " + "\"" + "\(title)" + "\"")
+        self.logCreator.append(self.username)
     }
 }
 

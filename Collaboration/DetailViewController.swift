@@ -137,7 +137,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
             
             if let task = delegate.selectedTask {
                 cell.dateLabel.text? = task.date                
-                cell.collaboratorLabel.text? = task.username
+                cell.collaboratorLabel.text? = task.logCreator[indexPath.row]
                 cell.myTextLabel.delegate = self
                 cell.myTextLabel.text? = task.logs[indexPath.row]
             }

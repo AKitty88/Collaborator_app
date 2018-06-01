@@ -68,7 +68,7 @@ class ChatViewController: UITableViewController, UITextFieldDelegate {
             let cell = tableView.dequeueReusableCell(withIdentifier: "Chat Cell B", for: indexPath)
             
             if let task = chatDelegate.selectedTask {
-                cell.textLabel?.text = task.date + " " + task.username + " " + task.logs[indexPath.row]
+                cell.textLabel?.text = "\(task.date) \(task.logCreator[indexPath.row]) \(task.logs[indexPath.row])"
             }
             return cell
         }        
@@ -78,6 +78,7 @@ class ChatViewController: UITableViewController, UITextFieldDelegate {
         print ("C - textFieldShouldReturn \(String(describing: chatDelegate.selectedTask?.title))")
         
         chatDelegate.selectedTask?.logs.append("said: " + "\"" + textField.text! + "\"")
+        chatDelegate.selectedTask?.logCreator.append((chatDelegate.selectedTask?.username)!)
         textField.resignFirstResponder()
         
         let task_json = Task_Json(to_json: chatDelegate.selectedTask!)
@@ -87,6 +88,7 @@ class ChatViewController: UITableViewController, UITextFieldDelegate {
         
         return true
     }
+    
 
     /*
     // Override to support conditional editing of the table view.

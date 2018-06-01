@@ -34,6 +34,7 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
         taskList[0].append(Task(title: "New Task \(taskList[0].count)"))
         taskList[0][taskList[0].count-1].task_id = UUID().uuidString
         taskList[0][taskList[0].count-1].username = String(describing: peerToPeer.peerId.displayName)
+        taskList[0][taskList[0].count-1].logCreator[0] = String(describing: peerToPeer.peerId.displayName)
         tableView.reloadData()
     }
     
@@ -81,12 +82,12 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
             if (found_index_1 > -1) {
                 taskList[0].remove(at: found_index_1)
                 taskList[1].append(task_json.taskInJson)
-                selectedTask = taskList[0][found_index_1]
+                selectedTask = taskList[1][found_index_1]
             }
             else if (found_index_2 > -1) {
                 taskList[1].remove(at: found_index_2)
                 taskList[0].append(task_json.taskInJson)
-                selectedTask = taskList[1][found_index_2]
+                selectedTask = taskList[0][found_index_2]
             }
         }
         else {
@@ -125,11 +126,14 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
             selectedTask = taskList[0][0]
             selectedItemSection = 0
             selectedItemIndex = 0
-            taskList[0][0].task_id = "AB8419ED-058E-4726-AB87-1CC88CD573DE"                 // for test1 default task
-            taskList[0][0].username = String(describing: peerToPeer.peerId.displayName)     // for test1 default task
-            taskList[1][0].task_id = "AB8419ED-058E-4726-AB87-1CC88CD573DF"                 // for test2 default task
-            taskList[1][0].username = String(describing: peerToPeer.peerId.displayName)     // for test2 default task
-            taskList[1][0].completed = true                                                 // for test2 default task
+            taskList[0][0].task_id = "AB8419ED-058E-4726-AB87-1CC88CD573DE"                     // for test1 default task
+            taskList[0][0].username = String(describing: peerToPeer.peerId.displayName)         // for test1 default task
+            taskList[0][0].logCreator[0] = String(describing: peerToPeer.peerId.displayName)    // for test1 default task
+            taskList[0][0].completed = false                                                    // for test2 default task
+            taskList[1][0].task_id = "AB8419ED-058E-4726-AB87-1CC88CD573DF"                     // for test2 default task
+            taskList[1][0].username = String(describing: peerToPeer.peerId.displayName)         // for test2 default task
+            taskList[1][0].logCreator[0] = String(describing: peerToPeer.peerId.displayName)    // for test1 default task
+            taskList[1][0].completed = true                                                     // for test2 default task
         }
     }
     
