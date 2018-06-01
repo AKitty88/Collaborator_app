@@ -10,6 +10,8 @@ import Foundation
 import MultipeerConnectivity
 
 protocol PeerToPeerManagerDelegate: AnyObject {
+    //var tableView: UITableView! { get set }
+    
     func manager(_ manager: PeerToPeerManager, didReceive data: Data)
     func updatePeers()
 }
@@ -97,8 +99,12 @@ extension PeerToPeerManager: MCSessionDelegate {
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         print("PtP - session didReceiveData: \(data)")
         DispatchQueue.main.async {
-            self.delegate?.manager(self, didReceive: data)
-            // self.delegate?.tableView.reloadData()            // next TODO
+            
+            if let masterVC = self.delegate as? MasterViewController {
+                masterVC.manager(self, didReceive: data)
+                masterVC.tableView.reloadData()
+                masterVC.detailViewController?.tableView.reloadData()
+            }
         }
     }
     
