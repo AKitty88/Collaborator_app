@@ -32,7 +32,7 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
         print ("M - AddClicked \(String(describing: selectedTask?.title))")
         
         taskList[0].append(Task(title: "New Task \(taskList[0].count)"))
-        taskList[0][taskList[0].count-1].task_id = UUID().uuidString
+        taskList[0][taskList[0].count-1].task_id = UUID().uuidString                         // count-1, because the list is alreasy appended here with the new task
         taskList[0][taskList[0].count-1].username = String(describing: peerToPeer.peerId.displayName)
         taskList[0][taskList[0].count-1].logCreator[0] = String(describing: peerToPeer.peerId.displayName)
         tableView.reloadData()
