@@ -78,6 +78,7 @@ class ChatViewController: UITableViewController, UITextFieldDelegate {
         print ("C - textFieldShouldReturn \(String(describing: chatDelegate.selectedTask?.title))")
         
         chatDelegate.selectedTask?.logs.append("said: " + "\"" + textField.text! + "\"")
+        chatDelegate.selectedTask?.logId.append((chatDelegate.selectedTask?.logId.count)!)
         chatDelegate.selectedTask?.logCreator.append((chatDelegate.selectedTask?.username)!)
         textField.resignFirstResponder()
         
