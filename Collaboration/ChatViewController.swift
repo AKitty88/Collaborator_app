@@ -28,6 +28,12 @@ class ChatViewController: UITableViewController, UITextFieldDelegate {
         super.viewWillAppear(true)
         self.navigationItem.title = chatDelegate.selectedTask?.title
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        if let masterVC = self.chatDelegate as? MasterViewController {
+            masterVC.detailViewController?.tableView.reloadData()
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -74,6 +80,7 @@ class ChatViewController: UITableViewController, UITextFieldDelegate {
         chatDelegate.selectedTask?.logs.append("said: " + "\"" + textField.text! + "\"")
         textField.resignFirstResponder()
         tableView.reloadData()
+        
         
         return true
     }

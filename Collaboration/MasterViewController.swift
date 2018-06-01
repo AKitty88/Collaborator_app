@@ -100,7 +100,7 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
             }
         }
         tableView.reloadData()
-        detailViewController?.tableView.reloadData()                                // FAULT: doesn't reload. Othervise it works fine, I should work on saving logs typedinto the textfield in Chatview
+        detailViewController?.tableView.reloadData()
     }
     
     func updatePeers() {                                                            // DEBUG: might not need it

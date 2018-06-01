@@ -37,11 +37,13 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationItem.title = "Task"
+        tableView.reloadData()
     }
     
     /// Gets invoked just before the view disappears
     override func viewWillDisappear(_ animated: Bool) {
         print ("D - viewWillDisappear \(String(describing: delegate.selectedTask?.title))")
+        super.viewWillDisappear(true)
         
         if let indexPath = tableView.indexPathForSelectedRow {
             if delegate.selectedTask != nil {
