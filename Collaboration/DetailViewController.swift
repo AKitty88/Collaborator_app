@@ -47,7 +47,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
         
         if let indexPath = tableView.indexPathForSelectedRow {
             if delegate.selectedTask != nil {
-                if let cell = tableView.cellForRow(at: indexPath as IndexPath) as? MyTableViewCellForTaskname {
+                if let cell = tableView.cellForRow(at: indexPath as IndexPath) as? TasknameTableViewCell {
                     delegate.SaveTask(withName: (cell.myTextLabel?.text) ?? "", history: (cell.myTextLabel?.text) ?? "")
                 }
             }
@@ -115,7 +115,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
         }
         
         if identifier == "Detail Cell A" {
-            let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! MyTableViewCellForTaskname
+            let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! TasknameTableViewCell
             
             if let task = delegate.selectedTask {
                 cell.myTextLabel.delegate = self
@@ -127,13 +127,13 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
             return cell
         }
         else if identifier == "Detail Cell B" {
-            let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! MyTableViewCellForCollaborator
+            let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! CollaboratorTableViewCell
             
             cell.myLabel.text = peerlist[indexPath.row].displayName
             return cell
         }
         else if identifier == "Detail Cell C" {
-            let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! MyTableViewCellForLog
+            let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! LogTableViewCell
             
             if let task = delegate.selectedTask {
                 cell.dateLabel.text? = task.date                

@@ -1,5 +1,5 @@
 //
-//  MyTableViewCellForTaskname.swift
+//  TasknameTableViewCell.swift
 //  Collaboration
 //
 //  Created by Kitti Almasy on 16/5/18.
@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 /// Cell class for the cell that displays the task's name
-class MyTableViewCellForTaskname: UITableViewCell {
+class TasknameTableViewCell: UITableViewCell {
     
     @IBOutlet weak var myTextLabel: UITextField!
 }

@@ -11,9 +11,9 @@ import UIKit
 class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerManagerDelegate {
     
     /// the section of the task which is selected at the moment (property of TaskListProtocol)
-    var selectedItemSection: Int?               // DEBUG: Might be not needed
+    var selectedItemSection: Int?
     /// the index of the task which is selected at the moment (property of TaskListProtocol)
-    var selectedItemIndex: Int?                 // DEBUG: Might be not needed
+    var selectedItemIndex: Int?
     /// the task which is selected at the moment (property of TaskListProtocol)
     var selectedTask: Task?
     /// array of the tasks
@@ -32,7 +32,8 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
         print ("M - AddClicked \(String(describing: selectedTask?.title))")
         
         taskList[0].append(Task(title: "New Task \(taskList[0].count)"))
-        taskList[0][taskList[0].count-1].task_id = UUID().uuidString                         // count-1, because the list is alreasy appended here with the new task
+        // index is count-1, because the list is already appended here with the new task
+        taskList[0][taskList[0].count-1].task_id = UUID().uuidString
         taskList[0][taskList[0].count-1].username = String(describing: peerToPeer.peerId.displayName)
         taskList[0][taskList[0].count-1].logCreator[0] = String(describing: peerToPeer.peerId.displayName)
         tableView.reloadData()
@@ -104,9 +105,9 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
         detailViewController?.tableView.reloadData()
     }
     
-    func updatePeers() {                                                            // DEBUG: might not need it
-        detailViewController?.peerlist = peerToPeer.session.connectedPeers          // DEBUG: might not need it
-        detailViewController?.tableView.reloadData()                                // DEBUG: might not need it
+    func updatePeers() {
+        detailViewController?.peerlist = peerToPeer.session.connectedPeers
+        detailViewController?.tableView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -126,14 +127,14 @@ class MasterViewController: UITableViewController, TaskListProtocol, PeerToPeerM
             selectedTask = taskList[0][0]
             selectedItemSection = 0
             selectedItemIndex = 0
-            taskList[0][0].task_id = "AB8419ED-058E-4726-AB87-1CC88CD573DE"                     // for test1 default task
-            taskList[0][0].username = String(describing: peerToPeer.peerId.displayName)         // for test1 default task
-            taskList[0][0].logCreator[0] = String(describing: peerToPeer.peerId.displayName)    // for test1 default task
-            taskList[0][0].completed = false                                                    // for test1 default task
-            taskList[1][0].task_id = "AB8419ED-058E-4726-AB87-1CC88CD573DF"                     // for test2 default task
-            taskList[1][0].username = String(describing: peerToPeer.peerId.displayName)         // for test2 default task
-            taskList[1][0].logCreator[0] = String(describing: peerToPeer.peerId.displayName)    // for test2 default task
-            taskList[1][0].completed = true                                                     // for test2 default task
+            taskList[0][0].task_id = "AB8419ED-058E-4726-AB87-1CC88CD573DE"                 
+            taskList[0][0].username = String(describing: peerToPeer.peerId.displayName)     
+            taskList[0][0].logCreator[0] = String(describing: peerToPeer.peerId.displayName)
+            taskList[0][0].completed = false                                                
+            taskList[1][0].task_id = "AB8419ED-058E-4726-AB87-1CC88CD573DF"                 
+            taskList[1][0].username = String(describing: peerToPeer.peerId.displayName)     
+            taskList[1][0].logCreator[0] = String(describing: peerToPeer.peerId.displayName)
+            taskList[1][0].completed = true                                                 
         }
     }
     

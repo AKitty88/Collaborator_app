@@ -1,5 +1,5 @@
 //
-//  MyTableViewCellForCollaborator.swift
+//  CollaboratorTableViewCell.swift
 //  Collaboration
 //
 //  Created by Kitti Almasy on 23/5/18.
@@ -9,6 +9,6 @@
 import Foundation
 import UIKit
 
-class MyTableViewCellForCollaborator: UITableViewCell {
+class CollaboratorTableViewCell: UITableViewCell {
     @IBOutlet weak var myLabel: UILabel!
 }

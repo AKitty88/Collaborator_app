@@ -1,5 +1,5 @@
 //
-//  MyTableViewCellForLog.swift
+//  LogTableViewCell.swift
 //  Collaboration
 //
 //  Created by Kitti Almasy on 16/5/18.
@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 /// Cell class for the cell that displays the log messages
-class MyTableViewCellForLog: UITableViewCell {
+class LogTableViewCell: UITableViewCell {
     
     @IBOutlet weak var myTextLabel: UITextField!
     @IBOutlet weak var dateLabel: UILabel!
